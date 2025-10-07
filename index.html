@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaqueprojetos - Desenvolvimento de Software</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #D9B1A3;
+            background: linear-gradient(135deg, #261420, #592A2A, #8C5042);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 0 40px;
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #D9B1A3;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            font-size: 1.15rem;
+            color: #BF8173;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .hero {
+            background: rgba(38, 19, 31, 0.9);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(140, 80, 66, 0.5);
+            animation: fadeInUp 0.8s ease 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(217, 177, 163, 0.03) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #D9B1A3;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.15rem;
+            color: #BF8173;
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .service {
+            background: rgba(38, 19, 31, 0.9);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(140, 80, 66, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(140, 80, 66, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service:hover::before {
+            opacity: 1;
+        }
+        
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+            border-color: rgba(191, 129, 115, 0.6);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #BF8173;
+            transition: transform 0.4s ease;
+            display: inline-block;
+        }
+        
+        .service:hover .service-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        .service h3 {
+            font-size: 1.4rem;
+            color: #D9B1A3;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .service p {
+            color: #BF8173;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .podcasts {
+            background: rgba(38, 19, 31, 0.9);
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(140, 80, 66, 0.5);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        
+        .podcasts h2 {
+            font-size: 2.2rem;
+            color: #D9B1A3;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .podcasts-intro {
+            text-align: center;
+            color: #BF8173;
+            margin-bottom: 35px;
+            font-size: 1.05rem;
+        }
+        
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .podcast-card {
+            background: rgba(89, 42, 42, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(140, 80, 66, 0.4);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .podcast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(191, 129, 115, 0.6);
+        }
+        
+        .podcast-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .podcast-card h3 {
+            color: #D9B1A3;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .podcast-card p {
+            color: #BF8173;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .podcast-link {
+            display: inline-block;
+            background: rgba(140, 80, 66, 0.6);
+            color: #D9B1A3;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .podcast-link:hover {
+            background: #8C5042;
+            transform: scale(1.05);
+        }
+        
+        .about {
+            background: rgba(38, 19, 31, 0.9);
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(140, 80, 66, 0.5);
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+        
+        .about h2 {
+            font-size: 2.2rem;
+            color: #D9B1A3;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .about p {
+            color: #BF8173;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #8C5042, #BF8173);
+            color: #FFF;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 600;
+            margin: 15px auto;
+            display: block;
+            width: fit-content;
+            box-shadow: 0 8px 20px rgba(140, 80, 66, 0.3);
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(140, 80, 66, 0.5);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(89, 42, 42, 0.6);
+            color: #D9B1A3;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid rgba(140, 80, 66, 0.4);
+        }
+        
+        .social-link:hover {
+            background: rgba(140, 80, 66, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            fill: #D9B1A3;
+        }
+        
+        .contact {
+            background: rgba(38, 19, 31, 0.9);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(140, 80, 66, 0.5);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 1s both;
+        }
+        
+        .contact h2 {
+            font-size: 2.2rem;
+            color: #D9B1A3;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .contact p {
+            color: #BF8173;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-item a {
+            color: #BF8173;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #D9B1A3;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #8C5042, #BF8173);
+            color: #FFF;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(140, 80, 66, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(140, 80, 66, 0.5);
+        }
+        
+        .privacy-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .privacy-overlay.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .privacy-popup {
+            background: linear-gradient(135deg, #261420, #592A2A);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            border: 2px solid #8C5042;
+            animation: slideUp 0.5s ease;
+            position: relative;
+        }
+        
+        .privacy-popup h3 {
+            color: #D9B1A3;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+        
+        .privacy-popup p {
+            color: #BF8173;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .privacy-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-accept {
+            background: linear-gradient(135deg, #8C5042, #BF8173);
+            color: #FFF;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(140, 80, 66, 0.4);
+        }
+        
+        .btn-accept:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(140, 80, 66, 0.6);
+        }
+        
+        .btn-decline {
+            background: transparent;
+            color: #BF8173;
+            padding: 14px 35px;
+            border: 2px solid #8C5042;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn-decline:hover {
+            background: rgba(140, 80, 66, 0.2);
+            border-color: #BF8173;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #BF8173;
+            font-size: 0.95rem;
+            animation: fadeInUp 0.8s ease 1.4s both;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero,
+            .contact,
+            .about,
+            .podcasts {
+                padding: 35px 25px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .social-links {
+                gap: 10px;
+            }
+            
+            .social-link {
+                font-size: 0.85rem;
+                padding: 10px 15px;
+            }
+            
+            .services {
+                grid-template-columns: 1fr;
+            }
+            
+            .podcast-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .privacy-popup {
+                padding: 30px 25px;
+                margin: 20px;
+            }
+            
+            .privacy-popup h3 {
+                font-size: 1.5rem;
+            }
+            
+            .privacy-popup p {
+                font-size: 0.95rem;
+            }
+            
+            .privacy-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-accept,
+            .btn-decline {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="privacy-overlay" id="privacyOverlay">
+        <div class="privacy-popup">
+            <h3>🔒 Aviso de Privacidade</h3>
+            <p>Os dados de contato fornecidos neste site são utilizados exclusivamente para comunicação profissional e comercial. Informações de navegação podem ser coletadas para melhorar a experiência do usuário através de cookies e ferramentas de análise.</p>
+            <p>Seus dados não serão compartilhados com terceiros sem consentimento prévio. Ao utilizar este site, você concorda com o uso responsável e ético das suas informações conforme a Lei Geral de Proteção de Dados (LGPD).</p>
+            <div class="privacy-buttons">
+                <button class="btn-accept" onclick="acceptPrivacy()">Aceito</button>
+                <button class="btn-decline" onclick="declinePrivacy()">Não Aceito</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">Jaques Projetos Digitais</div>
+            <div class="tagline">Transformo ideias em soluções digitais, conectando o conceito à execução. Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.</div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Desenvolvimento de Software Profissional</h1>
+                <p>Criamos sites, aplicativos e sistemas personalizados para impulsionar seu negócio. Soluções modernas, rápidas e eficientes com o aroma do melhor código.</p>
+                <a href="#sobre" class="btn">Conhecer Mais</a>
+            </section>
+
+            <section class="services">
+                <div class="service">
+                    <div class="service-icon">💻</div>
+                    <h3>Sites & E-commerce</h3>
+                    <p>Landing pages, sites institucionais e lojas virtuais responsivas e otimizadas.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">📱</div>
+                    <h3>Aplicativos Mobile</h3>
+                    <p>Apps para iOS e Android com design moderno e funcionalidades intuitivas.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Sistemas Web</h3>
+                    <p>Painéis administrativos, CRMs e sistemas personalizados para sua empresa.</p>
+                </div>
+            </section>
+
+            <section class="podcasts">
+                <h2>🎙️ Meu Podcast</h2>
+                <p class="podcasts-intro">Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.</p>
+                
+                <div class="podcast-grid" style="justify-items: center;">
+                    <div class="podcast-card" style="max-width: 400px;">
+                        <div class="podcast-icon">👥</div>
+                        <h3>Pair Programming</h3>
+                        <p>Explorando a arte da programação em pares, compartilhando experiências, técnicas e histórias do desenvolvimento colaborativo. Código melhor, junto.</p>
+                        <a href="#" class="podcast-link">Ouvir Agora</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sobre" class="about">
+                <h2>Sobre Leonardo Jaques</h2>
+                <p>Desenvolvedor apaixonado por tecnologia, com experiência em criar soluções digitais que fazem a diferença. Cada projeto é desenvolvido com dedicação e atenção aos detalhes, como um bom café sendo preparado.</p>
+                
+                <a href="Leonardo_jaques_curriculo_25.pdf" class="btn-download">📄 Baixar Currículo</a>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/LeonardoJaques" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://bsky.app/profile/leonardojaques.bsky.social" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.317 8.505C2.708 14.628.36 19.583.36 20.304c0 .721.083 1.204.364 1.526.662.758 1.626 1.098 5.44-1.254 3.035-1.87 4.952-4.255 5.836-5.776.884 1.52 2.8 3.906 5.836 5.776 3.813 2.352 4.777 2.012 5.44 1.254.28-.322.364-.805.364-1.526 0-.721-2.348-5.676-5.957-8.03C23.622 9.418 24 4.458 24 3.768c0-.688-.139-1.86-.902-2.203-.659-.299-1.664-.62-4.3 1.24-2.752 1.942-5.711 5.88-6.798 7.995z"/>
+                        </svg>
+                        Bluesky
+                    </a>
+                    <a href="https://x.com/Lajaques" target="_blank" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        Twitter
+                    </a>
+                </div>
+            </section>
+
+            <section id="contato" class="contact">
+                <h2>Vamos conversar sobre seu projeto?</h2>
+                <p>Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:jaques.projetos@outlook.com">jaques.projetos@outlook.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="tel:+5521972856520">(21) 97285-6520</a>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕</p>
+        </footer>
+    </div>
+
+    <script>
+        // Funções para gerenciar cookies
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+        
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        
+        // Verificar se o usuário já aceitou/recusou
+        window.addEventListener('DOMContentLoaded', function() {
+            const privacyAccepted = getCookie('privacyAccepted');
+            
+            if (!privacyAccepted) {
+                document.getElementById('privacyOverlay').classList.add('show');
+            }
+        });
+        
+        // Aceitar política de privacidade
+        function acceptPrivacy() {
+            setCookie('privacyAccepted', 'true', 365); // Válido por 1 ano
+            document.getElementById('privacyOverlay').classList.remove('show');
+        }
+        
+        // Recusar política de privacidade
+        function declinePrivacy() {
+            setCookie('privacyAccepted', 'false', 365);
+            document.getElementById('privacyOverlay').classList.remove('show');
+            alert('Você optou por não aceitar nossa política de privacidade. Algumas funcionalidades podem ser limitadas.');
+        }
+        
+        // Scroll suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
