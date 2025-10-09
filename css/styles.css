@@ -1,0 +1,703 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #D9B1A3;
+    background: linear-gradient(135deg, rgba(38, 20, 32, 0.9), rgba(89, 42, 42, 0.9), rgba(140, 80, 66, 0.9)),
+        url('../images/cristo-redentor.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: rgba(38, 19, 31, 0.9);
+    border-radius: 30px;
+    padding: 8px;
+    border: 2px solid rgba(140, 80, 66, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.lang-option {
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #BF8173;
+}
+
+.lang-option.active {
+    background: linear-gradient(135deg, #8C5042, #BF8173);
+    color: #FFF;
+    box-shadow: 0 4px 12px rgba(140, 80, 66, 0.4);
+}
+
+.lang-option:not(.active):hover {
+    background: rgba(140, 80, 66, 0.3);
+    color: #D9B1A3;
+}
+
+header {
+    text-align: center;
+    padding: 60px 0 40px;
+    animation: fadeInDown 0.8s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #D9B1A3;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    letter-spacing: -1px;
+}
+
+.tagline {
+    font-size: 1.15rem;
+    color: #BF8173;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.hero {
+    background: rgba(38, 19, 31, 0.9);
+    border-radius: 25px;
+    padding: 50px 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(140, 80, 66, 0.5);
+    animation: fadeInUp 0.8s ease 0.2s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(217, 177, 163, 0.03) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #D9B1A3;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: #BF8173;
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.service {
+    background: rgba(38, 19, 31, 0.9);
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(140, 80, 66, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(140, 80, 66, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service:hover::before {
+    opacity: 1;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    border-color: rgba(191, 129, 115, 0.6);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #BF8173;
+    transition: transform 0.4s ease;
+    display: inline-block;
+}
+
+.service:hover .service-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.service h3 {
+    font-size: 1.4rem;
+    color: #D9B1A3;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.service p {
+    color: #BF8173;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.podcasts {
+    background: rgba(38, 19, 31, 0.9);
+    border-radius: 25px;
+    padding: 50px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(140, 80, 66, 0.5);
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.podcasts h2 {
+    font-size: 2.2rem;
+    color: #D9B1A3;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.podcasts-intro {
+    text-align: center;
+    color: #BF8173;
+    margin-bottom: 35px;
+    font-size: 1.05rem;
+}
+
+.podcast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.podcast-card {
+    background: rgba(89, 42, 42, 0.4);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(140, 80, 66, 0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.podcast-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(191, 129, 115, 0.6);
+}
+
+.podcast-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(140, 80, 66, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.podcast-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.podcast-card h3 {
+    color: #D9B1A3;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.podcast-card p {
+    color: #BF8173;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.podcast-link {
+    display: inline-block;
+    background: rgba(140, 80, 66, 0.6);
+    color: #D9B1A3;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.podcast-link:hover {
+    background: #8C5042;
+    transform: scale(1.05);
+}
+
+.about {
+    background: rgba(38, 19, 31, 0.9);
+    border-radius: 25px;
+    padding: 50px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(140, 80, 66, 0.5);
+    animation: fadeInUp 0.8s ease 0.8s both;
+}
+
+.about h2 {
+    font-size: 2.2rem;
+    color: #D9B1A3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(140, 80, 66, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text {
+    color: #BF8173;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.about-text h3 {
+    color: #D9B1A3;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.about-text .role {
+    color: #BF8173;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.btn-download {
+    display: inline-block;
+    background: linear-gradient(135deg, #8C5042, #BF8173);
+    color: #FFF;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-weight: 600;
+    margin: 15px auto;
+    display: block;
+    width: fit-content;
+    box-shadow: 0 8px 20px rgba(140, 80, 66, 0.3);
+}
+
+.btn-download:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(140, 80, 66, 0.5);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(89, 42, 42, 0.6);
+    color: #D9B1A3;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid rgba(140, 80, 66, 0.4);
+}
+
+.social-link:hover {
+    background: rgba(140, 80, 66, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    fill: #D9B1A3;
+}
+
+.contact {
+    background: rgba(38, 19, 31, 0.9);
+    border-radius: 25px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(140, 80, 66, 0.5);
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease 1s both;
+}
+
+.contact h2 {
+    font-size: 2.2rem;
+    color: #D9B1A3;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact p {
+    color: #BF8173;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: scale(1.05);
+}
+
+.contact-item a {
+    color: #BF8173;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #D9B1A3;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #8C5042, #BF8173);
+    color: #FFF;
+    padding: 16px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(140, 80, 66, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(140, 80, 66, 0.5);
+}
+
+.privacy-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+.privacy-overlay.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.privacy-popup {
+    background: linear-gradient(135deg, #261420, #592A2A);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+    border: 2px solid #8C5042;
+    animation: slideUp 0.5s ease;
+    position: relative;
+}
+
+.privacy-popup h3 {
+    color: #D9B1A3;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+}
+
+.privacy-popup p {
+    color: #BF8173;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.privacy-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-accept {
+    background: linear-gradient(135deg, #8C5042, #BF8173);
+    color: #FFF;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(140, 80, 66, 0.4);
+}
+
+.btn-accept:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(140, 80, 66, 0.6);
+}
+
+.btn-decline {
+    background: transparent;
+    color: #BF8173;
+    padding: 14px 35px;
+    border: 2px solid #8C5042;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-decline:hover {
+    background: rgba(140, 80, 66, 0.2);
+    border-color: #BF8173;
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #BF8173;
+    font-size: 0.95rem;
+    animation: fadeInUp 0.8s ease 1.4s both;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin: 0 auto 30px;
+    }
+
+    .hero,
+    .contact,
+    .about,
+    .podcasts {
+        padding: 35px 25px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    .social-link {
+        font-size: 0.85rem;
+        padding: 10px 15px;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .podcast-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .privacy-popup {
+        padding: 30px 25px;
+        margin: 20px;
+    }
+
+    .privacy-popup h3 {
+        font-size: 1.5rem;
+    }
+
+    .privacy-popup p {
+        font-size: 0.95rem;
+    }
+
+    .privacy-buttons {
+        flex-direction: column;
+    }
+
+    .btn-accept,
+    .btn-decline {
+        width: 100%;
+    }
+
+    .language-toggle {
+        top: 10px;
+        right: 10px;
+    }
+}
