@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaqueprojetos - Desenvolvimento de Software</title>
+    <title>Jaques Projetos Digitais - Terminal</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <div class="scan-line"></div>
+    
     <div class="language-toggle">
-        <div class="lang-option active" data-lang="pt" onclick="switchLanguage('pt')">PT</div>
-        <div class="lang-option" data-lang="en" onclick="switchLanguage('en')">EN</div>
+        <button class="lang-option active" data-lang="pt" id="lang-pt">PT</button>
+        <button class="lang-option" data-lang="en" id="lang-en">EN</button>
     </div>
 
     <div class="privacy-overlay" id="privacyOverlay">
@@ -21,49 +26,105 @@
             <p data-i18n="privacy-text1">Os dados de contato fornecidos neste site são utilizados exclusivamente para comunicação profissional e comercial. Informações de navegação podem ser coletadas para melhorar a experiência do usuário através de cookies e ferramentas de análise.</p>
             <p data-i18n="privacy-text2">Seus dados não serão compartilhados com terceiros sem consentimento prévio. Ao utilizar este site, você concorda com o uso responsável e ético das suas informações conforme a Lei Geral de Proteção de Dados (LGPD).</p>
             <div class="privacy-buttons">
-                <button class="btn-accept" onclick="acceptPrivacy()"><span data-i18n="accept">Aceito</span></button>
-                <button class="btn-decline" onclick="declinePrivacy()"><span data-i18n="decline">Não Aceito</span></button>
+                <button class="btn-accept" id="btn-accept"><span data-i18n="accept">Aceito</span></button>
+                <button class="btn-decline" id="btn-decline"><span data-i18n="decline">Não Aceito</span></button>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <header>
-            <div class="logo" data-i18n="logo">Jaques Projetos Digitais</div>
-            <div class="tagline" data-i18n="tagline">Transformo ideias em soluções digitais, conectando o conceito à execução. Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.</div>
-        </header>
-
-        <main>
-            <section class="hero">
-                <h1 data-i18n="hero-title">Desenvolvimento de Software Profissional</h1>
-                <p data-i18n="hero-text">Criamos sites, aplicativos e sistemas personalizados para impulsionar seu negócio. Soluções modernas, rápidas e eficientes com o aroma do melhor código.</p>
-                <a href="#sobre" class="btn"><span data-i18n="learn-more">Conhecer Mais</span></a>
-            </section>
-
-            <section class="services">
-                <div class="service">
-                    <div class="service-icon">💻</div>
-                    <h3 data-i18n="service1-title">Sites & E-commerce</h3>
-                    <p data-i18n="service1-desc">Landing pages, sites institucionais e lojas virtuais responsivas e otimizadas.</p>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
+                <div class="terminal-title">jaques@terminal ~ portfolio</div>
+            </div>
+            <div class="terminal-content">
+                <div class="prompt-line">
+                    <span class="prompt">jaques@archlinux</span>
+                    <span>:~$</span>
+                    <span style="margin-left: 10px;" data-i18n="logo">cat about.txt</span>
                 </div>
-                <div class="service">
-                    <div class="service-icon">📱</div>
-                    <h3 data-i18n="service2-title">Aplicativos Mobile</h3>
-                    <p data-i18n="service2-desc">Apps para iOS e Android com design moderno e funcionalidades intuitivas.</p>
-                </div>
-                <div class="service">
-                    <div class="service-icon">⚙️</div>
-                    <h3 data-i18n="service3-title">Sistemas Web</h3>
-                    <p data-i18n="service3-desc">Painéis administrativos, CRMs e sistemas personalizados para sua empresa.</p>
-                </div>
-            </section>
+                <h1 data-i18n="tagline">Transformo ideias em soluções digitais</h1>
+                <p style="color: var(--text-dim); margin-bottom: 30px;">
+                    <span data-i18n="tagline-full">Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.</span>
+                </p>
+            </div>
+        </div>
 
-            <section class="podcasts">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
+                <div class="terminal-title">development.sh</div>
+            </div>
+            <div class="terminal-content">
+                <div class="hero">
+                    <div class="prompt-line">
+                        <span class="prompt">jaques@archlinux</span>
+                        <span>:~$</span>
+                        <span style="margin-left: 10px;">./run_services.sh</span>
+                    </div>
+                    <h1 data-i18n="hero-title">Desenvolvimento de Software Profissional</h1>
+                    <p style="color: var(--text-dim); margin: 20px 0;" data-i18n="hero-text">Criamos sites, aplicativos e sistemas personalizados para impulsionar seu negócio. Soluções modernas, rápidas e eficientes com o aroma do melhor código.</p>
+                    <a href="#sobre" class="btn"><span data-i18n="learn-more">$ Conhecer Mais</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
+                <div class="terminal-title">services.json</div>
+            </div>
+            <div class="terminal-content">
+                <div class="prompt-line">
+                    <span class="prompt">jaques@archlinux</span>
+                    <span>:~$</span>
+                    <span style="margin-left: 10px;">cat services.json</span>
+                </div>
+                <div class="services">
+                    <div class="service">
+                        <span class="service-icon">💻</span>
+                        <h3 data-i18n="service1-title">Sites & E-commerce</h3>
+                        <p data-i18n="service1-desc">Landing pages, sites institucionais e lojas virtuais responsivas e otimizadas.</p>
+                    </div>
+                    <div class="service">
+                        <span class="service-icon">📱</span>
+                        <h3 data-i18n="service2-title">Aplicativos Mobile</h3>
+                        <p data-i18n="service2-desc">Apps para iOS e Android com design moderno e funcionalidades intuitivas.</p>
+                    </div>
+                    <div class="service">
+                        <span class="service-icon">⚙️</span>
+                        <h3 data-i18n="service3-title">Sistemas Web</h3>
+                        <p data-i18n="service3-desc">Painéis administrativos, CRMs e sistemas personalizados para sua empresa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
+                <div class="terminal-title">podcast.mp3</div>
+            </div>
+            <div class="terminal-content">
+                <div class="prompt-line">
+                    <span class="prompt">jaques@archlinux</span>
+                    <span>:~$</span>
+                    <span style="margin-left: 10px;">mpv podcast.mp3</span>
+                </div>
                 <h2>🎙️ <span data-i18n="podcast-title">Podcast</span></h2>
-                <p class="podcasts-intro" data-i18n="podcast-intro">Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.</p>
-
-                <div class="podcast-grid" style="justify-items: center;">
-                    <div class="podcast-card" style="max-width: 400px;">
+                <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;" data-i18n="podcast-intro">Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.</p>
+                
+                <div class="podcast-grid">
+                    <div class="podcast-card">
                         <div class="podcast-logo">
                             <picture>
                                 <source srcset="images/Pair-Programming-logo.webp" type="image/webp">
@@ -72,12 +133,25 @@
                         </div>
                         <h3>Pair Programming</h3>
                         <p data-i18n="podcast-desc">Explorando a arte da programação em pares, compartilhando experiências, técnicas e histórias do desenvolvimento colaborativo. Código melhor, junto.</p>
-                        <a href="#" class="podcast-link"><span data-i18n="listen-now">Ouvir Agora</span></a>
+                        <a href="#" class="podcast-link"><span data-i18n="listen-now">▶ Ouvir Agora</span></a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <section id="sobre" class="about">
+        <div class="terminal-window" id="sobre">
+            <div class="terminal-header">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
+                <div class="terminal-title">profile.md</div>
+            </div>
+            <div class="terminal-content">
+                <div class="prompt-line">
+                    <span class="prompt">jaques@archlinux</span>
+                    <span>:~$</span>
+                    <span style="margin-left: 10px;">cat profile.md</span>
+                </div>
                 <h2 data-i18n="about-title">Sobre Leonardo Jaques</h2>
 
                 <div class="about-content">
@@ -88,11 +162,13 @@
                     <div class="about-text">
                         <h3>Leonardo Jaques</h3>
                         <p class="role" data-i18n="role">Arquiteto de Software & Desenvolvedor Full Stack</p>
-                        <p data-i18n="about-desc">Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.</p>
+                        <p style="color: var(--text-dim);" data-i18n="about-desc">Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.</p>
                     </div>
                 </div>
 
-                <a href="Leonardo_jaques_curriculo_25.pdf" class="btn-download">📄 <span data-i18n="download-cv">Baixar Currículo</span></a>
+                <div style="text-align: center;">
+                    <a href="Leonardo_jaques_curriculo_25.pdf" class="btn-download">📄 <span data-i18n="download-cv">$ download --cv</span></a>
+                </div>
 
                 <div class="social-links">
                     <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" class="social-link">
@@ -120,11 +196,24 @@
                         Twitter
                     </a>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <section id="contato" class="contact">
-                <h2 data-i18n="contact-title">Vamos conversar sobre seu projeto?</h2>
-                <p data-i18n="contact-text">Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
+        <div class="terminal-window" id="contato">
+            <div class="terminal-header">
+                <div class="terminal-button close"></div>
+                <div class="terminal-button minimize"></div>
+                <div class="terminal-button maximize"></div>
+                <div class="terminal-title">contact.sh</div>
+            </div>
+            <div class="terminal-content">
+                <div class="prompt-line">
+                    <span class="prompt">jaques@archlinux</span>
+                    <span>:~$</span>
+                    <span style="margin-left: 10px;">./contact.sh --info</span>
+                </div>
+                <h2 style="text-align: center;" data-i18n="contact-title">Vamos conversar sobre seu projeto?</h2>
+                <p style="text-align: center; color: var(--text-dim); margin-bottom: 25px;" data-i18n="contact-text">Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
                 <div class="contact-info">
                     <div class="contact-item">
                         <span>📧</span>
@@ -135,10 +224,15 @@
                         <a href="tel:+5521972856520">(21) 97285-6520</a>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
 
         <footer>
+            <div class="prompt-line" style="justify-content: center;">
+                <span class="prompt">jaques@archlinux</span>
+                <span>:~$</span>
+                <span style="margin-left: 10px;">exit</span>
+            </div>
             <p data-i18n="footer">&copy; 2025 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕</p>
         </footer>
     </div>

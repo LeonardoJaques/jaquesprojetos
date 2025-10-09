@@ -1,10 +1,12 @@
+// Traduções PT/EN
 const translations = {
     pt: {
-        "logo": "Jaques Projetos Digitais",
-        "tagline": "Transformo ideias em soluções digitais, conectando o conceito à execução. Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.",
+        "logo": "cat about.txt",
+        "tagline": "Transformo ideias em soluções digitais",
+        "tagline-full": "Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.",
         "hero-title": "Desenvolvimento de Software Profissional",
         "hero-text": "Criamos sites, aplicativos e sistemas personalizados para impulsionar seu negócio. Soluções modernas, rápidas e eficientes com o aroma do melhor código.",
-        "learn-more": "Conhecer Mais",
+        "learn-more": "$ Conhecer Mais",
         "service1-title": "Sites & E-commerce",
         "service1-desc": "Landing pages, sites institucionais e lojas virtuais responsivas e otimizadas.",
         "service2-title": "Aplicativos Mobile",
@@ -14,11 +16,11 @@ const translations = {
         "podcast-title": "Podcast",
         "podcast-intro": "Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.",
         "podcast-desc": "Explorando a arte da programação em pares, compartilhando experiências, técnicas e histórias do desenvolvimento colaborativo. Código melhor, junto.",
-        "listen-now": "Ouvir Agora",
+        "listen-now": "▶ Ouvir Agora",
         "about-title": "Sobre Leonardo Jaques",
         "role": "Arquiteto de Software & Desenvolvedor Full Stack",
         "about-desc": "Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.",
-        "download-cv": "Baixar Currículo",
+        "download-cv": "$ download --cv",
         "contact-title": "Vamos conversar sobre seu projeto?",
         "contact-text": "Entre em contato para uma consultoria gratuita e orçamento personalizado.",
         "footer": "© 2025 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕",
@@ -29,11 +31,12 @@ const translations = {
         "decline": "Não Aceito"
     },
     en: {
-        "logo": "Jaques Digital Projects",
-        "tagline": "I transform ideas into digital solutions, connecting concept to execution. With a multidisciplinary profile, I combine technical and strategic skills to deliver innovative products focused on results.",
+        "logo": "cat about.txt",
+        "tagline": "I transform ideas into digital solutions",
+        "tagline-full": "With a multidisciplinary profile, I combine technical and strategic skills to deliver innovative products focused on results.",
         "hero-title": "Professional Software Development",
         "hero-text": "We create custom websites, applications and systems to boost your business. Modern, fast and efficient solutions with the aroma of the best code.",
-        "learn-more": "Learn More",
+        "learn-more": "$ Learn More",
         "service1-title": "Websites & E-commerce",
         "service1-desc": "Landing pages, corporate websites and responsive, optimized online stores.",
         "service2-title": "Mobile Applications",
@@ -43,11 +46,11 @@ const translations = {
         "podcast-title": "Podcast",
         "podcast-intro": "Conversations about pair programming, collaborative development and code best practices.",
         "podcast-desc": "Exploring the art of pair programming, sharing experiences, techniques and stories from collaborative development. Better code, together.",
-        "listen-now": "Listen Now",
+        "listen-now": "▶ Listen Now",
         "about-title": "About Leonardo Jaques",
         "role": "Software Architect & Full Stack Developer",
         "about-desc": "Software architect and full stack developer passionate about technology, with extensive experience creating scalable and robust digital solutions. Specialized in systems architecture, microservices and development best practices. Each project is developed with technical excellence, attention to detail and focus on delivering real business value.",
-        "download-cv": "Download Resume",
+        "download-cv": "$ download --cv",
         "contact-title": "Let's talk about your project?",
         "contact-text": "Get in touch for a free consultation and personalized quote.",
         "footer": "© 2025 Jaqueprojetos. Building the digital future, one coffee at a time. ☕",
@@ -59,11 +62,12 @@ const translations = {
     }
 };
 
+// Função para trocar idioma
 function switchLanguage(lang) {
     document.querySelectorAll('.lang-option').forEach(opt => {
         opt.classList.remove('active');
     });
-    document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+    document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
 
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -76,6 +80,7 @@ function switchLanguage(lang) {
     localStorage.setItem('preferredLanguage', lang);
 }
 
+// Funções de cookies
 function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -94,16 +99,7 @@ function getCookie(name) {
     return null;
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-    const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
-    switchLanguage(savedLang);
-
-    const privacyAccepted = getCookie('privacyAccepted');
-    if (!privacyAccepted) {
-        document.getElementById('privacyOverlay').classList.add('show');
-    }
-});
-
+// Funções de privacidade
 function acceptPrivacy() {
     setCookie('privacyAccepted', 'true', 365);
     document.getElementById('privacyOverlay').classList.remove('show');
@@ -119,15 +115,42 @@ function declinePrivacy() {
     alert(message);
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+// Inicialização quando o DOM carregar
+document.addEventListener('DOMContentLoaded', function() {
+    // Carregar idioma salvo
+    const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
+    switchLanguage(savedLang);
+
+    // Event listeners para botões de idioma
+    document.getElementById('lang-pt').addEventListener('click', function() {
+        switchLanguage('pt');
+    });
+    
+    document.getElementById('lang-en').addEventListener('click', function() {
+        switchLanguage('en');
+    });
+
+    // Event listeners para botões de privacidade
+    document.getElementById('btn-accept').addEventListener('click', acceptPrivacy);
+    document.getElementById('btn-decline').addEventListener('click', declinePrivacy);
+
+    // Verificar se aceitou a política de privacidade
+    const privacyAccepted = getCookie('privacyAccepted');
+    if (!privacyAccepted) {
+        document.getElementById('privacyOverlay').classList.add('show');
+    }
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 });
