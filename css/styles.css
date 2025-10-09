@@ -33,7 +33,7 @@ body {
         url('../images/cristo-redentor.webp');
     background-attachment: fixed, fixed;
     background-size: auto, cover;
-    background-position: center, center;
+    background-position: center, center top;
     background-repeat: no-repeat, no-repeat;
     background-blend-mode: normal, overlay;
 }
@@ -50,6 +50,7 @@ body {
                 rgba(0, 204, 136, 0.015) 4px
             ),
             url('../images/cristo-redentor.jpg');
+        background-position: center, center top;
     }
 }
 
@@ -112,7 +113,7 @@ body {
 }
 
 .terminal-window {
-    background: var(--terminal-bg);
+    background: rgba(26, 26, 26, 0.10);
     border: 2px solid var(--primary-color);
     border-radius: 8px;
     margin: 20px 0;
@@ -120,6 +121,7 @@ body {
     animation: fadeIn 0.5s ease;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(12px);
 }
 
 .terminal-window::before {
@@ -158,7 +160,7 @@ body {
 }
 
 .terminal-header {
-    background: rgba(0, 204, 136, 0.05);
+    background: rgba(0, 204, 136, 0.08);
     padding: 10px 15px;
     border-bottom: 1px solid var(--primary-color);
     display: flex;
@@ -572,13 +574,14 @@ footer {
 }
 
 .privacy-popup {
-    background: var(--terminal-bg);
+    background: rgba(26, 26, 26, 0.85);
     border: 2px solid var(--primary-color);
     padding: 40px;
     max-width: 600px;
     width: 100%;
     box-shadow: 0 0 50px rgba(0, 204, 136, 0.3);
     animation: slideUp 0.5s ease;
+    backdrop-filter: blur(12px);
 }
 
 @keyframes slideUp {

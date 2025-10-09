@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+    <defs>
+        <radialGradient id="bg" cx="0.5" cy="0.5" r="0.7">
+            <stop offset="0" stop-color="#001515" />
+            <stop offset="1" stop-color="#000000" />
+        </radialGradient>
+        <linearGradient id="steam" x1="24" y1="12" x2="28" y2="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#66FFF1" />
+            <stop offset="1" stop-color="#00D1FF" />
+        </linearGradient>
+        <linearGradient id="cup" x1="16" y1="28" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#66FFB2" />
+            <stop offset="1" stop-color="#00FFB8" />
+        </linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </defs>
+    <rect width="64" height="64" rx="18" fill="url(#bg)" />
+    <g filter="url(#glow)" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+        <path d="M24 38c-1.4 5.8 4.8 10 9.6 6.4" stroke="url(#steam)" />
+        <path d="M22 34c-2.5-6.6 5.4-8.4 4-15.2" stroke="url(#steam)" />
+        <path d="M20 28c-3-6.5 5.8-8.3 4.2-14" stroke="url(#steam)" />
+        <path d="M18 32h20c4 0 7 3 7 7s-3 7-7 7H20c-4 0-7-3-7-7 0-3.5 2.3-6.4 5.5-7.1" stroke="url(#cup)" fill="none" />
+        <path d="M38 32h4.5c3 0 5.5 2.5 5.5 5.5S45.5 43 42.5 43H39" stroke="url(#cup)" />
+        <path d="M15 46h30" stroke="url(#cup)" />
+    </g>
+</svg>
