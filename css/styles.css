@@ -9,11 +9,19 @@ body {
     line-height: 1.6;
     color: #D9B1A3;
     background: linear-gradient(135deg, rgba(38, 20, 32, 0.9), rgba(89, 42, 42, 0.9), rgba(140, 80, 66, 0.9)),
-        url('../images/cristo-redentor.jpg');
+        url('../images/cristo-redentor.webp');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
+}
+
+/* Fallback para navegadores que não suportam WebP */
+@supports not (background: url('test.webp')) {
+    body {
+        background: linear-gradient(135deg, rgba(38, 20, 32, 0.9), rgba(89, 42, 42, 0.9), rgba(140, 80, 66, 0.9)),
+            url('../images/cristo-redentor.jpg');
+    }
 }
 
 .container {
