@@ -28,7 +28,12 @@ const translations = {
         "privacy-text1": "Os dados de contato fornecidos neste site são utilizados exclusivamente para comunicação profissional e comercial. Informações de navegação podem ser coletadas para melhorar a experiência do usuário através de cookies e ferramentas de análise.",
         "privacy-text2": "Seus dados não serão compartilhados com terceiros sem consentimento prévio. Ao utilizar este site, você concorda com o uso responsável e ético das suas informações conforme a Lei Geral de Proteção de Dados (LGPD).",
         "accept": "Aceito",
-        "decline": "Não Aceito"
+        "decline": "Não Aceito",
+        "blog-title": "Blog Técnico",
+        "blog-intro": "Artigos sobre desenvolvimento, arquitetura de software e tecnologias emergentes.",
+        "blog-name": "Convergência",
+        "blog-desc": "Explorando a interseção entre tecnologia, desenvolvimento e inovação. Artigos aprofundados sobre arquitetura de software, boas práticas, ferramentas e tendências do mercado tech.",
+        "visit-blog": "▶ Visitar Blog",
     },
     en: {
         "logo": "cat about.txt",
@@ -58,7 +63,12 @@ const translations = {
         "privacy-text1": "Contact information provided on this website is used exclusively for professional and commercial communication. Browsing information may be collected to improve user experience through cookies and analytics tools.",
         "privacy-text2": "Your data will not be shared with third parties without prior consent. By using this website, you agree to the responsible and ethical use of your information in accordance with the General Data Protection Law (LGPD).",
         "accept": "Accept",
-        "decline": "Decline"
+        "decline": "Decline",
+        "blog-title": "Tech Blog",
+        "blog-intro": "Articles about development, software architecture and emerging technologies.",
+        "blog-name": "Convergência",
+        "blog-desc": "Exploring the intersection between technology, development and innovation. In-depth articles about software architecture, best practices, tools and tech market trends.",
+        "visit-blog": "▶ Visit Blog",
     }
 };
 
