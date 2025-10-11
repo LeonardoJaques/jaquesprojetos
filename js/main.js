@@ -1,4 +1,3 @@
-// Traduções PT/EN
 const translations = {
     pt: {
         "logo": "cat about.txt",
@@ -17,6 +16,11 @@ const translations = {
         "podcast-intro": "Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.",
         "podcast-desc": "Explorando a arte da programação em pares, compartilhando experiências, técnicas e histórias do desenvolvimento colaborativo. Código melhor, junto.",
         "listen-now": "▶ Ouvir Agora",
+        "blog-title": "Blog Técnico",
+        "blog-intro": "Artigos sobre desenvolvimento, arquitetura de software e tecnologias emergentes.",
+        "blog-name": "Convergência",
+        "blog-desc": "Explorando a interseção entre tecnologia, desenvolvimento e inovação. Artigos aprofundados sobre arquitetura de software, boas práticas, ferramentas e tendências do mercado tech.",
+        "visit-blog": "▶ Visitar Blog",
         "about-title": "Sobre Leonardo Jaques",
         "role": "Arquiteto de Software & Desenvolvedor Full Stack",
         "about-desc": "Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.",
@@ -28,12 +32,7 @@ const translations = {
         "privacy-text1": "Os dados de contato fornecidos neste site são utilizados exclusivamente para comunicação profissional e comercial. Informações de navegação podem ser coletadas para melhorar a experiência do usuário através de cookies e ferramentas de análise.",
         "privacy-text2": "Seus dados não serão compartilhados com terceiros sem consentimento prévio. Ao utilizar este site, você concorda com o uso responsável e ético das suas informações conforme a Lei Geral de Proteção de Dados (LGPD).",
         "accept": "Aceito",
-        "decline": "Não Aceito",
-        "blog-title": "Blog Técnico",
-        "blog-intro": "Artigos sobre desenvolvimento, arquitetura de software e tecnologias emergentes.",
-        "blog-name": "Convergência",
-        "blog-desc": "Explorando a interseção entre tecnologia, desenvolvimento e inovação. Artigos aprofundados sobre arquitetura de software, boas práticas, ferramentas e tendências do mercado tech.",
-        "visit-blog": "▶ Visitar Blog",
+        "decline": "Não Aceito"
     },
     en: {
         "logo": "cat about.txt",
@@ -52,6 +51,11 @@ const translations = {
         "podcast-intro": "Conversations about pair programming, collaborative development and code best practices.",
         "podcast-desc": "Exploring the art of pair programming, sharing experiences, techniques and stories from collaborative development. Better code, together.",
         "listen-now": "▶ Listen Now",
+        "blog-title": "Tech Blog",
+        "blog-intro": "Articles about development, software architecture and emerging technologies.",
+        "blog-name": "Convergência",
+        "blog-desc": "Exploring the intersection between technology, development and innovation. In-depth articles about software architecture, best practices, tools and tech market trends.",
+        "visit-blog": "▶ Visit Blog",
         "about-title": "About Leonardo Jaques",
         "role": "Software Architect & Full Stack Developer",
         "about-desc": "Software architect and full stack developer passionate about technology, with extensive experience creating scalable and robust digital solutions. Specialized in systems architecture, microservices and development best practices. Each project is developed with technical excellence, attention to detail and focus on delivering real business value.",
@@ -63,34 +67,32 @@ const translations = {
         "privacy-text1": "Contact information provided on this website is used exclusively for professional and commercial communication. Browsing information may be collected to improve user experience through cookies and analytics tools.",
         "privacy-text2": "Your data will not be shared with third parties without prior consent. By using this website, you agree to the responsible and ethical use of your information in accordance with the General Data Protection Law (LGPD).",
         "accept": "Accept",
-        "decline": "Decline",
-        "blog-title": "Tech Blog",
-        "blog-intro": "Articles about development, software architecture and emerging technologies.",
-        "blog-name": "Convergência",
-        "blog-desc": "Exploring the intersection between technology, development and innovation. In-depth articles about software architecture, best practices, tools and tech market trends.",
-        "visit-blog": "▶ Visit Blog",
+        "decline": "Decline"
     }
 };
 
-// Função para trocar idioma
 function switchLanguage(lang) {
     document.querySelectorAll('.lang-option').forEach(opt => {
         opt.classList.remove('active');
     });
-    document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
-
+    
+    const selectedBtn = document.querySelector('[data-lang="' + lang + '"]');
+    if (selectedBtn) {
+        selectedBtn.classList.add('active');
+    }
+    
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
+        if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
     });
-
+    
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    
     localStorage.setItem('preferredLanguage', lang);
 }
 
-// Funções de cookies
 function setCookie(name, value, days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -109,15 +111,21 @@ function getCookie(name) {
     return null;
 }
 
-// Funções de privacidade
 function acceptPrivacy() {
     setCookie('privacyAccepted', 'true', 365);
-    document.getElementById('privacyOverlay').classList.remove('show');
+    const overlay = document.getElementById('privacyOverlay');
+    if (overlay) {
+        overlay.classList.remove('show');
+    }
 }
 
 function declinePrivacy() {
     setCookie('privacyAccepted', 'false', 365);
-    document.getElementById('privacyOverlay').classList.remove('show');
+    const overlay = document.getElementById('privacyOverlay');
+    if (overlay) {
+        overlay.classList.remove('show');
+    }
+    
     const currentLang = localStorage.getItem('preferredLanguage') || 'pt';
     const message = currentLang === 'pt'
         ? 'Você optou por não aceitar nossa política de privacidade. Algumas funcionalidades podem ser limitadas.'
@@ -125,32 +133,44 @@ function declinePrivacy() {
     alert(message);
 }
 
-// Inicialização quando o DOM carregar
 document.addEventListener('DOMContentLoaded', function() {
-    // Carregar idioma salvo
     const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
     switchLanguage(savedLang);
-
-    // Event listeners para botões de idioma
-    document.getElementById('lang-pt').addEventListener('click', function() {
-        switchLanguage('pt');
-    });
     
-    document.getElementById('lang-en').addEventListener('click', function() {
-        switchLanguage('en');
-    });
-
-    // Event listeners para botões de privacidade
-    document.getElementById('btn-accept').addEventListener('click', acceptPrivacy);
-    document.getElementById('btn-decline').addEventListener('click', declinePrivacy);
-
-    // Verificar se aceitou a política de privacidade
+    const btnPt = document.getElementById('lang-pt');
+    const btnEn = document.getElementById('lang-en');
+    
+    if (btnPt) {
+        btnPt.addEventListener('click', function() {
+            switchLanguage('pt');
+        });
+    }
+    
+    if (btnEn) {
+        btnEn.addEventListener('click', function() {
+            switchLanguage('en');
+        });
+    }
+    
+    const btnAccept = document.getElementById('btn-accept');
+    const btnDecline = document.getElementById('btn-decline');
+    
+    if (btnAccept) {
+        btnAccept.addEventListener('click', acceptPrivacy);
+    }
+    
+    if (btnDecline) {
+        btnDecline.addEventListener('click', declinePrivacy);
+    }
+    
     const privacyAccepted = getCookie('privacyAccepted');
     if (!privacyAccepted) {
-        document.getElementById('privacyOverlay').classList.add('show');
+        const privacyOverlay = document.getElementById('privacyOverlay');
+        if (privacyOverlay) {
+            privacyOverlay.classList.add('show');
+        }
     }
-
-    // Smooth scroll para links internos
+    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
