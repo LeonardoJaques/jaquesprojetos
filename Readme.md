@@ -64,7 +64,7 @@ O site está configurado para deploy automático via Jenkins. Qualquer push para
 
 ## 📄 Licença
 
-© 2025 Jaqueprojetos. Todos os direitos reservados.
+© 2025 - 2026 Jaques Projetos Digitais. Todos os direitos reservados.
 
 ---
 
