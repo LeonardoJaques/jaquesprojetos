@@ -1,3 +1,4 @@
+/* --- Global Reset & Variables --- */
 * {
     margin: 0;
     padding: 0;
@@ -16,26 +17,7 @@
     --error-color: #ff5555;
 }
 
-.blog-logo {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px;
-    border: 3px solid var(--primary-color);
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 204, 136, 0.2);
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.blog-logo img {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-}
-
+/* --- Base Styles --- */
 body {
     font-family: 'Fira Code', 'Courier New', monospace;
     background: var(--bg-color);
@@ -58,7 +40,7 @@ body {
     background-blend-mode: normal, overlay;
 }
 
-/* Fallback para navegadores que não suportam WebP */
+/* Fallback for browsers without WebP support */
 @supports not (background: url('test.webp')) {
     body {
         background-image: 
@@ -74,6 +56,60 @@ body {
     }
 }
 
+/* --- Layout & Utilities --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.cmd-input {
+    margin-left: 10px;
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+.tagline-text {
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+.hero-text {
+    color: var(--text-dim);
+    margin: 20px 0;
+}
+
+.about-desc {
+    color: var(--text-dim);
+}
+
+.contact-intro {
+    text-align: center;
+    color: var(--text-dim);
+    margin-bottom: 25px;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 204, 136, 0.3);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    animation: glitch 3s infinite;
+}
+
+/* --- Effects & Animations --- */
 .scan-line {
     position: fixed;
     top: 0;
@@ -91,47 +127,41 @@ body {
     100% { transform: translateY(100vh); }
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+@keyframes flicker {
+    0% { opacity: 0.97; }
+    50% { opacity: 1; }
+    100% { opacity: 0.97; }
 }
 
-.language-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10000;
-    background: var(--terminal-bg);
-    border: 2px solid var(--primary-color);
-    border-radius: 4px;
-    padding: 5px;
-    display: flex;
-    gap: 0;
-    box-shadow: 0 0 20px rgba(0, 204, 136, 0.25);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.lang-option {
-    padding: 8px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text-color);
-    border: none;
-    background: transparent;
-    font-family: 'Fira Code', 'Courier New', monospace;
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
-.lang-option.active {
-    background: var(--primary-color);
-    color: var(--bg-color);
+@keyframes glitch {
+    0%, 90%, 100% {
+        text-shadow: 0 0 10px rgba(0, 204, 136, 0.3);
+    }
+    93% {
+        text-shadow: 
+            -2px 0 var(--accent-color),
+            2px 0 var(--error-color),
+            0 0 10px rgba(0, 204, 136, 0.3);
+    }
 }
 
-.lang-option:not(.active):hover {
-    background: rgba(0, 255, 0, 0.1);
-}
-
+/* --- UI Components: Terminal --- */
 .terminal-window {
     background: rgba(26, 26, 26, 0.10);
     border: 2px solid var(--primary-color);
@@ -160,23 +190,6 @@ body {
     );
     pointer-events: none;
     animation: flicker 0.15s infinite;
-}
-
-@keyframes flicker {
-    0% { opacity: 0.97; }
-    50% { opacity: 1; }
-    100% { opacity: 0.97; }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .terminal-header {
@@ -223,6 +236,10 @@ body {
     margin-bottom: 10px;
 }
 
+.prompt-line--center {
+    justify-content: center;
+}
+
 .prompt-line::before {
     content: '>';
     color: var(--prompt-color);
@@ -239,34 +256,100 @@ body {
     margin-left: 5px;
 }
 
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+/* --- UI Components: Language Toggle --- */
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: var(--terminal-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 5px;
+    display: flex;
+    gap: 0;
+    box-shadow: 0 0 20px rgba(0, 204, 136, 0.25);
 }
 
-h1, h2, h3 {
+.lang-option {
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    border: none;
+    background: transparent;
+    font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.lang-option.active {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.lang-option:not(.active):hover {
+    background: rgba(0, 255, 0, 0.1);
+}
+
+/* --- UI Components: Buttons --- */
+.btn {
+    display: inline-block;
+    background: transparent;
     color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(0, 204, 136, 0.3);
-    margin-bottom: 20px;
+    padding: 12px 30px;
+    border: 2px solid var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-family: 'Fira Code', monospace;
+    position: relative;
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 2.5rem;
-    animation: glitch 3s infinite;
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transition: left 0.3s ease;
+    z-index: -1;
 }
 
-@keyframes glitch {
-    0%, 90%, 100% {
-        text-shadow: 0 0 10px rgba(0, 204, 136, 0.3);
-    }
-    93% {
-        text-shadow: 
-            -2px 0 var(--accent-color),
-            2px 0 var(--error-color),
-            0 0 10px rgba(0, 204, 136, 0.3);
-    }
+.btn:hover {
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0, 204, 136, 0.3);
 }
 
+.btn:hover::before {
+    left: 0;
+}
+
+.btn-download {
+    display: inline-block;
+    background: transparent;
+    color: var(--accent-color);
+    padding: 14px 30px;
+    border: 2px solid var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin: 15px auto;
+    font-family: 'Fira Code', monospace;
+}
+
+.btn-download:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0, 204, 170, 0.3);
+}
+
+/* --- Sections: Hero --- */
 .hero {
     text-align: center;
     margin: 40px 0;
@@ -290,6 +373,7 @@ h1 {
     50% { border-color: var(--primary-color); }
 }
 
+/* --- Sections: Services --- */
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -352,6 +436,75 @@ h1 {
     line-height: 1.8;
 }
 
+/* --- Sections: Podcast & Blog --- */
+.podcast-grid {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.podcast-card {
+    background: rgba(0, 204, 136, 0.03);
+    border: 1px solid var(--primary-color);
+    padding: 30px;
+    max-width: 400px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.podcast-card:hover {
+    background: rgba(0, 204, 136, 0.08);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 30px rgba(0, 204, 136, 0.2);
+}
+
+.podcast-logo, .blog-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border: 3px solid var(--primary-color);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 204, 136, 0.2);
+}
+
+.blog-logo {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.podcast-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-logo img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.podcast-link {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary-color);
+    padding: 8px 20px;
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.podcast-link:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* --- Sections: About & Profile --- */
 .about-content {
     display: grid;
     grid-template-columns: 200px 1fr;
@@ -394,43 +547,7 @@ h1 {
     font-style: italic;
 }
 
-.podcast-grid {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-}
-
-.podcast-card {
-    background: rgba(0, 204, 136, 0.03);
-    border: 1px solid var(--primary-color);
-    padding: 30px;
-    max-width: 400px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.podcast-card:hover {
-    background: rgba(0, 204, 136, 0.08);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 30px rgba(0, 204, 136, 0.2);
-}
-
-.podcast-logo {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px;
-    border: 3px solid var(--primary-color);
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 204, 136, 0.2);
-}
-
-.podcast-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+/* --- Sections: Social & Contact --- */
 .social-links {
     display: flex;
     justify-content: center;
@@ -492,88 +609,7 @@ h1 {
     text-shadow: 0 0 10px rgba(0, 204, 136, 0.3);
 }
 
-.btn {
-    display: inline-block;
-    background: transparent;
-    color: var(--primary-color);
-    padding: 12px 30px;
-    border: 2px solid var(--primary-color);
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    font-family: 'Fira Code', monospace;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-color);
-    transition: left 0.3s ease;
-    z-index: -1;
-}
-
-.btn:hover {
-    color: var(--bg-color);
-    box-shadow: 0 0 20px rgba(0, 204, 136, 0.3);
-}
-
-.btn:hover::before {
-    left: 0;
-}
-
-.btn-download {
-    display: inline-block;
-    background: transparent;
-    color: var(--accent-color);
-    padding: 14px 30px;
-    border: 2px solid var(--accent-color);
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    margin: 15px auto;
-    font-family: 'Fira Code', monospace;
-}
-
-.btn-download:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
-    box-shadow: 0 0 20px rgba(0, 204, 170, 0.3);
-}
-
-.podcast-link {
-    display: inline-block;
-    background: transparent;
-    color: var(--primary-color);
-    padding: 8px 20px;
-    border: 1px solid var(--primary-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    margin-top: 15px;
-}
-
-.podcast-link:hover {
-    background: var(--primary-color);
-    color: var(--bg-color);
-}
-
-footer {
-    text-align: center;
-    padding: 30px 0;
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    border-top: 1px solid var(--primary-color);
-    margin-top: 50px;
-}
-
+/* --- Privacy Popup --- */
 .privacy-overlay {
     display: none;
     position: fixed;
@@ -668,6 +704,17 @@ footer {
     color: var(--primary-color);
 }
 
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    border-top: 1px solid var(--primary-color);
+    margin-top: 50px;
+}
+
+/* --- Media Queries --- */
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;

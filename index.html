@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Effects -->
     <div class="scan-line"></div>
     
+    <!-- Language Switcher -->
     <div class="language-toggle">
         <button class="lang-option active" data-lang="pt" id="lang-pt">PT</button>
         <button class="lang-option" data-lang="en" id="lang-en">EN</button>
     </div>
 
+    <!-- Privacy Modal -->
     <div class="privacy-overlay" id="privacyOverlay">
         <div class="privacy-popup">
             <h3>🔒 <span data-i18n="privacy-title">Aviso de Privacidade</span></h3>
@@ -31,7 +34,9 @@
         </div>
     </div>
 
+    <!-- Main Container -->
     <div class="container">
+        <!-- Terminal Window: Portfolio/About -->
         <div class="terminal-window">
             <div class="terminal-header">
                 <div class="terminal-button close"></div>
@@ -43,15 +48,16 @@
                 <div class="prompt-line">
                     <span class="prompt">jaques@archlinux</span>
                     <span>:~$</span>
-                    <span style="margin-left: 10px;" data-i18n="logo">cat about.txt</span>
+                    <span class="cmd-input" data-i18n="logo">cat about.txt</span>
                 </div>
                 <h1 data-i18n="tagline">Transformo ideias em soluções digitais</h1>
-                <p style="color: var(--text-dim); margin-bottom: 30px;">
+                <p class="tagline-text">
                     <span data-i18n="tagline-full">Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.</span>
                 </p>
             </div>
         </div>
 
+        <!-- Terminal Window: Hero/Services Intro -->
         <div class="terminal-window">
             <div class="terminal-header">
                 <div class="terminal-button close"></div>
@@ -64,15 +70,16 @@
                     <div class="prompt-line">
                         <span class="prompt">jaques@archlinux</span>
                         <span>:~$</span>
-                        <span style="margin-left: 10px;">./run_services.sh</span>
+                        <span class="cmd-input">./run_services.sh</span>
                     </div>
                     <h1 data-i18n="hero-title">Desenvolvimento de Software Profissional</h1>
-                    <p style="color: var(--text-dim); margin: 20px 0;" data-i18n="hero-text">Criamos sites, aplicativos e sistemas personalizados para impulsionar seu negócio. Soluções modernas, rápidas e eficientes com o aroma do melhor código.</p>
+                    <p class="hero-text" data-i18n="hero-text">Criamos sites, aplicativos e sistemas personalizados para impulsionar seu negócio. Soluções modernas, rápidas e eficientes com o aroma do melhor código.</p>
                     <a href="#sobre" class="btn"><span data-i18n="learn-more">$ Conhecer Mais</span></a>
                 </div>
             </div>
         </div>
 
+        <!-- Terminal Window: Services List -->
         <div class="terminal-window">
             <div class="terminal-header">
                 <div class="terminal-button close"></div>
@@ -84,7 +91,7 @@
                 <div class="prompt-line">
                     <span class="prompt">jaques@archlinux</span>
                     <span>:~$</span>
-                    <span style="margin-left: 10px;">cat services.json</span>
+                    <span class="cmd-input">cat services.json</span>
                 </div>
                 <div class="services">
                     <div class="service">
@@ -106,6 +113,7 @@
             </div>
         </div>
 
+        <!-- Terminal Window: Podcast -->
         <div class="terminal-window">
             <div class="terminal-header">
                 <div class="terminal-button close"></div>
@@ -117,10 +125,10 @@
                 <div class="prompt-line">
                     <span class="prompt">jaques@archlinux</span>
                     <span>:~$</span>
-                    <span style="margin-left: 10px;">mpv podcast.mp3</span>
+                    <span class="cmd-input">mpv podcast.mp3</span>
                 </div>
                 <h2>🎙️ <span data-i18n="podcast-title">Podcast</span></h2>
-                <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;" data-i18n="podcast-intro">Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.</p>
+                <p class="section-intro" data-i18n="podcast-intro">Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.</p>
                 
                 <div class="podcast-grid">
                     <div class="podcast-card">
@@ -138,7 +146,8 @@
             </div>
         </div>
 
-<div class="terminal-window">
+        <!-- Terminal Window: Blog -->
+        <div class="terminal-window">
             <div class="terminal-header">
                 <div class="terminal-button close"></div>
                 <div class="terminal-button minimize"></div>
@@ -149,10 +158,10 @@
                 <div class="prompt-line">
                     <span class="prompt">jaques@archlinux</span>
                     <span>:~$</span>
-                    <span style="margin-left: 10px;">cat blog.md</span>
+                    <span class="cmd-input">cat blog.md</span>
                 </div>
                 <h2>📝 <span data-i18n="blog-title">Blog Técnico</span></h2>
-                <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;" data-i18n="blog-intro">Artigos sobre desenvolvimento, arquitetura de software e tecnologias emergentes.</p>
+                <p class="section-intro" data-i18n="blog-intro">Artigos sobre desenvolvimento, arquitetura de software e tecnologias emergentes.</p>
                 
                 <div class="podcast-grid">
                     <div class="podcast-card">
@@ -167,6 +176,7 @@
             </div>
         </div>
 
+        <!-- Terminal Window: Profile -->
         <div class="terminal-window" id="sobre">
             <div class="terminal-header">
                 <div class="terminal-button close"></div>
@@ -178,7 +188,7 @@
                 <div class="prompt-line">
                     <span class="prompt">jaques@archlinux</span>
                     <span>:~$</span>
-                    <span style="margin-left: 10px;">cat profile.md</span>
+                    <span class="cmd-input">cat profile.md</span>
                 </div>
                 <h2 data-i18n="about-title">Sobre Leonardo Jaques</h2>
 
@@ -190,34 +200,34 @@
                     <div class="about-text">
                         <h3>Leonardo Jaques</h3>
                         <p class="role" data-i18n="role">Arquiteto de Software & Desenvolvedor Full Stack</p>
-                        <p style="color: var(--text-dim);" data-i18n="about-desc">Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.</p>
+                        <p class="about-desc" data-i18n="about-desc">Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.</p>
                     </div>
                 </div>
 
-                <div style="text-align: center;">
+                <div class="text-center">
                     <a href="LeonardoJaques_25.pdf" class="btn-download">📄 <span data-i18n="download-cv">$ download --cv</span></a>
                 </div>
 
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" class="social-link">
+                    <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" rel="noopener noreferrer" class="social-link">
                         <svg class="social-icon" viewBox="0 0 24 24">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
                         LinkedIn
                     </a>
-                    <a href="https://github.com/LeonardoJaques" target="_blank" class="social-link">
+                    <a href="https://github.com/LeonardoJaques" target="_blank" rel="noopener noreferrer" class="social-link">
                         <svg class="social-icon" viewBox="0 0 24 24">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                         GitHub
                     </a>
-                    <a href="https://bsky.app/profile/leonardojaques.bsky.social" target="_blank" class="social-link">
+                    <a href="https://bsky.app/profile/leonardojaques.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link">
                         <svg class="social-icon" viewBox="0 0 24 24">
                             <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.317 8.505C2.708 14.628.36 19.583.36 20.304c0 .721.083 1.204.364 1.526.662.758 1.626 1.098 5.44-1.254 3.035-1.87 4.952-4.255 5.836-5.776.884 1.52 2.8 3.906 5.836 5.776 3.813 2.352 4.777 2.012 5.44 1.254.28-.322.364-.805.364-1.526 0-.721-2.348-5.676-5.957-8.03C23.622 9.418 24 4.458 24 3.768c0-.688-.139-1.86-.902-2.203-.659-.299-1.664-.62-4.3 1.24-2.752 1.942-5.711 5.88-6.798 7.995z"/>
                         </svg>
                         Bluesky
                     </a>
-                    <a href="https://x.com/Lajaques" target="_blank" class="social-link">
+                    <a href="https://x.com/Lajaques" target="_blank" rel="noopener noreferrer" class="social-link">
                         <svg class="social-icon" viewBox="0 0 24 24">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
@@ -227,6 +237,7 @@
             </div>
         </div>
 
+        <!-- Terminal Window: Contact -->
         <div class="terminal-window" id="contato">
             <div class="terminal-header">
                 <div class="terminal-button close"></div>
@@ -238,10 +249,10 @@
                 <div class="prompt-line">
                     <span class="prompt">jaques@archlinux</span>
                     <span>:~$</span>
-                    <span style="margin-left: 10px;">./contact.sh --info</span>
+                    <span class="cmd-input">./contact.sh --info</span>
                 </div>
-                <h2 style="text-align: center;" data-i18n="contact-title">Vamos conversar sobre seu projeto?</h2>
-                <p style="text-align: center; color: var(--text-dim); margin-bottom: 25px;" data-i18n="contact-text">Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
+                <h2 class="text-center" data-i18n="contact-title">Vamos conversar sobre seu projeto?</h2>
+                <p class="contact-intro" data-i18n="contact-text">Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
                 <div class="contact-info">
                     <div class="contact-item">
                         <span>📧</span>
@@ -255,11 +266,12 @@
             </div>
         </div>
 
+        <!-- Footer -->
         <footer>
-            <div class="prompt-line" style="justify-content: center;">
+            <div class="prompt-line prompt-line--center">
                 <span class="prompt">jaques@archlinux</span>
                 <span>:~$</span>
-                <span style="margin-left: 10px;">exit</span>
+                <span class="cmd-input">exit</span>
             </div>
             <p data-i18n="footer">&copy; 2026 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕</p>
         </footer>
