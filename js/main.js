@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Main JavaScript file for the portfolio website.
+ * Handles language switching, cookie management, and privacy policy interactions.
+ * @author Leonardo Jaques
+ */
+
+/**
+ * Object containing all translations for the website.
+ * @const {Object}
+ */
 const translations = {
     pt: {
         "logo": "cat about.txt",
@@ -71,16 +81,20 @@ const translations = {
     }
 };
 
-function switchLanguage(lang) {
-    document.querySelectorAll('.lang-option').forEach(opt => {
-        opt.classList.remove('active');
-    });
+/**
+ * Switches the site language and updates the UI.
+ * @param {string} lang - The language code ('pt' or 'en').
+ */
+const switchLanguage = (lang) => {
+    // Update button states
+    document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
     
-    const selectedBtn = document.querySelector('[data-lang="' + lang + '"]');
+    const selectedBtn = document.querySelector(`[data-lang="${lang}"]`);
     if (selectedBtn) {
         selectedBtn.classList.add('active');
     }
     
+    // Update text content
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
@@ -88,38 +102,56 @@ function switchLanguage(lang) {
         }
     });
     
+    // Update HTML lang attribute
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
     
+    // Save preference
     localStorage.setItem('preferredLanguage', lang);
-}
+};
 
-function setCookie(name, value, days) {
+/**
+ * Sets a cookie.
+ * @param {string} name - Cookie name.
+ * @param {string} value - Cookie value.
+ * @param {number} days - Number of days until expiration.
+ */
+const setCookie = (name, value, days) => {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
+    document.cookie = `${name}=${value};${expires};path=/`;
+};
 
-function getCookie(name) {
+/**
+ * Retrieves a cookie value by name.
+ * @param {string} name - Cookie name.
+ * @returns {string|null} The cookie value or null if not found.
+ */
+const getCookie = (name) => {
     const nameEQ = name + "=";
     const ca = document.cookie.split(';');
     for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        let c = ca[i].trim();
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
-}
+};
 
-function acceptPrivacy() {
+/**
+ * Handles privacy policy acceptance.
+ */
+const acceptPrivacy = () => {
     setCookie('privacyAccepted', 'true', 365);
     const overlay = document.getElementById('privacyOverlay');
     if (overlay) {
         overlay.classList.remove('show');
     }
-}
+};
 
-function declinePrivacy() {
+/**
+ * Handles privacy policy decline.
+ */
+const declinePrivacy = () => {
     setCookie('privacyAccepted', 'false', 365);
     const overlay = document.getElementById('privacyOverlay');
     if (overlay) {
@@ -131,50 +163,40 @@ function declinePrivacy() {
         ? 'Você optou por não aceitar nossa política de privacidade. Algumas funcionalidades podem ser limitadas.'
         : 'You chose not to accept our privacy policy. Some features may be limited.';
     alert(message);
-}
+};
 
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize application when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Language Initialization ---
     const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
     switchLanguage(savedLang);
     
     const btnPt = document.getElementById('lang-pt');
     const btnEn = document.getElementById('lang-en');
     
-    if (btnPt) {
-        btnPt.addEventListener('click', function() {
-            switchLanguage('pt');
-        });
-    }
+    btnPt?.addEventListener('click', () => switchLanguage('pt'));
+    btnEn?.addEventListener('click', () => switchLanguage('en'));
     
-    if (btnEn) {
-        btnEn.addEventListener('click', function() {
-            switchLanguage('en');
-        });
-    }
-    
+    // --- Privacy Policy Initialization ---
     const btnAccept = document.getElementById('btn-accept');
     const btnDecline = document.getElementById('btn-decline');
     
-    if (btnAccept) {
-        btnAccept.addEventListener('click', acceptPrivacy);
-    }
+    btnAccept?.addEventListener('click', acceptPrivacy);
+    btnDecline?.addEventListener('click', declinePrivacy);
     
-    if (btnDecline) {
-        btnDecline.addEventListener('click', declinePrivacy);
-    }
-    
+    // Check if privacy was already accepted
     const privacyAccepted = getCookie('privacyAccepted');
     if (!privacyAccepted) {
         const privacyOverlay = document.getElementById('privacyOverlay');
-        if (privacyOverlay) {
-            privacyOverlay.classList.add('show');
-        }
+        privacyOverlay?.classList.add('show');
     }
     
+    // --- Smooth Scrolling for Anchors ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
