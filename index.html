@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaques Projetos Digitais - Terminal</title>
+    <title>Leonardo Jaques — Arquiteto de Software & Full Stack Developer</title>
+    <meta name="description" content="Portfólio de Leonardo Jaques, Arquiteto de Software & Full Stack Developer. Soluções digitais escaláveis e robustas.">
+    <meta property="og:title" content="Leonardo Jaques — Software Architect">
+    <meta property="og:description" content="Portfólio de desenvolvimento de software">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' };
+        // Apply saved theme before render to avoid flash
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light');
+        }
+    </script>
 </head>
 <body>
-    <!-- Effects -->
+    <!-- Scan Line Effect -->
     <div class="scan-line"></div>
-    
-    <!-- Language Switcher -->
-    <div class="language-toggle">
-        <button class="lang-option active" data-lang="pt" id="lang-pt">PT</button>
-        <button class="lang-option" data-lang="en" id="lang-en">EN</button>
-    </div>
 
     <!-- Privacy Modal -->
     <div class="privacy-overlay" id="privacyOverlay">
@@ -34,248 +40,359 @@
         </div>
     </div>
 
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Terminal Window: Portfolio/About -->
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-                <div class="terminal-title">jaques@terminal ~ portfolio</div>
-            </div>
-            <div class="terminal-content">
-                <div class="prompt-line">
-                    <span class="prompt">jaques@archlinux</span>
-                    <span>:~$</span>
-                    <span class="cmd-input" data-i18n="logo">cat about.txt</span>
+    <!-- Site Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner container">
+            <a href="/" class="logo">jaques<span class="logo-dot">.</span></a>
+            <nav class="nav-links">
+                <a href="#trabalhos" data-i18n="nav-works">Trabalhos</a>
+                <a href="#sobre" data-i18n="nav-about">Sobre</a>
+                <a href="#contato" data-i18n="nav-contact">Contato</a>
+            </nav>
+            <div class="header-right">
+                <a href="mailto:jaques.projetos@outlook.com" class="nav-email">jaques.projetos@outlook.com</a>
+                <div class="language-toggle">
+                    <button class="lang-option active" data-lang="pt" id="lang-pt">PT</button>
+                    <button class="lang-option" data-lang="en" id="lang-en">EN</button>
                 </div>
-                <h1 data-i18n="tagline">Transformo ideias em soluções digitais</h1>
-                <p class="tagline-text">
-                    <span data-i18n="tagline-full">Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.</span>
-                </p>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <!-- Sun: shown in dark mode -->
+                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <!-- Moon: shown in light mode -->
+                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
             </div>
         </div>
+    </header>
 
-        <!-- Terminal Window: Hero/Services Intro -->
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-                <div class="terminal-title">development.sh</div>
-            </div>
-            <div class="terminal-content">
-                <div class="hero">
-                    <div class="prompt-line">
-                        <span class="prompt">jaques@archlinux</span>
-                        <span>:~$</span>
-                        <span class="cmd-input">./run_services.sh</span>
-                    </div>
-                    <h1 data-i18n="hero-title">Desenvolvimento de Software Profissional</h1>
-                    <p class="hero-text" data-i18n="hero-text">Criamos sites, aplicativos e sistemas personalizados para impulsionar seu negócio. Soluções modernas, rápidas e eficientes com o aroma do melhor código.</p>
-                    <a href="#sobre" class="btn"><span data-i18n="learn-more">$ Conhecer Mais</span></a>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-cover">
+            <picture>
+                <source srcset="images/cristo-redentor.webp" type="image/webp">
+                <img src="images/cristo-redentor.jpg" alt="Rio de Janeiro">
+            </picture>
+            <div class="hero-cover-gradient"></div>
         </div>
-
-        <!-- Terminal Window: Services List -->
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-                <div class="terminal-title">services.json</div>
-            </div>
-            <div class="terminal-content">
-                <div class="prompt-line">
-                    <span class="prompt">jaques@archlinux</span>
-                    <span>:~$</span>
-                    <span class="cmd-input">cat services.json</span>
-                </div>
-                <div class="services">
-                    <div class="service">
-                        <span class="service-icon">💻</span>
-                        <h3 data-i18n="service1-title">Sites & E-commerce</h3>
-                        <p data-i18n="service1-desc">Landing pages, sites institucionais e lojas virtuais responsivas e otimizadas.</p>
-                    </div>
-                    <div class="service">
-                        <span class="service-icon">📱</span>
-                        <h3 data-i18n="service2-title">Aplicativos Mobile</h3>
-                        <p data-i18n="service2-desc">Apps para iOS e Android com design moderno e funcionalidades intuitivas.</p>
-                    </div>
-                    <div class="service">
-                        <span class="service-icon">⚙️</span>
-                        <h3 data-i18n="service3-title">Sistemas Web</h3>
-                        <p data-i18n="service3-desc">Painéis administrativos, CRMs e sistemas personalizados para sua empresa.</p>
-                    </div>
+        <div class="container">
+            <div class="hero-profile">
+                <img src="https://avatars.githubusercontent.com/u/28495699?v=4" alt="Leonardo Jaques" class="avatar">
+                <div class="hero-info">
+                    <h1>Leonardo Jaques</h1>
+                    <p class="hero-role" data-i18n="role">Arquiteto de Software &amp; Desenvolvedor Full Stack</p>
+                    <p class="hero-meta" data-i18n="hero-meta">Rio de Janeiro · Disponível para projetos</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Terminal Window: Podcast -->
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-                <div class="terminal-title">podcast.mp3</div>
-            </div>
-            <div class="terminal-content">
-                <div class="prompt-line">
-                    <span class="prompt">jaques@archlinux</span>
-                    <span>:~$</span>
-                    <span class="cmd-input">mpv podcast.mp3</span>
+    <!-- Works Section -->
+    <section id="trabalhos" class="section">
+        <div class="container">
+            <div class="section-top">
+                <div>
+                    <p class="section-label" data-i18n="works-label">TRABALHOS</p>
+                    <p class="section-count" id="worksCount">6 projetos</p>
                 </div>
-                <h2>🎙️ <span data-i18n="podcast-title">Podcast</span></h2>
-                <p class="section-intro" data-i18n="podcast-intro">Conversas sobre programação em dupla, desenvolvimento colaborativo e as melhores práticas de código.</p>
-                
-                <div class="podcast-grid">
-                    <div class="podcast-card">
-                        <div class="podcast-logo">
-                            <picture>
-                                <source srcset="images/Pair-Programming-logo.webp" type="image/webp">
-                                <img src="images/Pair-Programming-logo.png" alt="Pair Programming Podcast">
-                            </picture>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-category="todos" data-i18n="filter-all">Todos</button>
+                    <button class="filter-btn" data-category="web" data-i18n="filter-web">Web</button>
+                    <button class="filter-btn" data-category="mobile" data-i18n="filter-mobile">Mobile</button>
+                    <button class="filter-btn" data-category="sistemas" data-i18n="filter-sistemas">Sistemas</button>
+                </div>
+            </div>
+
+            <div class="works-grid" id="worksGrid">
+
+                <!-- Card 1: Jaques Projetos Digitais -->
+                <a href="https://github.com/LeonardoJaques/jaquesprojetos" target="_blank" rel="noopener noreferrer" class="work-card" data-category="web">
+                    <div class="card-thumb">
+                        <img src="images/thumb-jaquesprojetos.svg" alt="Jaques Projetos Digitais">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Jaques Projetos Digitais</h3>
+                        <p class="card-desc">Portfolio pessoal com tema terminal/cyberpunk. Site estático com i18n PT/EN, LGPD consent modal e animações CSS.</p>
+                        <div class="card-meta">
+                            <span class="card-pub">jaquesprojetos.com.br</span>
+                            <span class="card-date">Mar 2026</span>
                         </div>
-                        <h3>Pair Programming</h3>
-                        <p data-i18n="podcast-desc">Explorando a arte da programação em pares, compartilhando experiências, técnicas e histórias do desenvolvimento colaborativo. Código melhor, junto.</p>
-                        <a href="#" class="podcast-link"><span data-i18n="listen-now">▶ Ouvir Agora</span></a>
                     </div>
-                </div>
-            </div>
-        </div>
+                </a>
 
-        <!-- Terminal Window: Blog -->
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-                <div class="terminal-title">blog.md</div>
-            </div>
-            <div class="terminal-content">
-                <div class="prompt-line">
-                    <span class="prompt">jaques@archlinux</span>
-                    <span>:~$</span>
-                    <span class="cmd-input">cat blog.md</span>
-                </div>
-                <h2>📝 <span data-i18n="blog-title">Blog Técnico</span></h2>
-                <p class="section-intro" data-i18n="blog-intro">Artigos sobre desenvolvimento, arquitetura de software e tecnologias emergentes.</p>
-                
-                <div class="podcast-grid">
-                    <div class="podcast-card">
-                        <div class="blog-logo">
-                            <img src="images/convergencia-logo.png" alt="Convergência Blog">
+                <!-- Card 2: Pair Programming Podcast -->
+                <a href="#" class="work-card" data-category="web">
+                    <div class="card-thumb card-thumb--podcast">
+                        <picture>
+                            <source srcset="images/Pair-Programming-logo.webp" type="image/webp">
+                            <img src="images/Pair-Programming-logo.png" alt="Pair Programming Podcast">
+                        </picture>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Pair Programming Podcast</h3>
+                        <p class="card-desc">Podcast sobre desenvolvimento de software, arquitetura e carreira em tech. Episódios, transcrições e recursos para devs.</p>
+                        <div class="card-meta">
+                            <span class="card-pub">pairprogramming.com.br</span>
+                            <span class="card-date">Jan 2025</span>
                         </div>
-                        <h3 data-i18n="blog-name">Convergência</h3>
-                        <p data-i18n="blog-desc">Explorando a interseção entre tecnologia, desenvolvimento e inovação. Artigos aprofundados sobre arquitetura de software, boas práticas, ferramentas e tendências do mercado tech.</p>
-                        <a href="https://jaquesprojetos.com.br/convergencia/" target="_blank" rel="noopener noreferrer" class="podcast-link"><span data-i18n="visit-blog">▶ Visitar Blog</span></a>
                     </div>
-                </div>
+                </a>
+
+                <!-- Card 3: Convergência Blog -->
+                <a href="https://jaquesprojetos.com.br/convergencia/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="web">
+                    <div class="card-thumb card-thumb--blog">
+                        <img src="images/convergencia-logo.png" alt="Convergência Blog">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title" data-i18n="blog-name">Convergência</h3>
+                        <p class="card-desc">Blog técnico sobre arquitetura de software, boas práticas e tendências do mercado de desenvolvimento.</p>
+                        <div class="card-meta">
+                            <span class="card-pub">convergencia.dev</span>
+                            <span class="card-date">Nov 2025</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4: Kanban Board App -->
+                <a href="https://github.com/LeonardoJaques/kanban-board-app" target="_blank" rel="noopener noreferrer" class="work-card" data-category="sistemas">
+                    <div class="card-thumb">
+                        <img src="images/thumb-kanban.svg" alt="Kanban Board App">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Kanban Board App</h3>
+                        <p class="card-desc">Gerenciador de tarefas com drag-and-drop, múltiplos boards e persistência local. Desenvolvido em React e TypeScript.</p>
+                        <div class="card-meta">
+                            <span class="card-pub">React / TypeScript</span>
+                            <span class="card-date">Set 2025</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 5: Lab Java Quarkus -->
+                <a href="https://github.com/LeonardoJaques/lab-java-quarkus" target="_blank" rel="noopener noreferrer" class="work-card" data-category="sistemas">
+                    <div class="card-thumb">
+                        <img src="images/thumb-java.svg" alt="Lab Java Quarkus">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Lab Java Quarkus</h3>
+                        <p class="card-desc">APIs RESTful com Quarkus, Spring Security, JWT, JPA/Hibernate e documentação via Swagger/OpenAPI.</p>
+                        <div class="card-meta">
+                            <span class="card-pub">Java / Quarkus</span>
+                            <span class="card-date">Abr 2024</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 6: QRCode Pix -->
+                <a href="https://github.com/LeonardoJaques/qrcodePix" target="_blank" rel="noopener noreferrer" class="work-card" data-category="web">
+                    <div class="card-thumb">
+                        <img src="images/thumb-qrcode.svg" alt="QRCode Pix">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">QRCode Pix</h3>
+                        <p class="card-desc">Gerador de QR Code para pagamentos via Pix. Suporte a chaves CPF, CNPJ, email, telefone e chave aleatória.</p>
+                        <div class="card-meta">
+                            <span class="card-pub">JavaScript / Web</span>
+                            <span class="card-date">Jun 2024</span>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
+    </section>
 
-        <!-- Terminal Window: Profile -->
-        <div class="terminal-window" id="sobre">
-            <div class="terminal-header">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-                <div class="terminal-title">profile.md</div>
-            </div>
-            <div class="terminal-content">
-                <div class="prompt-line">
-                    <span class="prompt">jaques@archlinux</span>
-                    <span>:~$</span>
-                    <span class="cmd-input">cat profile.md</span>
-                </div>
-                <h2 data-i18n="about-title">Sobre Leonardo Jaques</h2>
+    <!-- Employers Strip -->
+    <div class="employers-strip">
+        <div class="container">
+            <p class="employers-label" data-i18n="employers-label">ONDE TRABALHEI</p>
 
-                <div class="about-content">
-                    <div class="profile-photo">
-                        <img src="https://avatars.githubusercontent.com/u/28495699?v=4" alt="Leonardo Jaques">
+            <div class="exp-grid">
+
+                <!-- Mutant → Vivo -->
+                <div class="exp-card">
+                    <div class="exp-logos-row">
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-mutant.svg" alt="Mutant"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Mutant'}))">
+                        </div>
+                        <span class="exp-arrow">→</span>
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-vivo.svg" alt="Vivo"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Vivo'}))">
+                        </div>
                     </div>
-
-                    <div class="about-text">
-                        <h3>Leonardo Jaques</h3>
-                        <p class="role" data-i18n="role">Arquiteto de Software & Desenvolvedor Full Stack</p>
-                        <p class="about-desc" data-i18n="about-desc">Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.</p>
+                    <div class="exp-tags-row">
+                        <span class="exp-tag exp-tag--arch">Architect</span>
+                        <span class="exp-tag exp-tag--back">Backend</span>
                     </div>
                 </div>
 
-                <div class="text-center">
-                    <a href="LeonardoJaques_25.pdf" class="btn-download">📄 <span data-i18n="download-cv">$ download --cv</span></a>
+                <!-- Redspark → Embraer + SESC-SP -->
+                <div class="exp-card">
+                    <div class="exp-logos-row">
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-redspark.svg" alt="Redspark"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Redspark'}))">
+                        </div>
+                        <span class="exp-arrow">→</span>
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-embraer.svg" alt="Embraer"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Embraer'}))">
+                        </div>
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-sescsp.svg" alt="SESC-SP"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'SESC-SP'}))">
+                        </div>
+                    </div>
+                    <div class="exp-tags-row">
+                        <span class="exp-tag exp-tag--front">Frontend</span>
+                        <span class="exp-tag exp-tag--mobile">Mobile</span>
+                    </div>
                 </div>
 
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/LeonardoJaques" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        GitHub
-                    </a>
-                    <a href="https://bsky.app/profile/leonardojaques.bsky.social" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24">
-                            <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.317 8.505C2.708 14.628.36 19.583.36 20.304c0 .721.083 1.204.364 1.526.662.758 1.626 1.098 5.44-1.254 3.035-1.87 4.952-4.255 5.836-5.776.884 1.52 2.8 3.906 5.836 5.776 3.813 2.352 4.777 2.012 5.44 1.254.28-.322.364-.805.364-1.526 0-.721-2.348-5.676-5.957-8.03C23.622 9.418 24 4.458 24 3.768c0-.688-.139-1.86-.902-2.203-.659-.299-1.664-.62-4.3 1.24-2.752 1.942-5.711 5.88-6.798 7.995z"/>
-                        </svg>
-                        Bluesky
-                    </a>
-                    <a href="https://x.com/Lajaques" target="_blank" rel="noopener noreferrer" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                        Twitter
-                    </a>
+                <!-- To-brasil → Descomplica + BRT Rio -->
+                <div class="exp-card">
+                    <div class="exp-logos-row">
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-tobrasil.svg" alt="To-brasil"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'To-brasil'}))">
+                        </div>
+                        <span class="exp-arrow">→</span>
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-descomplica.svg" alt="Descomplica"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Descomplica'}))">
+                        </div>
+                        <div class="exp-logo-wrap">
+                            <img src="images/logo-brtrio.svg" alt="BRT Rio"
+                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'BRT Rio'}))">
+                        </div>
+                    </div>
+                    <div class="exp-tags-row">
+                        <span class="exp-tag exp-tag--full">Full-Stack</span>
+                        <span class="exp-tag exp-tag--mobile">Mobile</span>
+                    </div>
                 </div>
+
             </div>
+
+            <!-- Role badges -->
+            <div class="role-stack">
+                <span class="role-badge role-badge--full">Full-Stack</span>
+                <span class="role-badge role-badge--back">Backend</span>
+                <span class="role-badge role-badge--front">Frontend</span>
+                <span class="role-badge role-badge--mobile">Mobile</span>
+            </div>
+
         </div>
-
-        <!-- Terminal Window: Contact -->
-        <div class="terminal-window" id="contato">
-            <div class="terminal-header">
-                <div class="terminal-button close"></div>
-                <div class="terminal-button minimize"></div>
-                <div class="terminal-button maximize"></div>
-                <div class="terminal-title">contact.sh</div>
-            </div>
-            <div class="terminal-content">
-                <div class="prompt-line">
-                    <span class="prompt">jaques@archlinux</span>
-                    <span>:~$</span>
-                    <span class="cmd-input">./contact.sh --info</span>
-                </div>
-                <h2 class="text-center" data-i18n="contact-title">Vamos conversar sobre seu projeto?</h2>
-                <p class="contact-intro" data-i18n="contact-text">Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <a href="mailto:jaques.projetos@outlook.com">jaques.projetos@outlook.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <span>📱</span>
-                        <a href="tel:+5521972856520">(21) 97285-6520</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="prompt-line prompt-line--center">
-                <span class="prompt">jaques@archlinux</span>
-                <span>:~$</span>
-                <span class="cmd-input">exit</span>
-            </div>
-            <p data-i18n="footer">&copy; 2026 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕</p>
-        </footer>
     </div>
+
+    <!-- About Section -->
+    <section id="sobre" class="section section--about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-left">
+                    <p class="section-label" data-i18n="about-label">SOBRE</p>
+                    <h2 data-i18n="about-heading">Software com propósito</h2>
+                    <div class="about-bio">
+                        <div class="about-avatar">
+                            <img src="https://avatars.githubusercontent.com/u/28495699?v=4" alt="Leonardo Jaques">
+                        </div>
+                        <div>
+                            <h3>Leonardo Jaques</h3>
+                            <p class="about-role" data-i18n="role">Arquiteto de Software &amp; Desenvolvedor Full Stack</p>
+                        </div>
+                    </div>
+                    <p class="about-desc" data-i18n="about-desc">Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.</p>
+                    <a href="LeonardoJaques_25.pdf" class="btn-download" download>📄 <span data-i18n="download-cv">$ download --cv</span></a>
+                </div>
+                <div class="about-right">
+                    <p class="section-label" data-i18n="tech-label">TECNOLOGIAS</p>
+                    <div class="tech-groups">
+                        <div class="tech-group">
+                            <span class="tech-group-label">Frontend</span>
+                            <ul class="tech-list">
+                                <li>React / React Native</li>
+                                <li>TypeScript / JavaScript</li>
+                                <li>HTML5 / CSS3</li>
+                            </ul>
+                        </div>
+                        <div class="tech-group">
+                            <span class="tech-group-label">Backend</span>
+                            <ul class="tech-list">
+                                <li>Java · Spring Boot · Quarkus</li>
+                                <li>Node.js</li>
+                                <li>REST APIs · OpenAPI / Swagger</li>
+                            </ul>
+                        </div>
+                        <div class="tech-group">
+                            <span class="tech-group-label">Infra &amp; DevOps</span>
+                            <ul class="tech-list">
+                                <li>Docker · Linux · Nginx</li>
+                                <li>Jenkins · CI/CD</li>
+                                <li>Git · GitHub</li>
+                            </ul>
+                        </div>
+                        <div class="tech-group">
+                            <span class="tech-group-label">Dados</span>
+                            <ul class="tech-list">
+                                <li>PostgreSQL · MySQL</li>
+                                <li>MongoDB</li>
+                                <li>JPA / Hibernate</li>
+                            </ul>
+                        </div>
+                        <div class="tech-group">
+                            <span class="tech-group-label">IA &amp; LLMs</span>
+                            <ul class="tech-list">
+                                <li>Claude · Gemini · Codex</li>
+                                <li>Claude Code · Cursor</li>
+                                <li>Prompt Engineering</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <p class="section-label" data-i18n="contact-label">CONTATO</p>
+            <h2 data-i18n="contact-title">Vamos conversar sobre seu projeto?</h2>
+            <p class="contact-sub" data-i18n="contact-text">Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
+            <a href="mailto:jaques.projetos@outlook.com" class="btn-contact">
+                ✉️ jaques.projetos@outlook.com
+            </a>
+            <div class="contact-phone">
+                <a href="tel:+5521972856520">+55 (21) 97285-6520</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="footer-copy" data-i18n="footer">© 2026 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕</p>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://github.com/LeonardoJaques" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://bsky.app/profile/leonardojaques.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+                    <svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.317 8.505C2.708 14.628.36 19.583.36 20.304c0 .721.083 1.204.364 1.526.662.758 1.626 1.098 5.44-1.254 3.035-1.87 4.952-4.255 5.836-5.776.884 1.52 2.8 3.906 5.836 5.776 3.813 2.352 4.777 2.012 5.44 1.254.28-.322.364-.805.364-1.526 0-.721-2.348-5.676-5.957-8.03C23.622 9.418 24 4.458 24 3.768c0-.688-.139-1.86-.902-2.203-.659-.299-1.664-.62-4.3 1.24-2.752 1.942-5.711 5.88-6.798 7.995z"/></svg>
+                </a>
+                <a href="https://x.com/Lajaques" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
+                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
     <script defer src="https://analytics.ldw.solutions/script.js" data-website-id="1028df64-9269-43a3-aab4-182a5f1d4355"></script>

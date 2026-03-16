@@ -1,6 +1,6 @@
 /**
  * @fileoverview Main JavaScript file for the portfolio website.
- * Handles language switching, cookie management, and privacy policy interactions.
+ * Handles language switching, cookie management, privacy policy, header scroll and works filter.
  * @author Leonardo Jaques
  */
 
@@ -10,7 +10,21 @@
  */
 const translations = {
     pt: {
-        "logo": "cat about.txt",
+        "role": "Arquiteto de Software & Desenvolvedor Full Stack",
+        "hero-meta": "Rio de Janeiro · Disponível para projetos",
+        "nav-works": "Trabalhos",
+        "nav-about": "Sobre",
+        "nav-contact": "Contato",
+        "works-label": "TRABALHOS",
+        "filter-all": "Todos",
+        "filter-web": "Web",
+        "filter-mobile": "Mobile",
+        "filter-sistemas": "Sistemas",
+        "employers-label": "ONDE TRABALHEI",
+        "about-label": "SOBRE",
+        "about-heading": "Software com propósito",
+        "tech-label": "TECNOLOGIAS",
+        "contact-label": "CONTATO",
         "tagline": "Transformo ideias em soluções digitais",
         "tagline-full": "Com um perfil multidisciplinar, uno habilidades técnicas e estratégicas para entregar produtos inovadores e com foco em resultados.",
         "hero-title": "Desenvolvimento de Software Profissional",
@@ -32,7 +46,6 @@ const translations = {
         "blog-desc": "Explorando a interseção entre tecnologia, desenvolvimento e inovação. Artigos aprofundados sobre arquitetura de software, boas práticas, ferramentas e tendências do mercado tech.",
         "visit-blog": "▶ Visitar Blog",
         "about-title": "Sobre Leonardo Jaques",
-        "role": "Arquiteto de Software & Desenvolvedor Full Stack",
         "about-desc": "Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.",
         "download-cv": "$ download --cv",
         "contact-title": "Vamos conversar sobre seu projeto?",
@@ -45,7 +58,21 @@ const translations = {
         "decline": "Não Aceito"
     },
     en: {
-        "logo": "cat about.txt",
+        "role": "Software Architect & Full Stack Developer",
+        "hero-meta": "Rio de Janeiro · Available for projects",
+        "nav-works": "Works",
+        "nav-about": "About",
+        "nav-contact": "Contact",
+        "works-label": "WORKS",
+        "filter-all": "All",
+        "filter-web": "Web",
+        "filter-mobile": "Mobile",
+        "filter-sistemas": "Systems",
+        "employers-label": "WHERE I'VE WORKED",
+        "about-label": "ABOUT",
+        "about-heading": "Software with purpose",
+        "tech-label": "TECHNOLOGIES",
+        "contact-label": "CONTACT",
         "tagline": "I transform ideas into digital solutions",
         "tagline-full": "With a multidisciplinary profile, I combine technical and strategic skills to deliver innovative products focused on results.",
         "hero-title": "Professional Software Development",
@@ -67,7 +94,6 @@ const translations = {
         "blog-desc": "Exploring the intersection between technology, development and innovation. In-depth articles about software architecture, best practices, tools and tech market trends.",
         "visit-blog": "▶ Visit Blog",
         "about-title": "About Leonardo Jaques",
-        "role": "Software Architect & Full Stack Developer",
         "about-desc": "Software architect and full stack developer passionate about technology, with extensive experience creating scalable and robust digital solutions. Specialized in systems architecture, microservices and development best practices. Each project is developed with technical excellence, attention to detail and focus on delivering real business value.",
         "download-cv": "$ download --cv",
         "contact-title": "Let's talk about your project?",
@@ -86,26 +112,19 @@ const translations = {
  * @param {string} lang - The language code ('pt' or 'en').
  */
 const switchLanguage = (lang) => {
-    // Update button states
     document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
-    
+
     const selectedBtn = document.querySelector(`[data-lang="${lang}"]`);
-    if (selectedBtn) {
-        selectedBtn.classList.add('active');
-    }
-    
-    // Update text content
+    if (selectedBtn) selectedBtn.classList.add('active');
+
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
     });
-    
-    // Update HTML lang attribute
+
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-    
-    // Save preference
     localStorage.setItem('preferredLanguage', lang);
 };
 
@@ -118,8 +137,7 @@ const switchLanguage = (lang) => {
 const setCookie = (name, value, days) => {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = `${name}=${value};${expires};path=/`;
+    document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
 };
 
 /**
@@ -129,79 +147,98 @@ const setCookie = (name, value, days) => {
  */
 const getCookie = (name) => {
     const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i].trim();
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    for (let c of document.cookie.split(';')) {
+        c = c.trim();
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
     }
     return null;
 };
 
-/**
- * Handles privacy policy acceptance.
- */
+/** Handles privacy policy acceptance. */
 const acceptPrivacy = () => {
     setCookie('privacyAccepted', 'true', 365);
-    const overlay = document.getElementById('privacyOverlay');
-    if (overlay) {
-        overlay.classList.remove('show');
-    }
+    document.getElementById('privacyOverlay')?.classList.remove('show');
 };
 
-/**
- * Handles privacy policy decline.
- */
+/** Handles privacy policy decline. */
 const declinePrivacy = () => {
     setCookie('privacyAccepted', 'false', 365);
-    const overlay = document.getElementById('privacyOverlay');
-    if (overlay) {
-        overlay.classList.remove('show');
-    }
-    
-    const currentLang = localStorage.getItem('preferredLanguage') || 'pt';
-    const message = currentLang === 'pt'
+    document.getElementById('privacyOverlay')?.classList.remove('show');
+    const lang = localStorage.getItem('preferredLanguage') || 'pt';
+    alert(lang === 'pt'
         ? 'Você optou por não aceitar nossa política de privacidade. Algumas funcionalidades podem ser limitadas.'
-        : 'You chose not to accept our privacy policy. Some features may be limited.';
-    alert(message);
+        : 'You chose not to accept our privacy policy. Some features may be limited.');
 };
 
 // Initialize application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Language Initialization ---
+
+    // --- Language ---
     const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
     switchLanguage(savedLang);
-    
-    const btnPt = document.getElementById('lang-pt');
-    const btnEn = document.getElementById('lang-en');
-    
-    btnPt?.addEventListener('click', () => switchLanguage('pt'));
-    btnEn?.addEventListener('click', () => switchLanguage('en'));
-    
-    // --- Privacy Policy Initialization ---
-    const btnAccept = document.getElementById('btn-accept');
-    const btnDecline = document.getElementById('btn-decline');
-    
-    btnAccept?.addEventListener('click', acceptPrivacy);
-    btnDecline?.addEventListener('click', declinePrivacy);
-    
-    // Check if privacy was already accepted
-    const privacyAccepted = getCookie('privacyAccepted');
-    if (!privacyAccepted) {
-        const privacyOverlay = document.getElementById('privacyOverlay');
-        privacyOverlay?.classList.add('show');
+    document.getElementById('lang-pt')?.addEventListener('click', () => switchLanguage('pt'));
+    document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
+
+    // --- Privacy ---
+    document.getElementById('btn-accept')?.addEventListener('click', acceptPrivacy);
+    document.getElementById('btn-decline')?.addEventListener('click', declinePrivacy);
+    if (!getCookie('privacyAccepted')) {
+        document.getElementById('privacyOverlay')?.classList.add('show');
     }
-    
-    // --- Smooth Scrolling for Anchors ---
+
+    // --- Header scroll behavior ---
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            header?.classList.add('scrolled');
+        } else {
+            header?.classList.remove('scrolled');
+        }
+    }, { passive: true });
+
+    // --- Works filter ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const workCards = document.querySelectorAll('.work-card');
+    const worksCount = document.getElementById('worksCount');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.category;
+
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            let visible = 0;
+            workCards.forEach(card => {
+                if (category === 'todos' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                    visible++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (worksCount) {
+                worksCount.textContent = `${visible} projeto${visible !== 1 ? 's' : ''}`;
+            }
+        });
+    });
+
+    // --- Theme toggle ---
+    const toggleTheme = () => {
+        const isLight = document.documentElement.classList.toggle('light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    };
+    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+
+    // --- Smooth scroll for anchor links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
             const target = document.querySelector(targetId);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });

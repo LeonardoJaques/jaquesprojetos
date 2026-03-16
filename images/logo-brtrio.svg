@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <!-- BRT bus icon simplified -->
+  <rect x="4" y="18" width="52" height="34" rx="4" fill="#e4e8e6" opacity="0.15" stroke="#e4e8e6" stroke-width="2"/>
+  <!-- bus windows -->
+  <rect x="10" y="24" width="12" height="10" rx="2" fill="#e4e8e6" opacity="0.6"/>
+  <rect x="26" y="24" width="12" height="10" rx="2" fill="#e4e8e6" opacity="0.6"/>
+  <rect x="42" y="24" width="8" height="10" rx="2" fill="#e4e8e6" opacity="0.6"/>
+  <!-- wheels -->
+  <circle cx="16" cy="54" r="5" fill="#e4e8e6" opacity="0.8"/>
+  <circle cx="44" cy="54" r="5" fill="#e4e8e6" opacity="0.8"/>
+  <!-- road line -->
+  <line x1="0" y1="60" x2="280" y2="60" stroke="#e4e8e6" stroke-width="1" opacity="0.2" stroke-dasharray="8,6"/>
+  <!-- BRT Rio text -->
+  <text x="70" y="42" font-family="'Courier New', Courier, monospace" font-size="28" font-weight="700" fill="#e4e8e6" letter-spacing="1">BRT</text>
+  <text x="70" y="62" font-family="'Courier New', Courier, monospace" font-size="16" font-weight="400" fill="#e4e8e6" opacity="0.75" letter-spacing="4">Rio</text>
+</svg>
