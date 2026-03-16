@@ -1,90 +1,90 @@
 # Jaques Projetos Digitais
 
-Site portfólio profissional de Leonardo Jaques — Arquiteto de Software & Desenvolvedor Full Stack.
+Professional portfolio of Leonardo Jaques — Software Architect & Full Stack Developer.
 
 🌐 **[jaquesprojetos.com.br](https://jaquesprojetos.com.br)**
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 jaquesprojetos/
-├── index.html              # Página principal
+├── index.html              # Main page
 ├── css/
-│   └── styles.css          # Estilos (tema terminal/cyberpunk + dark/light)
+│   └── styles.css          # Styles (terminal/cyberpunk theme + dark/light)
 ├── js/
-│   └── main.js             # i18n, tema, filtros, scroll
+│   └── main.js             # i18n, theme toggle, filters, smooth scroll
 ├── images/
 │   ├── cristo-redentor.jpg/webp
 │   ├── Pair-Programming-logo.png/webp
 │   ├── convergencia-logo.png
-│   ├── thumb-*.svg         # Thumbnails dos projetos
-│   └── logo-*.svg          # Logos das empresas (employers section)
-├── LeonardoJaques_25.pdf   # Currículo
+│   ├── thumb-*.svg         # Project thumbnails
+│   └── logo-*.svg          # Company logos (employers section)
+├── LeonardoJaques_25.pdf   # Resume/CV
 ├── favicon.svg
 ├── Readme.md
-└── jenkinsfile             # Pipeline CI/CD
+└── jenkinsfile             # CI/CD pipeline
 ```
 
-## 🎨 Características
+## 🎨 Features
 
-- **Tema Dark/Light**: Toggle sun/moon no header, salvo em `localStorage`
-- **Tailwind CSS**: CDN v3 com `darkMode: 'class'` configurado
-- **Design Terminal/Cyberpunk**: CSS variables, grid patterns, scan-line animation
-- **Multi-idioma**: PT / EN com `data-i18n` e `localStorage`
-- **Responsivo**: Mobile-first, breakpoints 640px / 768px / 1024px
-- **LGPD Compliant**: Modal de consentimento com cookie de 365 dias
+- **Dark/Light Theme**: Sun/moon toggle in header, persisted via `localStorage`
+- **Tailwind CSS**: Play CDN v3 with `darkMode: 'class'`
+- **Terminal/Cyberpunk Design**: CSS variables, grid patterns, scan-line animation
+- **Multilingual**: PT / EN via `data-i18n` attributes and `localStorage`
+- **Responsive**: Mobile-first, breakpoints at 640px / 768px / 1024px
+- **LGPD Compliant**: Cookie consent modal with 365-day expiry
 - **Analytics**: Umami (`analytics.ldw.solutions`)
-- **WebP com fallback**: `<picture>` elements para imagens
+- **WebP with fallback**: `<picture>` elements for all images
 
-## 🚀 Tecnologias
+## 🚀 Tech Stack
 
 - HTML5 / CSS3 / JavaScript ES6+
-- Tailwind CSS (CDN Play v3)
-- SVG customizados
+- Tailwind CSS (Play CDN v3)
+- Custom SVG assets
 - Fira Code + Inter (Google Fonts)
 
-## 📋 Seções
+## 📋 Sections
 
-1. **Hero** — Foto Cristo Redentor + apresentação
-2. **Trabalhos** — Grid de projetos com filtros (Web / Mobile / Sistemas)
-3. **Onde Trabalhei** — Empresas: Mutant→Vivo, Redspark→Embraer+SESC-SP, To-brasil→Descomplica+BRTRio
-4. **Sobre** — Bio + Tecnologias agrupadas (Frontend, Backend, Infra, Dados, IA & LLMs)
-5. **Contato** — E-mail + telefone +55
-6. **Footer** — Redes sociais
+1. **Hero** — Cristo Redentor photo + profile intro
+2. **Works** — Project grid with filters (Web / Mobile / Systems)
+3. **Where I've Worked** — Mutant→Vivo, Redspark→Embraer+SESC-SP, To-brasil→Descomplica+BRTRio
+4. **About** — Bio + grouped technologies (Frontend, Backend, Infra, Data, AI & LLMs)
+5. **Contact** — Email + phone +55
+6. **Footer** — Social links
 
-## 🔧 Desenvolvimento Local
+## 🔧 Local Development
 
 ```bash
 python -m http.server 8000
-# ou
+# or
 npx serve
 ```
 
-Sem build, compile ou install necessário.
+No build, compile or install steps required.
 
-## 🌐 Deploy
+## 🌐 Deployment
 
-Pipeline Jenkins automático em qualquer push para `main`:
+Automated Jenkins pipeline on every push to `main`:
 
 ```
 Backup → Clone → Validate → Deploy → Verify → Reload Nginx
 ```
 
-- Deploy em: `/var/www/jaquesprojetos.com.br/html/`
-- Rollback automático em caso de falha
-- Mantém últimos 5 backups
+- Deploy target: `/var/www/jaquesprojetos.com.br/html/`
+- Automatic rollback on failure
+- Keeps last 5 timestamped backups
 
-## 📱 Redes Sociais
+## 📱 Social
 
 - [LinkedIn](https://linkedin.com/in/leonardojaques-dev)
 - [GitHub](https://github.com/LeonardoJaques)
 - [Bluesky](https://bsky.app/profile/leonardojaques.bsky.social)
 - [Twitter/X](https://x.com/Lajaques)
 
-## 📄 Licença
+## 📄 License
 
-© 2026 Jaques Projetos Digitais. Todos os direitos reservados.
+© 2026 Jaques Projetos Digitais. All rights reserved.
 
 ---
 
-**Desenvolvendo o futuro digital, um café por vez.** ☕
+**Building the digital future, one coffee at a time.** ☕
