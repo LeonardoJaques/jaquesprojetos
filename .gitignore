@@ -46,6 +46,10 @@ tmp/
 temp/
 *.tmp
 
+# VPS / infra scripts
+check_vps.sh
+*.sh
+
 # OS files
 Thumbs.db
 .DS_Store
