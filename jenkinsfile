@@ -15,11 +15,11 @@ pipeline {
                         sh '''
                             echo "📦 Criando backup..."
                             TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-                            sudo mkdir -p ${BACKUP_PATH}
-                            sudo tar -czf ${BACKUP_PATH}/backup_${TIMESTAMP}.tar.gz -C ${SITE_PATH} . 2>/dev/null || true
+                            mkdir -p ${BACKUP_PATH}
+                            tar -czf ${BACKUP_PATH}/backup_${TIMESTAMP}.tar.gz -C ${SITE_PATH} . 2>/dev/null || true
                             echo "🗑️ Mantendo apenas 5 últimos backups..."
                             cd ${BACKUP_PATH}
-                            ls -t backup_*.tar.gz 2>/dev/null | tail -n +6 | xargs -r sudo rm
+                            ls -t backup_*.tar.gz 2>/dev/null | tail -n +6 | xargs -r rm
                             echo "✅ Backup concluído!"
                         '''
                     } catch (e) {
@@ -51,12 +51,12 @@ pipeline {
             steps {
                 sh '''
                     echo "🚀 Iniciando deploy..."
-                    sudo mkdir -p ${SITE_PATH}
-                    sudo find ${SITE_PATH} -mindepth 1 -delete
-                    sudo cp -r * ${SITE_PATH}/
-                    sudo chown -R www-data:www-data ${SITE_PATH}
-                    sudo find ${SITE_PATH} -type d -exec chmod 755 {} \;
-                    sudo find ${SITE_PATH} -type f -exec chmod 644 {} \;
+                    mkdir -p ${SITE_PATH}
+                    find ${SITE_PATH} -mindepth 1 -delete
+                    cp -r * ${SITE_PATH}/
+                    chown -R www-data:www-data ${SITE_PATH}
+                    find ${SITE_PATH} -type d -exec chmod 755 {} \;
+                    find ${SITE_PATH} -type f -exec chmod 644 {} \;
                     echo "✅ Arquivos copiados!"
                 '''
             }
@@ -79,7 +79,7 @@ pipeline {
         stage('🔄 Recarregar Nginx') {
             steps {
                 sh '''
-                    sudo systemctl reload nginx
+                    systemctl reload nginx
                     echo "✅ Nginx recarregado!"
                 '''
             }
@@ -96,8 +96,8 @@ pipeline {
                 LAST_BACKUP=$(ls -t ${BACKUP_PATH}/backup_*.tar.gz 2>/dev/null | head -n 1)
                 if [ -f "$LAST_BACKUP" ]; then
                     echo "♻️ Restaurando: $LAST_BACKUP"
-                    sudo tar -xzf $LAST_BACKUP -C ${SITE_PATH}
-                    sudo systemctl reload nginx
+                    tar -xzf $LAST_BACKUP -C ${SITE_PATH}
+                    systemctl reload nginx
                     echo "✅ Backup restaurado!"
                 else
                     echo "⚠️ Nenhum backup encontrado"
