@@ -54,6 +54,12 @@ const translations = {
         "privacy-title": "Aviso de Privacidade",
         "privacy-text1": "Os dados de contato fornecidos neste site são utilizados exclusivamente para comunicação profissional e comercial. Informações de navegação podem ser coletadas para melhorar a experiência do usuário através de cookies e ferramentas de análise.",
         "privacy-text2": "Seus dados não serão compartilhados com terceiros sem consentimento prévio. Ao utilizar este site, você concorda com o uso responsável e ético das suas informações conforme a Lei Geral de Proteção de Dados (LGPD).",
+        "card-desc-portfolio": "Portfolio pessoal com tema terminal/cyberpunk. Site estático com i18n PT/EN, LGPD consent modal e animações CSS.",
+        "card-desc-podcast": "Podcast sobre desenvolvimento de software, arquitetura e carreira em tech. Episódios, transcrições e recursos para devs.",
+        "card-desc-blog": "Blog técnico sobre arquitetura de software, boas práticas e tendências do mercado de desenvolvimento.",
+        "card-desc-kanban": "Gerenciador de tarefas com drag-and-drop, múltiplos boards e persistência local. Desenvolvido em React e TypeScript.",
+        "card-desc-java": "APIs RESTful com Quarkus, Spring Security, JWT, JPA/Hibernate e documentação via Swagger/OpenAPI.",
+        "card-desc-qrcode": "Gerador de QR Code para pagamentos via Pix. Suporte a chaves CPF, CNPJ, email, telefone e chave aleatória.",
         "accept": "Aceito",
         "decline": "Não Aceito"
     },
@@ -102,6 +108,12 @@ const translations = {
         "privacy-title": "Privacy Notice",
         "privacy-text1": "Contact information provided on this website is used exclusively for professional and commercial communication. Browsing information may be collected to improve user experience through cookies and analytics tools.",
         "privacy-text2": "Your data will not be shared with third parties without prior consent. By using this website, you agree to the responsible and ethical use of your information in accordance with the General Data Protection Law (LGPD).",
+        "card-desc-portfolio": "Personal portfolio with terminal/cyberpunk theme. Static site with PT/EN i18n, LGPD consent modal and CSS animations.",
+        "card-desc-podcast": "Podcast about software development, architecture and tech careers. Episodes, transcripts and resources for devs.",
+        "card-desc-blog": "Tech blog about software architecture, best practices and development market trends.",
+        "card-desc-kanban": "Task manager with drag-and-drop, multiple boards and local persistence. Built with React and TypeScript.",
+        "card-desc-java": "RESTful APIs with Quarkus, Spring Security, JWT, JPA/Hibernate and documentation via Swagger/OpenAPI.",
+        "card-desc-qrcode": "QR Code generator for Pix payments. Supports CPF, CNPJ, email, phone and random key types.",
         "accept": "Accept",
         "decline": "Decline"
     }
