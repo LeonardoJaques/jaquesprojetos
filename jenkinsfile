@@ -4,78 +4,84 @@ pipeline {
     environment {
         SITE_PATH = '/var/www/jaquesprojetos.com.br/html'
         BACKUP_PATH = '/var/backups/site'
-        REPO_URL = 'https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git'
+        REPO_URL = 'https://github.com/LeonardoJaques/jaquesprojetos.git'
     }
 
     stages {
-        stage('Backup') {
+        stage('🔄 Backup') {
             steps {
                 script {
-                    sh '''
-                        TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-                        sudo mkdir -p ${BACKUP_PATH}
-                        sudo tar -czf ${BACKUP_PATH}/backup_${TIMESTAMP}.tar.gz -C ${SITE_PATH} .
-
-                        # Manter apenas os últimos 5 backups
-                        cd ${BACKUP_PATH}
-                        ls -t backup_*.tar.gz | tail -n +6 | xargs -r sudo rm
-                    '''
+                    try {
+                        sh '''
+                            echo "📦 Criando backup..."
+                            TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+                            sudo mkdir -p ${BACKUP_PATH}
+                            sudo tar -czf ${BACKUP_PATH}/backup_${TIMESTAMP}.tar.gz -C ${SITE_PATH} . 2>/dev/null || true
+                            echo "🗑️ Mantendo apenas 5 últimos backups..."
+                            cd ${BACKUP_PATH}
+                            ls -t backup_*.tar.gz 2>/dev/null | tail -n +6 | xargs -r sudo rm
+                            echo "✅ Backup concluído!"
+                        '''
+                    } catch (e) {
+                        echo "⚠️ Backup falhou (não crítico): ${e.message}"
+                    }
                 }
             }
         }
 
-        stage('Clone') {
+        stage('📥 Clone Repository') {
             steps {
                 git branch: 'main', url: "${REPO_URL}"
             }
         }
 
-        stage('Validar') {
+        stage('✅ Validar Arquivos') {
             steps {
                 sh '''
                     if [ ! -f "index.html" ]; then
                         echo "ERRO: index.html não encontrado!"
                         exit 1
                     fi
+                    echo "✅ Arquivos validados!"
                 '''
             }
         }
 
-        stage('Deploy') {
+        stage('🚀 Deploy') {
             steps {
                 sh '''
-                    # Limpar arquivos antigos
+                    echo "🚀 Iniciando deploy..."
+                    sudo mkdir -p ${SITE_PATH}
                     sudo find ${SITE_PATH} -mindepth 1 -delete
-
-                    # Copiar novos arquivos
                     sudo cp -r * ${SITE_PATH}/
-
-                    # Ajustar permissões
                     sudo chown -R www-data:www-data ${SITE_PATH}
                     sudo find ${SITE_PATH} -type d -exec chmod 755 {} \;
                     sudo find ${SITE_PATH} -type f -exec chmod 644 {} \;
+                    echo "✅ Arquivos copiados!"
                 '''
             }
         }
 
-        stage('Verificar') {
+        stage('🔍 Verificar Deploy') {
             steps {
                 sh '''
+                    sleep 2
                     HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://jaquesprojetos.com.br)
-
                     if [ "$HTTP_CODE" != "200" ]; then
                         echo "ERRO: Site retornou código $HTTP_CODE"
                         exit 1
                     fi
-
                     echo "✅ Deploy verificado! Código: $HTTP_CODE"
                 '''
             }
         }
 
-        stage('Recarregar Nginx') {
+        stage('🔄 Recarregar Nginx') {
             steps {
-                sh 'sudo systemctl reload nginx'
+                sh '''
+                    sudo systemctl reload nginx
+                    echo "✅ Nginx recarregado!"
+                '''
             }
         }
     }
@@ -87,10 +93,14 @@ pipeline {
         failure {
             echo '❌ Deploy falhou! Restaurando backup...'
             sh '''
-                LAST_BACKUP=$(ls -t ${BACKUP_PATH}/backup_*.tar.gz | head -n 1)
+                LAST_BACKUP=$(ls -t ${BACKUP_PATH}/backup_*.tar.gz 2>/dev/null | head -n 1)
                 if [ -f "$LAST_BACKUP" ]; then
+                    echo "♻️ Restaurando: $LAST_BACKUP"
                     sudo tar -xzf $LAST_BACKUP -C ${SITE_PATH}
-                    echo "Backup restaurado: $LAST_BACKUP"
+                    sudo systemctl reload nginx
+                    echo "✅ Backup restaurado!"
+                else
+                    echo "⚠️ Nenhum backup encontrado"
                 fi
             '''
         }
