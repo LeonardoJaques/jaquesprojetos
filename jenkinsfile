@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        SITE_PATH = '/var/www/jaquesprojetos.com.br/html'
-        BACKUP_PATH = '/var/backups/site'
+        SITE_PATH = '/home/leo/docker/static-site'
+        BACKUP_PATH = '/home/leo/docker/static-site-backups'
         REPO_URL = 'https://github.com/LeonardoJaques/jaquesprojetos.git'
     }
 
@@ -54,9 +54,7 @@ pipeline {
                     mkdir -p ${SITE_PATH}
                     find ${SITE_PATH} -mindepth 1 -delete
                     cp -r * ${SITE_PATH}/
-                    chown -R www-data:www-data ${SITE_PATH}
-                    find ${SITE_PATH} -type d -exec chmod 755 {} \;
-                    find ${SITE_PATH} -type f -exec chmod 644 {} \;
+                    chmod -R 755 ${SITE_PATH}
                     echo "✅ Arquivos copiados!"
                 '''
             }
@@ -76,14 +74,6 @@ pipeline {
             }
         }
 
-        stage('🔄 Recarregar Nginx') {
-            steps {
-                sh '''
-                    systemctl reload nginx
-                    echo "✅ Nginx recarregado!"
-                '''
-            }
-        }
     }
 
     post {
