@@ -47,8 +47,7 @@ const translations = {
         "visit-blog": "▶ Visitar Blog",
         "about-title": "Sobre Leonardo Jaques",
         "about-desc": "Arquiteto de Soluções e Tech Lead com sólida experiência em desenho de arquitetura de software, modernização de sistemas legados e liderança técnica. Atualmente focado em soluções de alta performance utilizando Java, Cloud Computing e Big Data (Databricks). Background diversificado em desenvolvimento Full Stack (Java/Kotlin, React, Node.js) e mobile. Entusiasta de tecnologias open-source, boas práticas de engenharia de software e metodologias ágeis.",
-        "download-cv-pt": "$ download --curriculo",
-        "download-cv-en": "$ download --resume",
+        "download-cv": "$ download --curriculo",
         "tech-lang": "Linguagens",
         "tech-tools": "Ferramentas & Dados",
         "tech-arch": "Arquitetura & Metodologias",
@@ -106,8 +105,7 @@ const translations = {
         "visit-blog": "▶ Visit Blog",
         "about-title": "About Leonardo Jaques",
         "about-desc": "Solution Architect and Tech Lead with solid experience in software architecture design, legacy system modernization, and technical leadership. Currently focused on high-performance solutions using Java, Cloud Computing, and Big Data (Databricks). Diverse background in Full Stack development (Java/Kotlin, React, Node.js) and mobile. Enthusiast of open-source technologies, software engineering best practices, and agile methodologies.",
-        "download-cv-pt": "$ download --curriculo",
-        "download-cv-en": "$ download --resume",
+        "download-cv": "$ download --resume",
         "tech-lang": "Languages",
         "tech-tools": "Tools & Data",
         "tech-arch": "Architecture & Methodologies",
@@ -135,9 +133,12 @@ const translations = {
  */
 const switchLanguage = (lang) => {
     document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+    document.querySelectorAll('[data-privacy-lang]').forEach(opt => opt.classList.remove('active'));
 
     const selectedBtn = document.querySelector(`[data-lang="${lang}"]`);
     if (selectedBtn) selectedBtn.classList.add('active');
+    const privacyBtn = document.querySelector(`[data-privacy-lang="${lang}"]`);
+    if (privacyBtn) privacyBtn.classList.add('active');
 
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -148,6 +149,12 @@ const switchLanguage = (lang) => {
 
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
     localStorage.setItem('preferredLanguage', lang);
+
+    // Update CV download link based on language
+    const cvBtn = document.getElementById('btn-cv-download');
+    if (cvBtn) {
+        cvBtn.href = lang === 'pt' ? 'Leonardo_Jaques_Curriculo.pdf' : 'Leonardo_Jaques_Resume.pdf';
+    }
 };
 
 /**
@@ -204,6 +211,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Privacy ---
     document.getElementById('btn-accept')?.addEventListener('click', acceptPrivacy);
     document.getElementById('btn-decline')?.addEventListener('click', declinePrivacy);
+
+    // Privacy modal language toggle
+    document.querySelectorAll('[data-privacy-lang]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.privacyLang;
+            document.querySelectorAll('[data-privacy-lang]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            switchLanguage(lang);
+        });
+    });
+
     if (!getCookie('privacyAccepted')) {
         document.getElementById('privacyOverlay')?.classList.add('show');
     }
