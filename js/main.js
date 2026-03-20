@@ -10,7 +10,7 @@
  */
 const translations = {
     pt: {
-        "role": "Arquiteto de Software & Desenvolvedor Full Stack",
+        "role": "Solution Architect | Tech Lead | Engenheiro de Software",
         "hero-meta": "Rio de Janeiro · Disponível para projetos",
         "nav-works": "Trabalhos",
         "nav-about": "Sobre",
@@ -46,8 +46,12 @@ const translations = {
         "blog-desc": "Explorando a interseção entre tecnologia, desenvolvimento e inovação. Artigos aprofundados sobre arquitetura de software, boas práticas, ferramentas e tendências do mercado tech.",
         "visit-blog": "▶ Visitar Blog",
         "about-title": "Sobre Leonardo Jaques",
-        "about-desc": "Arquiteto de software e desenvolvedor full stack apaixonado por tecnologia, com ampla experiência em criar soluções digitais escaláveis e robustas. Especializado em arquitetura de sistemas, microserviços e boas práticas de desenvolvimento. Cada projeto é desenvolvido com excelência técnica, atenção aos detalhes e foco em entregar valor real ao negócio.",
-        "download-cv": "$ download --cv",
+        "about-desc": "Arquiteto de Soluções e Tech Lead com sólida experiência em desenho de arquitetura de software, modernização de sistemas legados e liderança técnica. Atualmente focado em soluções de alta performance utilizando Java, Cloud Computing e Big Data (Databricks). Background diversificado em desenvolvimento Full Stack (Java/Kotlin, React, Node.js) e mobile. Entusiasta de tecnologias open-source, boas práticas de engenharia de software e metodologias ágeis.",
+        "download-cv-pt": "$ download --curriculo",
+        "download-cv-en": "$ download --resume",
+        "tech-lang": "Linguagens",
+        "tech-tools": "Ferramentas & Dados",
+        "tech-arch": "Arquitetura & Metodologias",
         "contact-title": "Vamos conversar sobre seu projeto?",
         "contact-text": "Entre em contato para uma consultoria gratuita e orçamento personalizado.",
         "footer": "© 2026 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕",
@@ -65,7 +69,7 @@ const translations = {
         "decline": "Não Aceito"
     },
     en: {
-        "role": "Software Architect & Full Stack Developer",
+        "role": "Solution Architect | Tech Lead | Software Engineer",
         "hero-meta": "Rio de Janeiro · Available for projects",
         "nav-works": "Works",
         "nav-about": "About",
@@ -101,8 +105,12 @@ const translations = {
         "blog-desc": "Exploring the intersection between technology, development and innovation. In-depth articles about software architecture, best practices, tools and tech market trends.",
         "visit-blog": "▶ Visit Blog",
         "about-title": "About Leonardo Jaques",
-        "about-desc": "Software architect and full stack developer passionate about technology, with extensive experience creating scalable and robust digital solutions. Specialized in systems architecture, microservices and development best practices. Each project is developed with technical excellence, attention to detail and focus on delivering real business value.",
-        "download-cv": "$ download --cv",
+        "about-desc": "Solution Architect and Tech Lead with solid experience in software architecture design, legacy system modernization, and technical leadership. Currently focused on high-performance solutions using Java, Cloud Computing, and Big Data (Databricks). Diverse background in Full Stack development (Java/Kotlin, React, Node.js) and mobile. Enthusiast of open-source technologies, software engineering best practices, and agile methodologies.",
+        "download-cv-pt": "$ download --curriculo",
+        "download-cv-en": "$ download --resume",
+        "tech-lang": "Languages",
+        "tech-tools": "Tools & Data",
+        "tech-arch": "Architecture & Methodologies",
         "contact-title": "Let's talk about your project?",
         "contact-text": "Get in touch for a free consultation and personalized quote.",
         "footer": "© 2026 Jaqueprojetos. Building the digital future, one coffee at a time. ☕",
