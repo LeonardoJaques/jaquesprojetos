@@ -1,445 +1,577 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html class="dark" lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leonardo Jaques — Solution Architect | Tech Lead | Software Engineer</title>
-    <meta name="description" content="Portfólio de Leonardo Jaques, Solution Architect & Tech Lead. Java, Cloud Computing, Big Data, React, Node.js, Microserviços.">
-    <meta property="og:title" content="Leonardo Jaques — Solution Architect | Tech Lead | Software Engineer">
-    <meta property="og:description" content="Portfólio de Leonardo Jaques — Solution Architect & Tech Lead. Java, Kotlin, Cloud Computing, Big Data, React, Node.js.">
-    <meta property="og:image" content="https://jaquesprojetos.com.br/images/cristo-redentor.jpg">
-    <meta property="og:url" content="https://jaquesprojetos.com.br">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://jaquesprojetos.com.br/images/cristo-redentor.jpg">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <script>
-        // Apply saved theme before render to avoid flash
-        if (localStorage.getItem('theme') === 'light') {
-            document.documentElement.classList.add('light');
-        }
-    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEONARDO JAQUES // ARCHITECT_CORE_v2.0</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="stylesheet" href="css/styles.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 </head>
-<body>
-    <!-- Scan Line Effect -->
-    <div class="scan-line"></div>
+<body class="selection:bg-primary selection:text-on-primary">
 
-    <!-- Privacy Modal -->
-    <div class="privacy-overlay" id="privacyOverlay">
-        <div class="privacy-popup">
-            <div class="privacy-lang-toggle">
-                <button class="privacy-lang-btn active" data-privacy-lang="pt">PT</button>
-                <button class="privacy-lang-btn" data-privacy-lang="en">EN</button>
-            </div>
-            <h3>🔒 <span data-i18n="privacy-title">Aviso de Privacidade & Cookies</span></h3>
-            <p data-i18n="privacy-text1">Este site utiliza <strong>cookies e ferramentas de rastreamento</strong> (como Google Analytics) para coletar métricas de navegação — páginas visitadas, tempo de acesso e origem do tráfego — com o objetivo de melhorar a experiência do usuário.</p>
-            <p data-i18n="privacy-text2">Os dados de contato fornecidos são usados exclusivamente para comunicação profissional. Nenhuma informação pessoal é compartilhada com terceiros sem consentimento prévio, em conformidade com a <strong>LGPD (Lei nº 13.709/2018)</strong>.</p>
-            <p data-i18n="privacy-text3">Ao clicar em <em>Aceito</em>, você consente com o uso de cookies de rastreamento. Ao recusar, apenas cookies essenciais serão mantidos. Sua escolha é salva e este aviso não será exibido novamente.</p>
-            <div class="privacy-buttons">
-                <button class="btn-accept" id="btn-accept"><span data-i18n="accept">Aceito</span></button>
-                <button class="btn-decline" id="btn-decline"><span data-i18n="decline">Não Aceito</span></button>
-            </div>
-        </div>
+<!-- Privacy / LGPD Cookie Consent Modal -->
+<div class="privacy-overlay" id="privacyOverlay">
+  <div class="privacy-popup">
+    <div class="privacy-lang-toggle">
+      <button class="privacy-lang-btn active" data-privacy-lang="pt">PT</button>
+      <button class="privacy-lang-btn" data-privacy-lang="en">EN</button>
+    </div>
+    <h3 id="privacy-title">Aviso de Privacidade &amp; Cookies</h3>
+    <p id="privacy-text1">Este site utiliza <strong>cookies e ferramentas de rastreamento</strong> (como analytics) para coletar metricas de navegacao &mdash; paginas visitadas, tempo de acesso e origem do trafego &mdash; com o objetivo de melhorar a experiencia do usuario.</p>
+    <p id="privacy-text2">Os dados de contato fornecidos sao usados exclusivamente para comunicacao profissional. Nenhuma informacao pessoal e compartilhada com terceiros sem consentimento previo, em conformidade com a <strong>LGPD (Lei n&ordm; 13.709/2018)</strong>.</p>
+    <p id="privacy-text3">Ao clicar em <em>Aceito</em>, voce consente com o uso de cookies de rastreamento. Ao recusar, apenas cookies essenciais serao mantidos. Sua escolha e salva e este aviso nao sera exibido novamente.</p>
+    <div class="privacy-buttons">
+      <button class="btn-accept" id="btn-accept">Aceito</button>
+      <button class="btn-decline" id="btn-decline">Nao Aceito</button>
+    </div>
+  </div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl border-b border-[#54e87c]/15 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+  <div class="flex justify-between items-center px-8 h-16 max-w-full">
+    <div class="font-['Fira_Code'] font-bold text-[#54e87c] tracking-widest text-lg">
+      LEONARDO_JAQUES
+    </div>
+    <div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+      <a class="text-[#e5e2e1] opacity-70 hover:text-[#54e87c] hover:opacity-100 transition-all duration-200" href="#works" data-i18n="nav_works">Trabalhos</a>
+      <a class="text-[#e5e2e1] opacity-70 hover:text-[#54e87c] hover:opacity-100 transition-all duration-200" href="#experience" data-i18n="nav_experience">Experiencia</a>
+      <a class="text-[#e5e2e1] opacity-70 hover:text-[#54e87c] hover:opacity-100 transition-all duration-200" href="#stack">Stack</a>
+      <a class="text-[#e5e2e1] opacity-70 hover:text-[#54e87c] hover:opacity-100 transition-all duration-200" href="#about" data-i18n="nav_about">Sobre</a>
+      <a class="text-[#e5e2e1] opacity-70 hover:text-[#54e87c] hover:opacity-100 transition-all duration-200" href="#contact" data-i18n="nav_contact">Contato</a>
+      <!-- Language Toggle -->
+      <button id="langToggle" class="font-['Fira_Code'] text-xs px-3 py-1 border border-[#54e87c]/30 rounded-md hover:bg-[#54e87c]/10 text-[#54e87c] transition-all">
+        EN
+      </button>
+    </div>
+    <a href="Leonardo_Jaques_Curriculo.pdf" id="cvBtn" target="_blank" rel="noopener" class="font-['Fira_Code'] text-[#54e87c] text-sm uppercase px-4 py-2 border border-[#54e87c]/30 rounded-md hover:bg-[#54e87c]/10 active:scale-95 transition-all" data-i18n="nav_cv">
+      $ download --cv
+    </a>
+  </div>
+</nav>
+
+<main class="pt-16 pb-24 md:pb-0">
+
+<!-- Hero Section -->
+<section class="relative h-[90vh] min-h-[700px] flex items-center px-8 overflow-hidden bg-transparent scanline">
+  <div class="absolute inset-0 z-0">
+    <img alt="Rio de Janeiro - Cristo Redentor" class="w-full h-full object-cover opacity-30 grayscale contrast-125" style="object-position: center 20%;" src="images/cristo-redentor.webp"/>
+    <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-5xl">
+    <p class="font-label text-primary text-sm tracking-[0.3em] mb-4 uppercase">&gt; INITIALIZING_SYSTEM_CORE</p>
+    <h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tight text-on-surface mb-4 leading-[1.1]">
+      Solution Architect<br/><span class="text-primary text-glow">&amp; Tech Lead</span>
+    </h1>
+    <p class="font-label text-secondary text-sm tracking-widest mb-6" data-i18n="hero_subtitle">Software Engineer // Rio de Janeiro</p>
+    <p class="max-w-2xl text-on-surface-variant text-lg md:text-xl font-body leading-relaxed mb-10 opacity-80" data-i18n="hero_desc">
+      Arquiteto de Solucoes e Tech Lead com experiencia em desenho de arquitetura de software, modernizacao de sistemas legados e lideranca tecnica. Focado em solucoes de alta performance com Java, Cloud Computing e Big Data.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#works" class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-8 py-4 rounded-md shadow-[0_0_20px_rgba(84,232,124,0.3)] hover:brightness-110 transition-all" data-i18n="hero_cta1">
+        Ver Projetos
+      </a>
+      <a href="#contact" class="border border-primary/20 text-primary px-8 py-4 rounded-md hover:bg-primary/10 transition-all font-label text-sm">
+        &gt; GET_IN_TOUCH
+      </a>
+    </div>
+  </div>
+  <div class="absolute bottom-12 right-12 hidden lg:block">
+    <div class="font-label text-xs text-primary/40 space-y-1">
+      <p>LAT: -22.9519 S</p>
+      <p>LONG: -43.2105 W</p>
+      <p data-i18n="hero_status">STATUS: DISPONIVEL</p>
+      <p class="cursor-blink">RIO_DE_JANEIRO</p>
+    </div>
+  </div>
+</section>
+
+<!-- Core Roles -->
+<section class="py-24 px-8 bg-surface-container-low/50 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <h2 class="font-headline text-4xl font-bold text-on-surface mb-2 tracking-tight" data-i18n="roles_title">Competencias Principais</h2>
+        <div class="h-1 w-24 bg-primary rounded-full"></div>
+      </div>
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-50 uppercase">01 // EXPERTISE</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="fade-up bg-surface-container-highest/80 p-8 rounded-lg group hover:bg-surface-container transition-colors border-b-2 border-transparent hover:border-primary">
+        <span class="material-symbols-outlined text-primary mb-6 text-4xl">architecture</span>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-on-surface">Solution Architect</h3>
+        <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="role1_desc">Desenho de arquiteturas cloud-native robustas, escalaveis e seguras. Modernizacao de sistemas legados com foco em alta disponibilidade e performance.</p>
+      </div>
+      <div class="fade-up bg-surface-container-highest/80 p-8 rounded-lg group hover:bg-surface-container transition-colors border-b-2 border-transparent hover:border-secondary" style="transition-delay: 0.1s;">
+        <span class="material-symbols-outlined text-secondary mb-6 text-4xl">groups</span>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-on-surface">Tech Lead</h3>
+        <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="role2_desc">Lideranca de equipes de engenharia cross-funcionais com foco em mentoria, qualidade de codigo e entregas de alto impacto.</p>
+      </div>
+      <div class="fade-up bg-surface-container-highest/80 p-8 rounded-lg group hover:bg-surface-container transition-colors border-b-2 border-transparent hover:border-tertiary" style="transition-delay: 0.2s;">
+        <span class="material-symbols-outlined text-tertiary mb-6 text-4xl">terminal</span>
+        <h3 class="font-headline text-2xl font-bold mb-4 text-on-surface">Software Engineer</h3>
+        <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="role3_desc">Experiencia hands-on em desenvolvimento Full Stack (Java/Kotlin, React, Node.js) e mobile. Entusiasta de clean code, TDD e open-source.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="works" class="py-24 px-8 bg-transparent">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <h2 class="font-headline text-4xl font-bold text-on-surface mb-2 tracking-tight" data-i18n="projects_title">Projetos</h2>
+        <div class="h-1 w-24 bg-primary rounded-full"></div>
+      </div>
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-50 uppercase">02 // PORTFOLIO</span>
     </div>
 
-    <!-- Site Header -->
-    <header class="site-header" id="siteHeader">
-        <div class="header-inner container">
-            <a href="/" class="logo">jaques<span class="logo-dot">.</span></a>
-            <nav class="nav-links" id="navLinks">
-                <a href="#trabalhos" data-i18n="nav-works">Trabalhos</a>
-                <a href="#sobre" data-i18n="nav-about">Sobre</a>
-                <a href="#contato" data-i18n="nav-contact">Contato</a>
-            </nav>
-            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="header-right">
-                <a href="mailto:jaques.projetos@outlook.com" class="nav-email">jaques.projetos@outlook.com</a>
-                <div class="language-toggle">
-                    <button class="lang-option active" data-lang="pt" id="lang-pt">PT</button>
-                    <button class="lang-option" data-lang="en" id="lang-en">EN</button>
-                </div>
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                    <!-- Sun: shown in dark mode -->
-                    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                    </svg>
-                    <!-- Moon: shown in light mode -->
-                    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-cover">
-            <picture>
-                <source srcset="images/cristo-redentor.webp" type="image/webp">
-                <img src="images/cristo-redentor.jpg" alt="Rio de Janeiro">
-            </picture>
-            <div class="hero-cover-gradient"></div>
-        </div>
-        <div class="container">
-            <div class="hero-profile">
-                <img src="https://avatars.githubusercontent.com/u/28495699?v=4" alt="Leonardo Jaques" class="avatar">
-                <div class="hero-info">
-                    <h1>Leonardo Jaques</h1>
-                    <p class="hero-role" data-i18n="role">Solution Architect | Tech Lead | Engenheiro de Software</p>
-                    <p class="hero-meta" data-i18n="hero-meta">Rio de Janeiro · Disponível para projetos</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Works Section -->
-    <section id="trabalhos" class="section" data-animate>
-        <div class="container">
-            <div class="section-top">
-                <div>
-                    <p class="section-label" data-i18n="works-label">TRABALHOS</p>
-                    <p class="section-count" id="worksCount">6 projetos</p>
-                </div>
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-category="todos" data-i18n="filter-all">Todos</button>
-                    <button class="filter-btn" data-category="web" data-i18n="filter-web">Web</button>
-                    <button class="filter-btn" data-category="mobile" data-i18n="filter-mobile">Mobile</button>
-                    <button class="filter-btn" data-category="sistemas" data-i18n="filter-sistemas">Sistemas</button>
-                </div>
-            </div>
-
-            <div class="works-grid" id="worksGrid">
-
-                <!-- Card 1: Jaques Projetos Digitais -->
-                <a href="https://github.com/LeonardoJaques/jaquesprojetos" target="_blank" rel="noopener noreferrer" class="work-card" data-category="web">
-                    <div class="card-thumb">
-                        <img src="images/thumb-jaquesprojetos.svg" alt="Jaques Projetos Digitais">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Jaques Projetos Digitais</h3>
-                        <p class="card-desc" data-i18n="card-desc-portfolio">Portfolio pessoal com tema terminal/cyberpunk. Site estático com i18n PT/EN, LGPD consent modal e animações CSS.</p>
-                        <div class="card-meta">
-                            <span class="card-pub">jaquesprojetos.com.br</span>
-                            <span class="card-date">Mar 2026</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 2: Pair Programming Podcast -->
-                <a href="#" class="work-card" data-category="web">
-                    <div class="card-thumb card-thumb--podcast">
-                        <picture>
-                            <source srcset="images/Pair-Programming-logo.webp" type="image/webp">
-                            <img src="images/Pair-Programming-logo.png" alt="Pair Programming Podcast">
-                        </picture>
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Pair Programming Podcast</h3>
-                        <p class="card-desc" data-i18n="card-desc-podcast">Podcast sobre desenvolvimento de software, arquitetura e carreira em tech. Episódios, transcrições e recursos para devs.</p>
-                        <div class="card-meta">
-                            <span class="card-pub">pairprogramming.com.br</span>
-                            <span class="card-date">Jan 2025</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 3: Convergência Blog -->
-                <a href="https://jaquesprojetos.com.br/convergencia/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="web">
-                    <div class="card-thumb card-thumb--blog">
-                        <img src="images/convergencia-logo.png" alt="Convergência Blog">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title" data-i18n="blog-name">Convergência</h3>
-                        <p class="card-desc" data-i18n="card-desc-blog">Blog técnico sobre arquitetura de software, boas práticas e tendências do mercado de desenvolvimento.</p>
-                        <div class="card-meta">
-                            <span class="card-pub">convergencia.dev</span>
-                            <span class="card-date">Nov 2025</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 4: Kanban Board App -->
-                <a href="https://github.com/LeonardoJaques/kanban-board-app" target="_blank" rel="noopener noreferrer" class="work-card" data-category="sistemas">
-                    <div class="card-thumb">
-                        <img src="images/thumb-kanban.svg" alt="Kanban Board App">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Kanban Board App</h3>
-                        <p class="card-desc" data-i18n="card-desc-kanban">Gerenciador de tarefas com drag-and-drop, múltiplos boards e persistência local. Desenvolvido em React e TypeScript.</p>
-                        <div class="card-meta">
-                            <span class="card-pub">React / TypeScript</span>
-                            <span class="card-date">Set 2025</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 5: Lab Java Quarkus -->
-                <a href="https://github.com/LeonardoJaques/lab-java-quarkus" target="_blank" rel="noopener noreferrer" class="work-card" data-category="sistemas">
-                    <div class="card-thumb">
-                        <img src="images/thumb-java.svg" alt="Lab Java Quarkus">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Lab Java Quarkus</h3>
-                        <p class="card-desc" data-i18n="card-desc-java">APIs RESTful com Quarkus, Spring Security, JWT, JPA/Hibernate e documentação via Swagger/OpenAPI.</p>
-                        <div class="card-meta">
-                            <span class="card-pub">Java / Quarkus</span>
-                            <span class="card-date">Abr 2024</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 6: QRCode Pix -->
-                <a href="https://github.com/LeonardoJaques/qrcodePix" target="_blank" rel="noopener noreferrer" class="work-card" data-category="web">
-                    <div class="card-thumb">
-                        <img src="images/thumb-qrcode.svg" alt="QRCode Pix">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">QRCode Pix</h3>
-                        <p class="card-desc" data-i18n="card-desc-qrcode">Gerador de QR Code para pagamentos via Pix. Suporte a chaves CPF, CNPJ, email, telefone e chave aleatória.</p>
-                        <div class="card-meta">
-                            <span class="card-pub">JavaScript / Web</span>
-                            <span class="card-date">Jun 2024</span>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Employers Strip -->
-    <div class="employers-strip" data-animate>
-        <div class="container">
-            <p class="employers-label" data-i18n="employers-label">ONDE TRABALHEI</p>
-
-            <div class="exp-grid">
-
-                <!-- Mutant → Vivo (Jul 2024 – Presente) -->
-                <div class="exp-card">
-                    <div class="exp-logos-row">
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-mutant.svg" alt="Mutant"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Mutant'}))">
-                        </div>
-                        <span class="exp-arrow">→</span>
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-vivo.svg" alt="Vivo"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Vivo'}))">
-                        </div>
-                    </div>
-                    <div class="exp-tags-row">
-                        <span class="exp-tag exp-tag--arch">Solution Architect</span>
-                        <span class="exp-tag exp-tag--back">Tech Lead</span>
-                    </div>
-                </div>
-
-                <!-- L.J-tech Consultoria (Jan 2024 – Jul 2024 / Abr 2023 – Set 2023) -->
-                <div class="exp-card">
-                    <div class="exp-logos-row">
-                        <div class="exp-logo-wrap">
-                            <span class="exp-fallback">L.J-tech</span>
-                        </div>
-                        <span class="exp-arrow">→</span>
-                        <div class="exp-logo-wrap">
-                            <span class="exp-fallback">Share Aero</span>
-                        </div>
-                        <div class="exp-logo-wrap">
-                            <span class="exp-fallback">NexMov</span>
-                        </div>
-                    </div>
-                    <div class="exp-tags-row">
-                        <span class="exp-tag exp-tag--full">Full-Stack</span>
-                        <span class="exp-tag exp-tag--mobile">Mobile</span>
-                    </div>
-                </div>
-
-                <!-- Redspark → Embraer + SESC-SP (Ago 2023 – Jan 2024) -->
-                <div class="exp-card">
-                    <div class="exp-logos-row">
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-redspark.svg" alt="Redspark"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Redspark'}))">
-                        </div>
-                        <span class="exp-arrow">→</span>
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-embraer.svg" alt="Embraer"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Embraer'}))">
-                        </div>
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-sescsp.svg" alt="SESC-SP"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'SESC-SP'}))">
-                        </div>
-                    </div>
-                    <div class="exp-tags-row">
-                        <span class="exp-tag exp-tag--front">Frontend</span>
-                        <span class="exp-tag exp-tag--mobile">Mobile</span>
-                    </div>
-                </div>
-
-                <!-- To-brasil → Descomplica + Rio Card (Mai 2021 – Abr 2023) -->
-                <div class="exp-card">
-                    <div class="exp-logos-row">
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-tobrasil.svg" alt="To-brasil"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'To-brasil'}))">
-                        </div>
-                        <span class="exp-arrow">→</span>
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-descomplica.svg" alt="Descomplica"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Descomplica'}))">
-                        </div>
-                        <div class="exp-logo-wrap">
-                            <img src="images/logo-brtrio.svg" alt="BRT Rio"
-                                 onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'exp-fallback',textContent:'Rio Card'}))">
-                        </div>
-                    </div>
-                    <div class="exp-tags-row">
-                        <span class="exp-tag exp-tag--full">Full-Stack</span>
-                        <span class="exp-tag exp-tag--mobile">Mobile</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Role badges -->
-            <div class="role-stack">
-                <span class="role-badge role-badge--arch">Solution Architect</span>
-                <span class="role-badge role-badge--back">Tech Lead</span>
-                <span class="role-badge role-badge--full">Full-Stack</span>
-                <span class="role-badge role-badge--front">Frontend</span>
-                <span class="role-badge role-badge--mobile">Mobile</span>
-            </div>
-
-        </div>
+    <div class="flex gap-4 mb-12 font-label text-sm">
+      <button class="filter-btn px-4 py-2 rounded-md bg-primary/10 text-primary border border-primary/30" data-filter="all" data-i18n="filter_all">Todos</button>
+      <button class="filter-btn px-4 py-2 rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors" data-filter="web">Web</button>
+      <button class="filter-btn px-4 py-2 rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors" data-filter="systems" data-i18n="filter_systems">Sistemas</button>
     </div>
 
-    <!-- About Section -->
-    <section id="sobre" class="section section--about" data-animate>
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-left">
-                    <p class="section-label" data-i18n="about-label">SOBRE</p>
-                    <h2 data-i18n="about-heading">Software com propósito</h2>
-                    <div class="about-bio">
-                        <div class="about-avatar">
-                            <img src="https://avatars.githubusercontent.com/u/28495699?v=4" alt="Leonardo Jaques">
-                        </div>
-                        <div>
-                            <h3>Leonardo Jaques</h3>
-                            <p class="about-role" data-i18n="role">Solution Architect | Tech Lead | Engenheiro de Software</p>
-                        </div>
-                    </div>
-                    <p class="about-desc" data-i18n="about-desc">Arquiteto de Soluções e Tech Lead com sólida experiência em desenho de arquitetura de software, modernização de sistemas legados e liderança técnica. Atualmente focado em soluções de alta performance utilizando Java, Cloud Computing e Big Data (Databricks). Background diversificado em desenvolvimento Full Stack (Java/Kotlin, React, Node.js) e mobile. Entusiasta de tecnologias open-source, boas práticas de engenharia de software e metodologias ágeis.</p>
-                    <a href="Leonardo_Jaques_Curriculo.pdf" class="btn-download" id="btn-cv-download" download>📄 <span data-i18n="download-cv">$ download --curriculo</span></a>
-                </div>
-                <div class="about-right">
-                    <p class="section-label" data-i18n="tech-label">TECNOLOGIAS</p>
-                    <div class="tech-groups">
-                        <div class="tech-group">
-                            <span class="tech-group-label" data-i18n="tech-lang">Linguagens</span>
-                            <ul class="tech-list">
-                                <li>Java (Foco atual) · Kotlin</li>
-                                <li>JavaScript / TypeScript</li>
-                                <li>Python · SQL · HTML5 · CSS/Sass</li>
-                            </ul>
-                        </div>
-                        <div class="tech-group">
-                            <span class="tech-group-label">Frameworks &amp; Libs</span>
-                            <ul class="tech-list">
-                                <li>Spring Boot · Quarkus</li>
-                                <li>React · React Native · Vue.js</li>
-                                <li>Node.js · Material UI</li>
-                            </ul>
-                        </div>
-                        <div class="tech-group">
-                            <span class="tech-group-label">IA &amp; LLMs</span>
-                            <ul class="tech-list">
-                                <li>Claude · Gemini · Codex</li>
-                                <li>Claude Code · Cursor · Copilot</li>
-                                <li>Antigravity · Prompt Engineering</li>
-                            </ul>
-                        </div>
-                        <div class="tech-group">
-                            <span class="tech-group-label">Cloud &amp; DevOps</span>
-                            <ul class="tech-list">
-                                <li>AWS · Azure (Portal, DevOps)</li>
-                                <li>Docker · Kubernetes</li>
-                                <li>Jenkins · CI/CD · SRE · SonarQube</li>
-                            </ul>
-                        </div>
-                        <div class="tech-group">
-                            <span class="tech-group-label" data-i18n="tech-tools">Ferramentas &amp; Dados</span>
-                            <ul class="tech-list">
-                                <li>Databricks · PowerBI · Kibana</li>
-                                <li>Sentry · MixPanel · LaunchDarkly</li>
-                                <li>PostgreSQL · MySQL · MongoDB · JPA/Hibernate</li>
-                            </ul>
-                        </div>
-                        <div class="tech-group">
-                            <span class="tech-group-label" data-i18n="tech-arch">Arquitetura &amp; Metodologias</span>
-                            <ul class="tech-list">
-                                <li>Microserviços · Hexagonal · Onion</li>
-                                <li>SOLID · CQRS · C4 Model · Design Patterns · Clean Code</li>
-                                <li>Kafka/RabbitMQ · Scrum/Agile</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="web">
+        <div class="aspect-video overflow-hidden bg-surface-container flex items-center justify-center">
+          <div class="font-label text-primary/30 text-6xl">&lt;/&gt;</div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato" class="contact-section" data-animate>
-        <div class="container">
-            <p class="section-label" data-i18n="contact-label">CONTATO</p>
-            <h2 data-i18n="contact-title">Vamos conversar sobre seu projeto?</h2>
-            <p class="contact-sub" data-i18n="contact-text">Entre em contato para uma consultoria gratuita e orçamento personalizado.</p>
-            <div class="contact-buttons">
-                <a href="mailto:jaques.projetos@outlook.com" class="btn-contact">
-                    ✉️ jaques.projetos@outlook.com
-                </a>
-                <a href="https://wa.me/5521972856520?text=Ol%C3%A1%20Leonardo%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="btn-contact btn-whatsapp">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    WhatsApp
-                </a>
-            </div>
-            <div class="contact-phone">
-                <a href="tel:+5521972856520">+55 (21) 97285-6520</a>
-            </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-headline text-3xl font-bold text-on-surface">Jaques Projetos Digitais</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1">MAR 2026</span>
+          </div>
+          <p class="text-on-surface-variant mb-6 font-body leading-relaxed" data-i18n="proj1_desc">Portfolio pessoal com tema terminal/cyberpunk. Site estatico com i18n PT/EN, LGPD consent modal e animacoes CSS.</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">HTML5</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">CSS</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">JAVASCRIPT</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">I18N</span>
+          </div>
+          <a class="inline-flex items-center gap-2 text-primary font-label text-sm group-hover:translate-x-2 transition-transform" href="https://jaquesprojetos.com.br" target="_blank">
+            JAQUESPROJETOS.COM.BR <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <p class="footer-copy" data-i18n="footer">© 2026 Jaqueprojetos. Desenvolvendo o futuro digital, um café por vez. ☕</p>
-            <div class="footer-socials">
-                <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="https://github.com/LeonardoJaques" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="https://bsky.app/profile/leonardojaques.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
-                    <svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65 6.317 8.505C2.708 14.628.36 19.583.36 20.304c0 .721.083 1.204.364 1.526.662.758 1.626 1.098 5.44-1.254 3.035-1.87 4.952-4.255 5.836-5.776.884 1.52 2.8 3.906 5.836 5.776 3.813 2.352 4.777 2.012 5.44 1.254.28-.322.364-.805.364-1.526 0-.721-2.348-5.676-5.957-8.03C23.622 9.418 24 4.458 24 3.768c0-.688-.139-1.86-.902-2.203-.659-.299-1.664-.62-4.3 1.24-2.752 1.942-5.711 5.88-6.798 7.995z"/></svg>
-                </a>
-                <a href="https://x.com/Lajaques" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X">
-                    <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </a>
-            </div>
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="web">
+        <div class="aspect-video overflow-hidden bg-surface-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-secondary/30 text-8xl">headphones</span>
         </div>
-    </footer>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-headline text-3xl font-bold text-on-surface">Pair Programming Podcast</h3>
+            <span class="font-label text-secondary text-xs border border-secondary/30 px-2 py-1">ONGOING</span>
+          </div>
+          <p class="text-on-surface-variant mb-6 font-body leading-relaxed" data-i18n="proj2_desc">Podcast sobre desenvolvimento de software, arquitetura e carreira em tech. Episodios, transcricoes e recursos para devs.</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">PODCASTING</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">COMMUNITY</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">TECH_LEADERSHIP</span>
+          </div>
+          <a class="inline-flex items-center gap-2 text-secondary font-label text-sm group-hover:translate-x-2 transition-transform" href="https://pairprogramming.com.br" target="_blank">
+            PAIRPROGRAMMING.COM.BR <span class="material-symbols-outlined text-sm">headphones</span>
+          </a>
+        </div>
+      </div>
 
-    <script src="js/main.js"></script>
-    <script defer src="https://analytics.ldw.solutions/script.js" data-website-id="1028df64-9269-43a3-aab4-182a5f1d4355"></script>
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="web">
+        <div class="aspect-video overflow-hidden bg-surface-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-tertiary/30 text-8xl">edit_note</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-headline text-3xl font-bold text-on-surface">Convergencia Blog</h3>
+            <span class="font-label text-tertiary text-xs border border-tertiary/30 px-2 py-1">NOV 2025</span>
+          </div>
+          <p class="text-on-surface-variant mb-6 font-body leading-relaxed" data-i18n="proj3_desc">Blog tecnico sobre arquitetura de software, boas praticas e tendencias do mercado de desenvolvimento.</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">BLOG</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">ARCHITECTURE</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">BEST_PRACTICES</span>
+          </div>
+          <a class="inline-flex items-center gap-2 text-tertiary font-label text-sm group-hover:translate-x-2 transition-transform" href="https://convergencia.dev" target="_blank">
+            CONVERGENCIA.DEV <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="web">
+        <div class="aspect-video overflow-hidden bg-surface-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary/30 text-8xl">view_kanban</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-headline text-3xl font-bold text-on-surface">Kanban Board App</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1">SET 2025</span>
+          </div>
+          <p class="text-on-surface-variant mb-6 font-body leading-relaxed" data-i18n="proj4_desc">Gerenciador de tarefas com drag-and-drop, multiplos boards e persistencia local. Desenvolvido em React e TypeScript.</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">REACT</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">TYPESCRIPT</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">DRAG_N_DROP</span>
+          </div>
+          <a class="inline-flex items-center gap-2 text-primary font-label text-sm group-hover:translate-x-2 transition-transform" href="#">
+            VIEW_SOURCE <span class="material-symbols-outlined text-sm">code</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="systems">
+        <div class="aspect-video overflow-hidden bg-surface-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-secondary/30 text-8xl">api</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-headline text-3xl font-bold text-on-surface">Lab Java Quarkus</h3>
+            <span class="font-label text-secondary text-xs border border-secondary/30 px-2 py-1">ABR 2024</span>
+          </div>
+          <p class="text-on-surface-variant mb-6 font-body leading-relaxed" data-i18n="proj5_desc">APIs RESTful com Quarkus, Spring Security, JWT, JPA/Hibernate e documentacao via Swagger/OpenAPI.</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">JAVA</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">QUARKUS</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">JWT</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">SWAGGER</span>
+          </div>
+          <a class="inline-flex items-center gap-2 text-secondary font-label text-sm group-hover:translate-x-2 transition-transform" href="#">
+            EXPLORE_API <span class="material-symbols-outlined text-sm">hub</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="web">
+        <div class="aspect-video overflow-hidden bg-surface-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-tertiary/30 text-8xl">qr_code_2</span>
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-headline text-3xl font-bold text-on-surface">QRCode Pix</h3>
+            <span class="font-label text-tertiary text-xs border border-tertiary/30 px-2 py-1">JUN 2024</span>
+          </div>
+          <p class="text-on-surface-variant mb-6 font-body leading-relaxed" data-i18n="proj6_desc">Gerador de QR Code para pagamentos via Pix. Suporte a chaves CPF, CNPJ, email, telefone e chave aleatoria.</p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">JAVASCRIPT</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">PIX</span>
+            <span class="bg-surface-container-high text-on-surface-variant text-[10px] font-label px-3 py-1 rounded">QRCODE</span>
+          </div>
+          <a class="inline-flex items-center gap-2 text-tertiary font-label text-sm group-hover:translate-x-2 transition-transform" href="#">
+            VIEW_GENERATOR <span class="material-symbols-outlined text-sm">qr_code</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience / Employment History -->
+<section id="experience" class="py-24 px-8 bg-surface-container-low/50 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <h2 class="font-headline text-4xl font-bold text-on-surface mb-2 tracking-tight" data-i18n="exp_title">Onde Trabalhei</h2>
+        <div class="h-1 w-24 bg-primary rounded-full"></div>
+      </div>
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-50 uppercase">03 // CAREER_LOG</span>
+    </div>
+
+    <div class="timeline-line pl-8 space-y-12">
+      <div class="fade-up relative">
+        <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-primary border-2 border-surface"></div>
+        <div class="bg-surface-container-highest/80 p-8 rounded-lg border-l-2 border-primary/30">
+          <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+            <div>
+              <h3 class="font-headline text-2xl font-bold text-on-surface">Mutant &rarr; Vivo</h3>
+              <p class="font-label text-primary text-xs mt-1">SOLUTION_ARCHITECT // TECH_LEAD</p>
+            </div>
+            <span class="font-label text-primary text-xs border border-primary/30 px-3 py-1">JUL 2024 &mdash; PRESENT</span>
+          </div>
+          <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="exp1_desc">Solucoes de alta performance com Java, Cloud Computing e Big Data (Databricks). Lideranca tecnica e desenho de arquitetura.</p>
+        </div>
+      </div>
+
+      <div class="fade-up relative">
+        <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-secondary border-2 border-surface"></div>
+        <div class="bg-surface-container-highest/80 p-8 rounded-lg border-l-2 border-secondary/30">
+          <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+            <div>
+              <h3 class="font-headline text-2xl font-bold text-on-surface">L.J-tech Consultoria</h3>
+              <p class="font-label text-secondary text-xs mt-1">FULL_STACK // MOBILE</p>
+              <p class="font-label text-on-surface-variant text-xs mt-1 opacity-50" data-i18n="exp2_clients">Clientes: Share Aero + NexMov</p>
+            </div>
+            <span class="font-label text-secondary text-xs border border-secondary/30 px-3 py-1">JAN 2024 &mdash; JUL 2024</span>
+          </div>
+          <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="exp2_desc">Desenvolvimento full-stack e mobile para clientes do setor aeronautico e de mobilidade urbana.</p>
+        </div>
+      </div>
+
+      <div class="fade-up relative">
+        <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-tertiary border-2 border-surface"></div>
+        <div class="bg-surface-container-highest/80 p-8 rounded-lg border-l-2 border-tertiary/30">
+          <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+            <div>
+              <h3 class="font-headline text-2xl font-bold text-on-surface">Redspark</h3>
+              <p class="font-label text-tertiary text-xs mt-1">FRONTEND // MOBILE</p>
+              <p class="font-label text-on-surface-variant text-xs mt-1 opacity-50" data-i18n="exp3_clients">Clientes: Embraer + SESC-SP</p>
+            </div>
+            <span class="font-label text-tertiary text-xs border border-tertiary/30 px-3 py-1">AGO 2023 &mdash; JAN 2024</span>
+          </div>
+          <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="exp3_desc">Desenvolvimento frontend e mobile para grandes clientes como Embraer e SESC-SP.</p>
+        </div>
+      </div>
+
+      <div class="fade-up relative">
+        <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-primary/50 border-2 border-surface"></div>
+        <div class="bg-surface-container-highest/80 p-8 rounded-lg border-l-2 border-primary/15">
+          <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+            <div>
+              <h3 class="font-headline text-2xl font-bold text-on-surface">To-brasil</h3>
+              <p class="font-label text-primary/70 text-xs mt-1">FULL_STACK // MOBILE</p>
+              <p class="font-label text-on-surface-variant text-xs mt-1 opacity-50" data-i18n="exp4_clients">Clientes: Descomplica + Rio Card</p>
+            </div>
+            <span class="font-label text-primary/70 text-xs border border-primary/15 px-3 py-1">MAI 2021 &mdash; ABR 2023</span>
+          </div>
+          <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="exp4_desc">Desenvolvimento full-stack e mobile para plataformas de educacao e mobilidade urbana.</p>
+        </div>
+      </div>
+
+      <!-- BRQ / ANS -->
+      <div class="fade-up relative">
+        <div class="absolute -left-8 top-2 w-4 h-4 rounded-full bg-secondary/50 border-2 border-surface"></div>
+        <div class="bg-surface-container-highest/80 p-8 rounded-lg border-l-2 border-secondary/15">
+          <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+            <div>
+              <h3 class="font-headline text-2xl font-bold text-on-surface">BRQ Digital Solutions</h3>
+              <p class="font-label text-secondary/70 text-xs mt-1">FULL_STACK</p>
+              <p class="font-label text-on-surface-variant text-xs mt-1 opacity-50" data-i18n="exp5_clients">Cliente: ANS</p>
+            </div>
+            <span class="font-label text-secondary/70 text-xs border border-secondary/15 px-3 py-1">2019 &mdash; 2020</span>
+          </div>
+          <p class="text-on-surface-variant font-body leading-relaxed opacity-70" data-i18n="exp5_desc">Desenvolvimento full-stack para a Agencia Nacional de Saude Suplementar (ANS).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<section id="stack" class="py-24 px-8 bg-transparent">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+      <div>
+        <h2 class="font-headline text-4xl font-bold text-on-surface mb-2 tracking-tight" data-i18n="stack_title">Tecnologias</h2>
+        <div class="h-1 w-24 bg-primary rounded-full"></div>
+      </div>
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-50 uppercase">04 // TECHNOLOGIES</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="fade-up bg-surface-container-highest/60 p-6 rounded-lg border border-outline-variant/10">
+        <h4 class="font-label text-primary text-xs uppercase tracking-widest mb-4" data-i18n="tech_languages">// Linguagens</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">Java</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">Kotlin</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">JavaScript</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">TypeScript</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">Python</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">SQL</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">HTML5</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">CSS/Sass</span>
+        </div>
+      </div>
+
+      <div class="fade-up bg-surface-container-highest/60 p-6 rounded-lg border border-outline-variant/10" style="transition-delay: 0.1s;">
+        <h4 class="font-label text-secondary text-xs uppercase tracking-widest mb-4">// Frameworks &amp; Libs</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Spring Boot</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Quarkus</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">React</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">React Native</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Vue.js</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Node.js</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Material UI</span>
+        </div>
+      </div>
+
+      <div class="fade-up bg-surface-container-highest/60 p-6 rounded-lg border border-outline-variant/10" style="transition-delay: 0.2s;">
+        <h4 class="font-label text-tertiary text-xs uppercase tracking-widest mb-4">// AI &amp; LLMs</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Claude</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Gemini</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Codex</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Claude Code</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Cursor</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Copilot</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Prompt Eng.</span>
+        </div>
+      </div>
+
+      <div class="fade-up bg-surface-container-highest/60 p-6 rounded-lg border border-outline-variant/10">
+        <h4 class="font-label text-primary text-xs uppercase tracking-widest mb-4">// Cloud &amp; DevOps</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">AWS</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">Azure</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">Docker</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">Kubernetes</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">Jenkins</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">CI/CD</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">SRE</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-primary/10 hover:text-primary transition-colors">SonarQube</span>
+        </div>
+      </div>
+
+      <div class="fade-up bg-surface-container-highest/60 p-6 rounded-lg border border-outline-variant/10" style="transition-delay: 0.1s;">
+        <h4 class="font-label text-secondary text-xs uppercase tracking-widest mb-4" data-i18n="tech_tools">// Ferramentas &amp; Dados</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Databricks</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">PowerBI</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Kibana</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">Sentry</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">PostgreSQL</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">MongoDB</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-secondary/10 hover:text-secondary transition-colors">LaunchDarkly</span>
+        </div>
+      </div>
+
+      <div class="fade-up bg-surface-container-highest/60 p-6 rounded-lg border border-outline-variant/10" style="transition-delay: 0.2s;">
+        <h4 class="font-label text-tertiary text-xs uppercase tracking-widest mb-4" data-i18n="tech_arch">// Arquitetura &amp; Metodos</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Microservices</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Hexagonal</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">SOLID</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">CQRS</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">C4 Model</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Clean Code</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Kafka</span>
+          <span class="bg-surface-container text-on-surface-variant text-xs font-label px-3 py-2 rounded hover:bg-tertiary/10 hover:text-tertiary transition-colors">Scrum/Agile</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-24 px-8 bg-surface-container-low/50 backdrop-blur-sm overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative">
+        <div class="absolute -top-10 -left-10 w-40 h-40 border-t border-l border-primary/20"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 border-b border-r border-tertiary/20"></div>
+        <img alt="Leonardo Jaques" class="relative z-10 w-full aspect-[4/5] object-cover rounded-sm grayscale shadow-2xl" src="https://avatars.githubusercontent.com/u/28495699?v=4"/>
+      </div>
+      <div>
+        <span class="font-label text-primary text-xs tracking-widest uppercase mb-4 block">05 // BIO_ARCHIVE</span>
+        <h2 class="font-headline text-5xl font-bold text-on-surface mb-4 tracking-tight" data-i18n="about_title">Software com proposito</h2>
+        <p class="font-label text-secondary text-sm mb-8 opacity-60">System Architect &amp; Tech Strategist</p>
+        <div class="space-y-6 font-body text-on-surface-variant leading-relaxed text-lg">
+          <p data-i18n="about_p1">Arquiteto de Solucoes e Tech Lead com solida experiencia em desenho de arquitetura de software, modernizacao de sistemas legados e lideranca tecnica.</p>
+          <p data-i18n="about_p2">Atualmente focado em solucoes de alta performance utilizando Java, Cloud Computing e Big Data (Databricks). Background diversificado em desenvolvimento Full Stack (Java/Kotlin, React, Node.js) e mobile.</p>
+          <p data-i18n="about_p3">Entusiasta de tecnologias open-source, boas praticas de engenharia de software e metodologias ageis. Baseado no Rio de Janeiro, trabalho com parceiros globais.</p>
+        </div>
+        <div class="mt-12 flex flex-col sm:flex-row gap-6">
+          <div class="flex flex-col">
+            <span class="font-label text-primary text-xs uppercase mb-1" data-i18n="stat_exp">Experiencia</span>
+            <span class="font-headline text-2xl font-bold">8+ ANOS</span>
+          </div>
+          <div class="w-px h-12 bg-outline-variant/20 hidden sm:block"></div>
+          <div class="flex flex-col">
+            <span class="font-label text-secondary text-xs uppercase mb-1" data-i18n="stat_proj">Projetos</span>
+            <span class="font-headline text-2xl font-bold">229+ REPOS</span>
+          </div>
+          <div class="w-px h-12 bg-outline-variant/20 hidden sm:block"></div>
+          <div class="flex flex-col">
+            <span class="font-label text-tertiary text-xs uppercase mb-1" data-i18n="stat_loc">Localizacao</span>
+            <span class="font-headline text-2xl font-bold">RIO DE JANEIRO</span>
+          </div>
+        </div>
+        <div class="mt-12">
+          <a href="Leonardo_Jaques_Curriculo.pdf" id="cvBtnAbout" target="_blank" rel="noopener" class="bg-primary text-on-primary px-10 py-4 font-bold rounded-md hover:bg-primary-container transition-all inline-flex items-center gap-3" data-i18n="about_cv">
+            <span class="material-symbols-outlined">download</span>
+            $ download --curriculo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 px-8 bg-transparent">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="font-label text-primary text-xs tracking-widest uppercase mb-4 block">06 // CONTATO</span>
+    <h2 class="font-headline text-5xl font-bold text-on-surface mb-4 tracking-tight" data-i18n="contact_title">Vamos conversar sobre<br/>seu projeto?</h2>
+    <p class="text-on-surface-variant text-lg mb-16 opacity-70" data-i18n="contact_subtitle">Entre em contato para uma consultoria gratuita e orcamento personalizado.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a href="mailto:jaques.projetos@outlook.com" class="fade-up bg-surface-container-highest/80 p-8 rounded-lg hover:bg-surface-container transition-colors border-b-2 border-transparent hover:border-primary group">
+        <span class="material-symbols-outlined text-primary mb-4 text-4xl">mail</span>
+        <h4 class="font-label text-sm text-on-surface mb-2">EMAIL</h4>
+        <p class="font-label text-on-surface-variant text-xs opacity-70 break-all">jaques.projetos@outlook.com</p>
+      </a>
+
+      <a href="https://wa.me/5521972856520" target="_blank" class="fade-up bg-surface-container-highest/80 p-8 rounded-lg hover:bg-surface-container transition-colors border-b-2 border-transparent hover:border-primary group" style="transition-delay: 0.1s;">
+        <span class="material-symbols-outlined text-primary mb-4 text-4xl">chat</span>
+        <h4 class="font-label text-sm text-on-surface mb-2">WHATSAPP</h4>
+        <p class="font-label text-on-surface-variant text-xs opacity-70">+55 (21) 97285-6520</p>
+      </a>
+
+      <a href="https://linkedin.com/in/leonardojaques-dev" target="_blank" class="fade-up bg-surface-container-highest/80 p-8 rounded-lg hover:bg-surface-container transition-colors border-b-2 border-transparent hover:border-secondary group" style="transition-delay: 0.2s;">
+        <span class="material-symbols-outlined text-secondary mb-4 text-4xl">person</span>
+        <h4 class="font-label text-sm text-on-surface mb-2">LINKEDIN</h4>
+        <p class="font-label text-on-surface-variant text-xs opacity-70">leonardojaques-dev</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#131313] border-t border-[#54e87c]/5 w-full py-12 px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col gap-2">
+      <div class="text-[#54e87c] font-bold font-['Fira_Code'] tracking-widest text-lg">LEONARDO_JAQUES</div>
+      <p class="font-['Fira_Code'] text-xs text-[#e5e2e1]/30 uppercase tracking-widest" data-i18n="footer_copy">&copy; 2026 JAQUEPROJETOS // CONSTRUINDO_O_FUTURO_DIGITAL</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8 font-['Fira_Code'] text-xs uppercase tracking-widest">
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://github.com/LeonardoJaques" target="_blank">GitHub</a>
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://linkedin.com/in/leonardojaques-dev" target="_blank">LinkedIn</a>
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://bsky.app/profile/leonardojaques.bsky.social" target="_blank">Bluesky</a>
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://x.com/Lajaques" target="_blank">X/Twitter</a>
+    </div>
+  </div>
+</footer>
+
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center px-4 py-3 bg-[#131313]/80 backdrop-blur-lg border-t border-[#54e87c]/10 shadow-[0_-10px_30px_rgba(84,232,124,0.05)] md:hidden z-50">
+  <a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-3 hover:bg-[#54e87c]/5 active:scale-90 duration-150" href="#works">
+    <span class="material-symbols-outlined">grid_view</span>
+    <span class="font-['Fira_Code'] text-[10px]" data-i18n="mob_projects">Projetos</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-3 hover:bg-[#54e87c]/5 active:scale-90 duration-150" href="#experience">
+    <span class="material-symbols-outlined">account_tree</span>
+    <span class="font-['Fira_Code'] text-[10px]" data-i18n="mob_career">Carreira</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-3 hover:bg-[#54e87c]/5 active:scale-90 duration-150" href="#stack">
+    <span class="material-symbols-outlined">layers</span>
+    <span class="font-['Fira_Code'] text-[10px]">Stack</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-3 hover:bg-[#54e87c]/5 active:scale-90 duration-150" href="#about">
+    <span class="material-symbols-outlined">person</span>
+    <span class="font-['Fira_Code'] text-[10px]" data-i18n="mob_about">Sobre</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-3 hover:bg-[#54e87c]/5 active:scale-90 duration-150" href="#contact">
+    <span class="material-symbols-outlined">alternate_email</span>
+    <span class="font-['Fira_Code'] text-[10px]" data-i18n="mob_contact">Contato</span>
+  </a>
+</nav>
+
+<script src="js/main.js"></script>
+
 </body>
 </html>
