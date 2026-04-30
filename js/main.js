@@ -54,6 +54,8 @@ const translations = {
     mob_career: "Carreira",
     mob_about: "Sobre",
     mob_contact: "Contato",
+    footer_privacy: "Política de Privacidade",
+    priv_policy_link: "Ver política completa →",
     // Privacy modal
     priv_title: "Aviso de Privacidade & Cookies",
     priv_text1: 'Este site utiliza <strong>cookies e ferramentas de rastreamento</strong> (como analytics) para coletar metricas de navegacao \u2014 paginas visitadas, tempo de acesso e origem do trafego \u2014 com o objetivo de melhorar a experiencia do usuario.',
@@ -114,6 +116,8 @@ const translations = {
     mob_career: "Career",
     mob_about: "About",
     mob_contact: "Contact",
+    footer_privacy: "Privacy Policy",
+    priv_policy_link: "See full privacy policy →",
     // Privacy modal
     priv_title: "Privacy & Cookies Notice",
     priv_text1: 'This website uses <strong>cookies and tracking tools</strong> (such as analytics) to collect browsing metrics \u2014 pages visited, time on site and traffic sources \u2014 in order to improve user experience.',

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Política de Privacidade // LEONARDO JAQUES</title>
+<meta name="description" content="Política de Privacidade e Proteção de Dados do site jaquesprojetos.com.br, em conformidade com a LGPD (Lei 13.709/2018) e o Marco Civil da Internet (Lei 12.965/2014)."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="js/tailwind.config.js"></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="stylesheet" href="css/styles.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body class="selection:bg-primary selection:text-on-primary">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl border-b border-[#54e87c]/15 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+  <div class="flex justify-between items-center px-8 h-16 max-w-full">
+    <a href="/" class="font-['Fira_Code'] font-bold text-[#54e87c] tracking-widest text-lg hover:opacity-80 transition-opacity">
+      LEONARDO_JAQUES
+    </a>
+    <div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+      <a class="text-[#e5e2e1] opacity-70 hover:text-[#54e87c] hover:opacity-100 transition-all duration-200" href="/" data-i18n="back_home">← Voltar ao Site</a>
+      <button id="langToggle" class="font-['Fira_Code'] text-xs px-3 py-1 border border-[#54e87c]/30 rounded-md hover:bg-[#54e87c]/10 text-[#54e87c] transition-all">
+        EN
+      </button>
+    </div>
+    <a href="Leonardo_Jaques_Curriculo.pdf" id="cvBtn" target="_blank" rel="noopener" class="font-['Fira_Code'] text-[#54e87c] text-sm uppercase px-4 py-2 border border-[#54e87c]/30 rounded-md hover:bg-[#54e87c]/10 active:scale-95 transition-all" data-i18n="nav_cv">
+      $ download --cv
+    </a>
+  </div>
+</nav>
+
+<main class="pt-16">
+
+<!-- Hero Section -->
+<section class="py-24 px-8 bg-transparent">
+  <div class="max-w-4xl mx-auto">
+    <p class="font-label text-primary text-sm tracking-[0.3em] mb-4 uppercase" data-i18n="hero_label">&gt; PRIVACY.LOG // LGPD v1.0</p>
+    <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-4 leading-[1.1]" data-i18n="hero_title">
+      Política de Privacidade
+    </h1>
+    <p class="font-label text-secondary text-sm tracking-widest mb-4" data-i18n="hero_subtitle">
+      LGPD (Lei 13.709/2018) &amp; Marco Civil da Internet (Lei 12.965/2014)
+    </p>
+    <p class="font-label text-on-surface-variant text-xs opacity-50" data-i18n="hero_updated">Última atualização: Abril de 2026</p>
+    <div class="h-1 w-24 bg-primary rounded-full mt-8"></div>
+  </div>
+</section>
+
+<!-- Content Sections -->
+<div class="max-w-4xl mx-auto px-8 pb-24 space-y-16">
+
+  <!-- 01 Data Controller -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-primary text-xs tracking-widest opacity-60" data-i18n="s1_label">01 // DATA_CONTROLLER</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s1_title">Controlador dos Dados</h2>
+    <div class="privacy-content-block" data-i18n="s1_body">
+      <p>O site <strong>jaquesprojetos.com.br</strong> é operado por:</p>
+      <ul>
+        <li><strong>Nome:</strong> Leonardo Jaques</li>
+        <li><strong>E-mail:</strong> <a href="mailto:jaques.projetos@outlook.com" class="text-primary hover:underline">jaques.projetos@outlook.com</a></li>
+        <li><strong>Localização:</strong> Rio de Janeiro, RJ — Brasil</li>
+      </ul>
+      <p>Para exercer seus direitos ou tirar dúvidas sobre o tratamento de dados, utilize o e-mail acima.</p>
+    </div>
+  </section>
+
+  <!-- 02 Data Collected -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-secondary text-xs tracking-widest opacity-60" data-i18n="s2_label">02 // DATA_COLLECTED</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s2_title">Dados Coletados</h2>
+    <div class="privacy-content-block" data-i18n="s2_body">
+      <p>Este site coleta as seguintes categorias de dados:</p>
+      <ul>
+        <li><strong>Dados de navegação (analytics):</strong> páginas visitadas, tempo de acesso, origem do tráfego e tipo de dispositivo. Coletados automaticamente via <em>Umami Analytics</em> mediante consentimento. O IP é anonimizado antes do armazenamento.</li>
+        <li><strong>Dados de contato voluntários:</strong> nome, e-mail e/ou telefone fornecidos diretamente pelo titular ao entrar em contato via e-mail (<code>jaques.projetos@outlook.com</code>) ou WhatsApp (<code>+55 21 97285-6520</code>).</li>
+        <li><strong>Preferências do usuário:</strong> idioma selecionado e escolha de cookies, armazenados localmente via cookie/localStorage no dispositivo do titular.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 Legal Basis -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-60" data-i18n="s3_label">03 // LEGAL_BASIS</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s3_title">Finalidade e Base Legal</h2>
+    <div class="privacy-content-block" data-i18n="s3_body">
+      <table class="privacy-table">
+        <thead><tr><th>Dado</th><th>Finalidade</th><th>Base Legal (LGPD)</th></tr></thead>
+        <tbody>
+          <tr><td>Analytics de navegação</td><td>Melhoria da experiência e desempenho do site</td><td>Consentimento — Art. 7, I</td></tr>
+          <tr><td>Dados de contato</td><td>Comunicação profissional e prestação de serviços</td><td>Execução de contrato / Legítimo interesse — Art. 7, V e IX</td></tr>
+          <tr><td>Preferências (idioma, cookies)</td><td>Personalização da experiência do usuário</td><td>Legítimo interesse — Art. 7, IX</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 04 Retention -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-primary text-xs tracking-widest opacity-60" data-i18n="s4_label">04 // RETENTION</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s4_title">Retenção de Dados</h2>
+    <div class="privacy-content-block" data-i18n="s4_body">
+      <ul>
+        <li><strong>Dados de analytics:</strong> retidos por no máximo <strong>12 meses</strong> a partir da coleta, podendo ser excluídos antes mediante solicitação.</li>
+        <li><strong>Dados de contato:</strong> mantidos enquanto houver relação profissional ativa e por até <strong>24 meses</strong> após o último contato, salvo obrigação legal que exija prazo maior.</li>
+        <li><strong>Preferências de cookies:</strong> armazenadas no dispositivo do titular por <strong>365 dias</strong>, renovadas a cada nova escolha.</li>
+      </ul>
+      <p>Após os prazos acima, os dados são excluídos ou anonimizados de forma irreversível, conforme <strong>LGPD Art. 9, §1°</strong>.</p>
+    </div>
+  </section>
+
+  <!-- 05 Your Rights -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-secondary text-xs tracking-widest opacity-60" data-i18n="s5_label">05 // YOUR_RIGHTS</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s5_title">Seus Direitos como Titular</h2>
+    <div class="privacy-content-block" data-i18n="s5_body">
+      <p>Nos termos dos <strong>Arts. 17 a 22 da LGPD</strong> e do <strong>Art. 7, IX-X do Marco Civil da Internet</strong>, você tem direito a:</p>
+      <ul>
+        <li><strong>Acesso:</strong> confirmar a existência de tratamento e obter cópia dos seus dados.</li>
+        <li><strong>Correção:</strong> solicitar atualização de dados incompletos, inexatos ou desatualizados.</li>
+        <li><strong>Anonimização ou Exclusão:</strong> requerer a eliminação de dados desnecessários ou tratados em desconformidade com a lei.</li>
+        <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado para uso por outro fornecedor.</li>
+        <li><strong>Revogação do consentimento:</strong> retirar o consentimento a qualquer momento, sem prejuízo dos tratamentos realizados anteriormente.</li>
+        <li><strong>Oposição:</strong> se opor ao tratamento realizado com base em legítimo interesse.</li>
+        <li><strong>Informação:</strong> conhecer as entidades públicas e privadas com as quais houve compartilhamento.</li>
+      </ul>
+      <p>Para exercer qualquer direito, envie e-mail para <a href="mailto:jaques.projetos@outlook.com" class="text-primary hover:underline">jaques.projetos@outlook.com</a>. O prazo de resposta é de até <strong>15 dias úteis</strong>.</p>
+    </div>
+  </section>
+
+  <!-- 06 DPO -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-60" data-i18n="s6_label">06 // DPO</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s6_title">Encarregado de Dados (DPO)</h2>
+    <div class="privacy-content-block" data-i18n="s6_body">
+      <p>Nos termos do <strong>Art. 41 da LGPD</strong>, o Encarregado pelo tratamento de dados pessoais deste site é:</p>
+      <ul>
+        <li><strong>Nome:</strong> Leonardo Jaques</li>
+        <li><strong>E-mail:</strong> <a href="mailto:jaques.projetos@outlook.com" class="text-primary hover:underline">jaques.projetos@outlook.com</a></li>
+      </ul>
+      <p>O Encarregado é responsável por receber comunicações da ANPD, dos titulares e por adotar providências cabíveis.</p>
+    </div>
+  </section>
+
+  <!-- 07 Cookies -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-primary text-xs tracking-widest opacity-60" data-i18n="s7_label">07 // COOKIES</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s7_title">Cookies e Rastreamento</h2>
+    <div class="privacy-content-block" data-i18n="s7_body">
+      <p>Este site utiliza as seguintes categorias de cookies, conforme <strong>Art. 8 da LGPD</strong> e <strong>Art. 7, III do Marco Civil da Internet</strong>:</p>
+      <table class="privacy-table">
+        <thead><tr><th>Tipo</th><th>Nome</th><th>Finalidade</th><th>Duração</th></tr></thead>
+        <tbody>
+          <tr><td>Essencial</td><td>privacyAccepted</td><td>Armazena sua escolha de consentimento</td><td>365 dias</td></tr>
+          <tr><td>Essencial</td><td>preferredLanguage</td><td>Salva o idioma selecionado</td><td>localStorage</td></tr>
+          <tr><td>Analytics (opt-in)</td><td>Umami Analytics</td><td>Métricas de acesso anonimizadas</td><td>Sessão</td></tr>
+        </tbody>
+      </table>
+      <p>Os cookies de analytics são carregados <strong>apenas após seu consentimento explícito</strong>. Cookies essenciais são necessários para o funcionamento básico do site e não requerem consentimento. Você pode revogar a qualquer momento limpando os cookies do navegador ou acessando a página principal para alterar sua escolha.</p>
+    </div>
+  </section>
+
+  <!-- 08 International Transfer -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-secondary text-xs tracking-widest opacity-60" data-i18n="s8_label">08 // INTERNATIONAL</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s8_title">Transferência Internacional de Dados</h2>
+    <div class="privacy-content-block" data-i18n="s8_body">
+      <p>Conforme <strong>Art. 33 da LGPD</strong>, informamos:</p>
+      <ul>
+        <li>Os dados de analytics são processados pelo <strong>Umami Analytics</strong>, hospedado em infraestrutura própria localizada no <strong>Brasil</strong>. Não há transferência internacional.</li>
+        <li>Os dados de contato são tratados exclusivamente dentro do território nacional.</li>
+        <li>Não há compartilhamento ou envio de dados pessoais a servidores em outros países.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 09 Security -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-60" data-i18n="s9_label">09 // SECURITY</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s9_title">Segurança dos Dados</h2>
+    <div class="privacy-content-block" data-i18n="s9_body">
+      <p>Adotamos medidas técnicas e organizacionais para proteger seus dados, conforme <strong>Art. 46 da LGPD</strong>:</p>
+      <ul>
+        <li><strong>HTTPS/TLS:</strong> todas as comunicações são criptografadas por certificado TLS válido.</li>
+        <li><strong>Acesso restrito:</strong> dados de contato acessados apenas pelo controlador (Leonardo Jaques).</li>
+        <li><strong>Anonimização de IP:</strong> o endereço IP é anonimizado antes do armazenamento pelo Umami Analytics.</li>
+        <li><strong>Sem armazenamento de senhas:</strong> este site não possui sistema de autenticação ou contas de usuário.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10 Sharing -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-primary text-xs tracking-widest opacity-60" data-i18n="s10_label">10 // SHARING</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s10_title">Compartilhamento com Terceiros</h2>
+    <div class="privacy-content-block" data-i18n="s10_body">
+      <p>Nos termos do <strong>Art. 7, VII do Marco Civil da Internet</strong> e do <strong>Art. 7 da LGPD</strong>:</p>
+      <ul>
+        <li>Nenhum dado pessoal é <strong>vendido, alugado ou compartilhado</strong> com terceiros para fins comerciais.</li>
+        <li>Dados de contato não são transmitidos a terceiros sem consentimento prévio explícito.</li>
+        <li>O Umami Analytics é operado em servidor próprio do controlador — não é um serviço de terceiro com acesso aos dados.</li>
+        <li>Em caso de obrigação legal (ex: ordem judicial), dados poderão ser compartilhados com autoridades competentes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 11 Updates -->
+  <section class="fade-up">
+    <div class="flex items-center gap-4 mb-6">
+      <span class="font-label text-secondary text-xs tracking-widest opacity-60" data-i18n="s11_label">11 // UPDATES</span>
+    </div>
+    <h2 class="font-headline text-3xl font-bold text-on-surface mb-6 tracking-tight" data-i18n="s11_title">Atualizações desta Política</h2>
+    <div class="privacy-content-block" data-i18n="s11_body">
+      <p>Esta política pode ser atualizada periodicamente para refletir mudanças no site, na legislação ou nas práticas de tratamento de dados. A versão mais recente estará sempre disponível em <strong>jaquesprojetos.com.br/politica-de-privacidade.html</strong>.</p>
+      <p>Em caso de alterações relevantes, o aviso de cookies no site será reexibido solicitando novo consentimento.</p>
+      <p class="text-on-surface-variant opacity-50 text-sm">Versão atual: 1.0 — Abril de 2026</p>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#131313] border-t border-[#54e87c]/5 w-full py-12 px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col gap-2">
+      <a href="/" class="text-[#54e87c] font-bold font-['Fira_Code'] tracking-widest text-lg hover:opacity-80 transition-opacity">LEONARDO_JAQUES</a>
+      <p class="font-['Fira_Code'] text-xs text-[#e5e2e1]/30 uppercase tracking-widest" data-i18n="footer_copy">&copy; 2026 JAQUEPROJETOS // CONSTRUINDO_O_FUTURO_DIGITAL</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8 font-['Fira_Code'] text-xs uppercase tracking-widest">
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://github.com/LeonardoJaques" target="_blank">GitHub</a>
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://linkedin.com/in/leonardojaques-dev" target="_blank">LinkedIn</a>
+      <a class="text-[#54e87c]/60 hover:text-[#54e87c] transition-colors" href="politica-de-privacidade.html" data-i18n="footer_privacy">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/privacy.js"></script>
+</body>
+</html>

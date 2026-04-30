@@ -253,3 +253,90 @@ body::after {
     width: 100%;
   }
 }
+
+/* ==========================================================
+   Privacy Policy Page
+   ========================================================== */
+.privacy-content-block p {
+  color: rgba(229, 226, 225, 0.7);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.privacy-content-block ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+  space-y: 0.5rem;
+}
+
+.privacy-content-block ul li {
+  color: rgba(229, 226, 225, 0.7);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.75;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-content-block ul li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: #54e87c;
+  font-family: 'Fira Code', monospace;
+  opacity: 0.6;
+}
+
+.privacy-content-block strong {
+  color: #e5e2e1;
+}
+
+.privacy-content-block code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85em;
+  color: #54e87c;
+  background: rgba(84, 232, 124, 0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+}
+
+.privacy-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #54e87c;
+  border-bottom: 1px solid rgba(84, 232, 124, 0.2);
+  background: rgba(84, 232, 124, 0.04);
+}
+
+.privacy-table td {
+  padding: 0.75rem 1rem;
+  color: rgba(229, 226, 225, 0.7);
+  border-bottom: 1px solid rgba(229, 226, 225, 0.05);
+  vertical-align: top;
+}
+
+.privacy-table tr:hover td {
+  background: rgba(84, 232, 124, 0.03);
+}
+
+@media (max-width: 768px) {
+  .privacy-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
