@@ -55,6 +55,7 @@ const translations = {
     mob_about: "Sobre",
     mob_contact: "Contato",
     footer_privacy: "Política de Privacidade",
+    manage_cookies: "Gerenciar Cookies",
     priv_policy_link: "Ver política completa →",
     // Privacy modal
     priv_title: "Aviso de Privacidade & Cookies",
@@ -117,6 +118,7 @@ const translations = {
     mob_about: "About",
     mob_contact: "Contact",
     footer_privacy: "Privacy Policy",
+    manage_cookies: "Manage Cookies",
     priv_policy_link: "See full privacy policy →",
     // Privacy modal
     priv_title: "Privacy & Cookies Notice",
@@ -183,7 +185,7 @@ function switchLanguage(lang) {
 function setCookie(name, value, days) {
   const d = new Date();
   d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax;Secure';
 }
 
 function getCookie(name) {
@@ -235,6 +237,14 @@ if (!privacyChoice) {
   document.getElementById('privacyOverlay').classList.add('show');
 } else if (privacyChoice === 'true') {
   loadAnalytics();
+}
+
+// "Gerenciar Cookies" footer button — re-opens the modal
+const manageCookiesBtn = document.getElementById('manageCookiesBtn');
+if (manageCookiesBtn) {
+  manageCookiesBtn.addEventListener('click', () => {
+    document.getElementById('privacyOverlay').classList.add('show');
+  });
 }
 
 // ============================================================
