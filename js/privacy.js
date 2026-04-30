@@ -138,4 +138,14 @@ document.getElementById('langToggle').addEventListener('click', () => {
   switchLanguage(currentLang === 'pt' ? 'en' : 'pt');
 });
 
-switchLanguage(currentLang);
+// Privacy policy page always starts in PT (it's a legal document)
+switchLanguage('pt');
+
+// Fade-up observer (same as main.js)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.05 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
