@@ -56,6 +56,7 @@ const translations = {
     mob_contact: "Contato",
     footer_privacy: "Política de Privacidade",
     manage_cookies: "Gerenciar Cookies",
+    lgpd_block: '<span class="text-[#54e87c]/40 uppercase tracking-widest">LGPD Compliance —</span> Este site está em conformidade com a <strong class="text-[#e5e2e1]/35">LGPD (Lei 13.709/2018)</strong> e o Marco Civil da Internet (Lei 12.965/2014). Controlador e Encarregado (DPO): <strong class="text-[#e5e2e1]/35">Leonardo Jaques</strong> — <a href="mailto:jaques.projetos@outlook.com" class="text-[#54e87c]/40 hover:text-[#54e87c]">jaques.projetos@outlook.com</a>. Dados coletados: analytics de navegação anonimizados (Umami, servidor próprio no Brasil, mediante consentimento) e dados de contato fornecidos voluntariamente. Base legal: consentimento (Art. 7, I) e legítimo interesse (Art. 7, IX). Retenção: analytics até 12 meses; contato até 24 meses após último contato. Sem transferência internacional de dados pessoais. Sem compartilhamento com terceiros para fins comerciais. Direitos dos titulares (Art. 18): acesso, correção, exclusão, portabilidade e revogação via e-mail ao DPO. <a href="politica-de-privacidade.html" class="text-[#54e87c]/50 hover:text-[#54e87c] underline">→ Política de Privacidade completa</a>',
     priv_policy_link: "Ver política completa →",
     // Privacy modal
     priv_title: "Aviso de Privacidade & Cookies",
@@ -119,6 +120,7 @@ const translations = {
     mob_contact: "Contact",
     footer_privacy: "Privacy Policy",
     manage_cookies: "Manage Cookies",
+    lgpd_block: '<span class="text-[#54e87c]/40 uppercase tracking-widest">LGPD Compliance —</span> This website complies with the <strong class="text-[#e5e2e1]/35">LGPD (Brazilian Data Protection Law 13.709/2018)</strong> and the Internet Civil Framework (Law 12.965/2014). Controller &amp; DPO: <strong class="text-[#e5e2e1]/35">Leonardo Jaques</strong> — <a href="mailto:jaques.projetos@outlook.com" class="text-[#54e87c]/40 hover:text-[#54e87c]">jaques.projetos@outlook.com</a>. Data collected: anonymized navigation analytics (Umami, own server in Brazil, upon consent) and voluntarily provided contact data. Legal basis: consent (Art. 7, I) and legitimate interest (Art. 7, IX). Retention: analytics up to 12 months; contact up to 24 months after last interaction. No international transfer of personal data. No sharing with third parties for commercial purposes. Data subject rights (Art. 18): access, correction, deletion, portability and revocation via e-mail to the DPO. <a href="politica-de-privacidade.html" class="text-[#54e87c]/50 hover:text-[#54e87c] underline">→ Full Privacy Policy</a>',
     priv_policy_link: "See full privacy policy →",
     // Privacy modal
     priv_title: "Privacy & Cookies Notice",
@@ -143,7 +145,7 @@ function switchLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (t[key]) {
-      if (key === 'contact_title') {
+      if (key === 'contact_title' || key === 'lgpd_block') {
         el.innerHTML = t[key];
       } else if (key === 'about_cv' || key === 'nav_cv') {
         // Keep the icon if present
