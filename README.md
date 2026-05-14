@@ -40,6 +40,34 @@ python3 -m http.server 8080
 
 Acesse `http://localhost:8080`
 
+## Infraestrutura VPS
+
+O site roda em VPS com Traefik v3 como reverse proxy + Docker Compose.
+
+### Traefik (HTTP → HTTPS)
+
+Redirect configurado via `redirections.entryPoint` retorna **301** (Moved Permanently).
+
+Rotas estáticas definidas em `/home/leo/docker/traefik/dynamic.yml` (file provider):
+
+| Path | Serviço |
+|------|---------|
+| `/jaquesbitly` | Node.js URL shortener (porta 8085) |
+| `/tars` | Tars Schopenhauer Analyzer |
+| `/prompts` | Sistema de prompts |
+| `/rss` | Miniflux RSS |
+| `/jenkins` | CI/CD |
+| `/convergencia` | Ghost blog |
+| `/kanban` | Kanban board |
+| `/` | Site estático (este repo) |
+
+### Deploy
+
+```bash
+# Pipeline Jenkins (jenkinsfile)
+# Backup → Clone → Validate → Deploy → Nginx Reload
+```
+
 ## Links
 
 - Site atual: [jaquesprojetos.com.br](https://jaquesprojetos.com.br)
