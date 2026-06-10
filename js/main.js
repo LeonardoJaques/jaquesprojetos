@@ -67,7 +67,6 @@ const translations = {
     priv_policy_link: "Ver política completa →",
     // Projetos Graficos page
     nav_graphic: "Projetos Gráficos",
-    footer_graphic: "Projetos Gráficos",
     gp_banner_label: "ARQUIVO // 2016 — 2017",
     gp_banner_title: "Projetos Gráficos — Arquivo Pré-IA",
     gp_banner_desc: "Trabalhos de design grafico, identidade visual e diagramacao feitos 100% a mao, antes da era da IA generativa.",
@@ -145,7 +144,6 @@ const translations = {
     priv_policy_link: "See full privacy policy →",
     // Projetos Graficos page
     nav_graphic: "Graphic Projects",
-    footer_graphic: "Graphic Projects",
     gp_banner_label: "ARCHIVE // 2016 — 2017",
     gp_banner_title: "Graphic Projects — Pre-AI Archive",
     gp_banner_desc: "Graphic design, visual identity and layout work made 100% by hand, before the generative AI era.",
