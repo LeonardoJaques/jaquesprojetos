@@ -65,6 +65,13 @@ const translations = {
     manage_cookies: "Gerenciar Cookies",
     lgpd_block: '<span class="text-[#54e87c]/40 uppercase tracking-widest">LGPD Compliance —</span> Este site está em conformidade com a <strong class="text-[#e5e2e1]/35">LGPD (Lei 13.709/2018)</strong> e o Marco Civil da Internet (Lei 12.965/2014). Controlador e Encarregado (DPO): <strong class="text-[#e5e2e1]/35">Leonardo Jaques</strong> — <a href="mailto:jaques.projetos@outlook.com" class="text-[#54e87c]/40 hover:text-[#54e87c]">jaques.projetos@outlook.com</a>. Dados coletados: analytics de navegação anonimizados (Umami, servidor próprio no Brasil, mediante consentimento) e dados de contato fornecidos voluntariamente. Base legal: consentimento (Art. 7, I) e legítimo interesse (Art. 7, IX). Retenção: analytics até 12 meses; contato até 24 meses após último contato. Sem transferência internacional de dados pessoais. Sem compartilhamento com terceiros para fins comerciais. Direitos dos titulares (Art. 18): acesso, correção, exclusão, portabilidade e revogação via e-mail ao DPO. <a href="politica-de-privacidade.html" class="text-[#54e87c]/50 hover:text-[#54e87c] underline">→ Política de Privacidade completa</a>',
     priv_policy_link: "Ver política completa →",
+    // Projetos Graficos page
+    nav_graphic: "Projetos Gráficos",
+    footer_graphic: "Projetos Gráficos",
+    gp_banner_label: "ARQUIVO // 2016 — 2017",
+    gp_banner_title: "Projetos Gráficos — Arquivo Pré-IA",
+    gp_banner_desc: "Trabalhos de design grafico, identidade visual e diagramacao feitos 100% a mao, antes da era da IA generativa.",
+    gp_banner_cta: "EXPLORAR_ARQUIVO",
     // Privacy modal
     priv_title: "Aviso de Privacidade & Cookies",
     priv_text1: 'Este site utiliza <strong>cookies e ferramentas de rastreamento</strong> (como analytics) para coletar metricas de navegacao \u2014 paginas visitadas, tempo de acesso e origem do trafego \u2014 com o objetivo de melhorar a experiencia do usuario.',
@@ -136,6 +143,13 @@ const translations = {
     manage_cookies: "Manage Cookies",
     lgpd_block: '<span class="text-[#54e87c]/40 uppercase tracking-widest">LGPD Compliance —</span> This website complies with the <strong class="text-[#e5e2e1]/35">LGPD (Brazilian Data Protection Law 13.709/2018)</strong> and the Internet Civil Framework (Law 12.965/2014). Controller &amp; DPO: <strong class="text-[#e5e2e1]/35">Leonardo Jaques</strong> — <a href="mailto:jaques.projetos@outlook.com" class="text-[#54e87c]/40 hover:text-[#54e87c]">jaques.projetos@outlook.com</a>. Data collected: anonymized navigation analytics (Umami, own server in Brazil, upon consent) and voluntarily provided contact data. Legal basis: consent (Art. 7, I) and legitimate interest (Art. 7, IX). Retention: analytics up to 12 months; contact up to 24 months after last interaction. No international transfer of personal data. No sharing with third parties for commercial purposes. Data subject rights (Art. 18): access, correction, deletion, portability and revocation via e-mail to the DPO. <a href="politica-de-privacidade.html" class="text-[#54e87c]/50 hover:text-[#54e87c] underline">→ Full Privacy Policy</a>',
     priv_policy_link: "See full privacy policy →",
+    // Projetos Graficos page
+    nav_graphic: "Graphic Projects",
+    footer_graphic: "Graphic Projects",
+    gp_banner_label: "ARCHIVE // 2016 — 2017",
+    gp_banner_title: "Graphic Projects — Pre-AI Archive",
+    gp_banner_desc: "Graphic design, visual identity and layout work made 100% by hand, before the generative AI era.",
+    gp_banner_cta: "EXPLORE_ARCHIVE",
     // Privacy modal
     priv_title: "Privacy & Cookies Notice",
     priv_text1: 'This website uses <strong>cookies and tracking tools</strong> (such as analytics) to collect browsing metrics \u2014 pages visited, time on site and traffic sources \u2014 in order to improve user experience.',
@@ -161,7 +175,7 @@ function switchLanguage(lang) {
     if (t[key]) {
       if (key === 'contact_title' || key === 'lgpd_block') {
         el.innerHTML = t[key];
-      } else if (key === 'about_cv' || key === 'nav_cv') {
+      } else if (key === 'about_cv' || key === 'nav_cv' || key === 'gp_banner_cta') {
         // Keep the icon if present
         const icon = el.querySelector('.material-symbols-outlined');
         if (icon) {

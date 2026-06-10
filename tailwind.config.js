@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./index.html",
     "./politica-de-privacidade.html",
+    "./projetos-graficos.html",
     "./js/**/*.js",
   ],
   theme: {

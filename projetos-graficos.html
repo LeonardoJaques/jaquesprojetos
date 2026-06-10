@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projetos Gráficos // LEONARDO JAQUES</title>
+<meta name="description" content="Arquivo de projetos de design gráfico, identidade visual e diagramação produzidos por Leonardo Jaques entre 2016 e 2017 — trabalhos feitos à mão, antes da era da IA."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="stylesheet" href="css/tailwind.css?v=20260610"/>
+<link rel="stylesheet" href="css/styles.css?v=20260610"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body class="selection:bg-primary selection:text-on-primary">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-xl border-b border-[#54e87c]/15 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+  <div class="flex justify-between items-center px-8 h-16 max-w-full">
+    <a href="/" class="font-['Fira_Code'] font-bold text-[#54e87c] tracking-widest text-lg hover:opacity-80 transition-opacity">
+      LEONARDO_JAQUES
+    </a>
+    <div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tight text-sm uppercase">
+      <a class="text-[#e5e2e1] opacity-70 hover:text-[#54e87c] hover:opacity-100 transition-all duration-200" href="/" data-i18n="back_home">← Voltar ao Site</a>
+      <button id="langToggle" class="font-['Fira_Code'] text-xs px-3 py-1 border border-[#54e87c]/30 rounded-md hover:bg-[#54e87c]/10 text-[#54e87c] transition-all">
+        EN
+      </button>
+    </div>
+    <a href="Leonardo_Jaques_Curriculo.pdf" id="cvBtn" target="_blank" rel="noopener" class="font-['Fira_Code'] text-[#54e87c] text-sm uppercase px-4 py-2 border border-[#54e87c]/30 rounded-md hover:bg-[#54e87c]/10 active:scale-95 transition-all" data-i18n="nav_cv">
+      $ download --cv
+    </a>
+  </div>
+</nav>
+
+<main class="pt-16">
+
+<!-- Hero -->
+<section class="py-24 px-8 bg-transparent">
+  <div class="max-w-4xl mx-auto">
+    <p class="font-label text-primary text-sm tracking-[0.3em] mb-4 uppercase" data-i18n="hero_label">&gt; ARCHIVE.LOG // 2016 — 2017</p>
+    <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-4 leading-[1.1]" data-i18n="hero_title">
+      Projetos Gráficos
+    </h1>
+    <p class="font-label text-secondary text-sm tracking-widest mb-6" data-i18n="hero_subtitle">
+      Portfólio de Design Gráfico // Era Pré-IA
+    </p>
+    <p class="text-on-surface-variant text-lg leading-relaxed max-w-3xl mb-8" data-i18n="hero_desc">
+      Uma coleção de trabalhos de design gráfico, identidade visual e diagramação produzidos entre 2016 e 2017 — totalmente desenhados à mão e em softwares como Photoshop, Illustrator e CorelDRAW, sem o uso de ferramentas de inteligência artificial generativa. Um registro do processo criativo manual que antecedeu a era da IA.
+    </p>
+    <div class="inline-flex items-center gap-2 border border-primary/30 rounded-full px-4 py-2 font-label text-xs text-primary uppercase tracking-widest">
+      <span class="material-symbols-outlined text-sm">history_edu</span>
+      <span data-i18n="hero_badge">100% HUMAN-MADE // PRE-AI ERA</span>
+    </div>
+    <div class="h-1 w-24 bg-primary rounded-full mt-8"></div>
+  </div>
+</section>
+
+<!-- Archive Grid -->
+<section class="px-8 pb-24">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <h2 class="font-headline text-4xl font-bold text-on-surface mb-2 tracking-tight" data-i18n="archive_title">Arquivo</h2>
+        <div class="h-1 w-24 bg-primary rounded-full"></div>
+      </div>
+      <span class="font-label text-tertiary text-xs tracking-widest opacity-50 uppercase" data-i18n="section_label">01 // ARQUIVO_GRAFICO</span>
+    </div>
+
+    <div class="flex flex-wrap gap-4 mb-12 font-label text-sm">
+      <button class="filter-btn px-4 py-2 rounded-md bg-primary/10 text-primary border border-primary/30" data-filter="all" data-i18n="filter_all">Todos</button>
+      <button class="filter-btn px-4 py-2 rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors" data-filter="books" data-i18n="filter_books">Livros &amp; Editorial</button>
+      <button class="filter-btn px-4 py-2 rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors" data-filter="works" data-i18n="filter_works">Identidade &amp; Peças Gráficas</button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- 1. Capa Katipunan -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="books">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/capa-katipunan.webp" alt="Capa de livro Katipunan" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp1_title">Capa de Livro — Katipunan</h3>
+            <span class="font-label text-tertiary text-xs border border-tertiary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp1_desc">Capa ilustrativa para obra sobre a Katipunan filipina, com bandeiras, símbolos patrióticos e tipografia desenhada à mão.</p>
+        </div>
+      </div>
+
+      <!-- 2. Guia Arnis -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="books">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/guia-arnis.webp" alt="Capa do guia de estudo Arnis Maharlika" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp2_title">Guia de Estudo — Arnis Maharlika</h3>
+            <span class="font-label text-tertiary text-xs border border-tertiary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp2_desc">Capa de material didático para artes marciais filipinas (Arnis), com ilustração vetorial de águia, cobra e brasão solar.</p>
+        </div>
+      </div>
+
+      <!-- 3. Thema Cultural -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/thema-cultural.webp" alt="Layout do site Thema Cultural" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp3_title">Layout — Thema Cultural</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp3_desc">Página inicial para site institucional de produtora cultural, com identidade visual elegante sobre foto de teatro.</p>
+        </div>
+      </div>
+
+      <!-- 4. E-mail Marketing -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/email-marketing.webp" alt="Peça de e-mail marketing de agência de design" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp4_title">E-mail Marketing — Agência de Design</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp4_desc">Peça de e-mail marketing apresentando o portfólio de serviços de uma agência: web design, gráfica, sinalização e marketing.</p>
+        </div>
+      </div>
+
+      <!-- 5. Prode Agencia -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/prode-agencia.webp" alt="Slide de apresentação institucional Onideia" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp5_title">Apresentação Institucional — Onideia</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp5_desc">Slides de apresentação institucional para agência de publicidade, com capa, sumário e estrutura visual da marca.</p>
+        </div>
+      </div>
+
+      <!-- 6. Banner Interno -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/banner-interno.webp" alt="Banner interno de aniversariantes" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp6_title">Banner Interno — Aniversariantes</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp6_desc">Banner comemorativo para mural interno de empresa, celebrando os aniversariantes do mês.</p>
+        </div>
+      </div>
+
+      <!-- 7. Storyboard -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/storyboard-filmagem.webp" alt="Storyboard de vídeo institucional" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp7_title">Storyboard — Vídeo Institucional</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp7_desc">Roteiro visual quadro a quadro para vídeo institucional, planejando cenas, falas e tempos de gravação.</p>
+        </div>
+      </div>
+
+      <!-- 8. Folder A4 -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/folder-a4.webp" alt="Folder A4 do sistema ADM-FGTS" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp8_title">Folder A4 — Sistema ADM-FGTS</h3>
+            <span class="font-label text-primary text-xs border border-primary/30 px-2 py-1 shrink-0">2016</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp8_desc">Material impresso de divulgação para sistema de gestão de FGTS, com arte de capa, miolo e contracapa.</p>
+        </div>
+      </div>
+
+      <!-- 9. Logo BBA -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container flex items-center justify-center">
+          <img src="images/projetos-graficos/logo-bba.webp" alt="Logotipo Bengtsson e Bernardes Advogados" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp9_title">Identidade Visual — Bengtsson &amp; Bernardes Advogados</h3>
+            <span class="font-label text-secondary text-xs border border-secondary/30 px-2 py-1 shrink-0">2017</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp9_desc">Estudo de logotipo para escritório de advocacia, partindo de esboços manuais até a versão final em alto-relevo.</p>
+        </div>
+      </div>
+
+      <!-- 10. Logo Cidade Grill -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/logo-cidade-grill.webp" alt="Logotipo Cidade Grill" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp10_title">Logotipo — Cidade Grill</h3>
+            <span class="font-label text-secondary text-xs border border-secondary/30 px-2 py-1 shrink-0">2017</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp10_desc">Brasão para hamburgueria/churrascaria, combinando skyline urbano, estrelas e talheres em estilo crachá 3D.</p>
+        </div>
+      </div>
+
+      <!-- 11. Logo Interativa Net -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container flex items-center justify-center">
+          <img src="images/projetos-graficos/logo-interativa-net.webp" alt="Logotipo Interativa Net" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp11_title">Logotipo — Interativa Net</h3>
+            <span class="font-label text-secondary text-xs border border-secondary/30 px-2 py-1 shrink-0">2017</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp11_desc">Identidade visual para provedor de internet banda larga, com tipografia em gradiente verde/azul e formas circulares.</p>
+        </div>
+      </div>
+
+      <!-- 12. Professional Site -->
+      <div class="fade-up group relative bg-surface-container-highest/90 overflow-hidden rounded-xl shadow-2xl" data-category="works">
+        <div class="aspect-square overflow-hidden bg-surface-container">
+          <img src="images/projetos-graficos/professional-site.webp" alt="Site de currículo online" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start gap-2 mb-2">
+            <h3 class="font-headline text-xl font-bold text-on-surface" data-i18n="gp12_title">Currículo Online</h3>
+            <span class="font-label text-secondary text-xs border border-secondary/30 px-2 py-1 shrink-0">2017</span>
+          </div>
+          <p class="text-on-surface-variant text-sm font-body leading-relaxed" data-i18n="gp12_desc">Site de currículo pessoal em página única, com seções de habilidades, experiência, projetos e contato.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-16">
+      <a href="index.html#works" class="inline-flex items-center gap-2 text-primary font-label text-sm border border-primary/30 rounded-md px-6 py-3 hover:bg-primary/10 transition-colors" data-i18n="back_cta">
+        Ver Projetos Atuais
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#131313] border-t border-[#54e87c]/5 w-full py-12 px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col gap-2">
+      <a href="/" class="text-[#54e87c] font-bold font-['Fira_Code'] tracking-widest text-lg hover:opacity-80 transition-opacity">LEONARDO_JAQUES</a>
+      <p class="font-['Fira_Code'] text-xs text-[#e5e2e1]/30 uppercase tracking-widest" data-i18n="footer_copy">&copy; 2026 JAQUEPROJETOS // CONSTRUINDO_O_FUTURO_DIGITAL</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8 font-['Fira_Code'] text-xs uppercase tracking-widest">
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://github.com/LeonardoJaques" target="_blank">GitHub</a>
+      <a class="text-[#e5e2e1]/30 hover:text-[#abc7ff] transition-colors" href="https://linkedin.com/in/leonardojaques-dev" target="_blank">LinkedIn</a>
+      <a class="text-[#54e87c]/60 hover:text-[#54e87c] transition-colors" href="politica-de-privacidade.html" data-i18n="footer_privacy">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/projetos-graficos.js"></script>
+</body>
+</html>
