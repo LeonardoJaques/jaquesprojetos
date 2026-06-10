@@ -55,6 +55,7 @@ const translations = {
     about_cv: "$ download --curriculo",
     contact_title: "Vamos conversar sobre<br/>seu projeto?",
     contact_subtitle: "Entre em contato para uma consultoria gratuita e orcamento personalizado.",
+    email_copied: "Email copiado!",
     footer_copy: "\u00a9 2026 JAQUEPROJETOS // CONSTRUINDO_O_FUTURO_DIGITAL",
     mob_projects: "Projetos",
     mob_career: "Carreira",
@@ -125,6 +126,7 @@ const translations = {
     about_cv: "$ download --resume",
     contact_title: "Let's talk about<br/>your project?",
     contact_subtitle: "Get in touch for a free consultation and personalized quote.",
+    email_copied: "Email copied!",
     footer_copy: "\u00a9 2026 JAQUEPROJETOS // BUILDING_THE_DIGITAL_FUTURE",
     mob_projects: "Projects",
     mob_career: "Career",
@@ -295,6 +297,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ============================================================
+// Email contact — copy to clipboard + toast feedback
+// ============================================================
+const emailContact = document.getElementById('emailContact');
+if (emailContact) {
+  emailContact.addEventListener('click', () => {
+    navigator.clipboard?.writeText('jaques.projetos@outlook.com').then(() => {
+      const toast = document.getElementById('emailToast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }).catch(() => {});
+  });
+}
 
 // ============================================================
 // Project filter
